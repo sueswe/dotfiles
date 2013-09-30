@@ -1,5 +1,7 @@
 #!/bin/sh
 
+PATH=$PATH:~/bin/
+
 alias ls='ls --color=auto'
 alias l='ls '
 alias ll='ls -l'

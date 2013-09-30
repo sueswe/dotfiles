@@ -1,5 +1,7 @@
 #!/bin/sh
 
+PATH=$PATH:~/bin/
+
 alias ls='ls --color=auto'
 alias l='ls '
 alias ll='ls -l'
@@ -32,7 +34,6 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias changelog='git log > changelog'
 alias gb='git branch -av'
-alias STATALL='/D/REPOS/gittools.git/STATALL'
 
 #
 # perl #######################################################################
