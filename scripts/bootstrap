@@ -2,7 +2,6 @@
 
 DOTFILES_ROOT="`pwd`"
 
-
 info () {
     printf "\r\033[2K [\033[0;35mINFO\033[0m] $1\n"
 }
@@ -15,5 +14,54 @@ fail () {
     printf "\r\033[2K [\033[0;31mFAIL\033[0m] $1\n"
 }
 
-
 info "$DOTFILES_ROOT"
+
+#
+# installing new .profile 
+#
+mv -f ~/.profile ~/.profile.bak 2>/dev/null || { 
+    info "no old ~/.profile found. Good." 
+    }
+$(export | grep OS | grep -i windows)
+rtc=$?
+if [[ $rtc -eq 0 ]]; then
+    info "it seems we are under Windows Msysgit"
+    info "installing new .profile ... "
+    cp -f profile/profile.msysgit ~/.profile
+    rtc=$?
+else
+    info "it seems we are under Linux"
+    info "installing new .profile ... "
+    cp -f profile/profile.unix ~/.profile
+    rtc=$?
+fi
+if [[ "$rtc" -ne 0 ]]; then { fail "copy failed."; exit $rtc ; } else { info "done." ; } fi
+
+#
+# installing ~/bin
+#
+mkdir ~/bin 2>/dev/null || { 
+    info "~/bin already exists."
+    }
+for n in $(ls $DOTFILES_ROOT/bin/); do
+    n="bin/$n"
+    info "installing $n"
+    cp -i $n ~/bin/ ; rtc=$?
+    if [[ "$rtc" -ne 0 ]]; then { fail "copy failed."; exit $rtc ; } else { info "done." ; } fi
+    
+done
+
+
+
+
+
+#
+# end
+#
+echo ''
+info "that's it."
+
+
+
+
+
