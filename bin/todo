@@ -1,0 +1,13 @@
+#!/bin/bash
+
+$(export | grep OS | grep -i windows)
+rtc=$?
+if [[ $rtc -eq 0 ]]; then
+    #echo "Windows"
+    touch "$USERPROFILE"/Desktop/"$*"
+else
+    #echo "Unix"
+    touch ~/Desktop/"$*"
+fi
+
+
