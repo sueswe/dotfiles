@@ -1,0 +1,58 @@
+#!/bin/bash
+
+function usage {
+    echo -e "Usage: $0 \e[36m [b|gc] [get]\e[0m \n"
+    echo "b = list branches"
+    echo "gc = run garbagecollector"
+    echo "get = git pull origin master"
+    echo ""
+}
+
+if [[ "$1" == "--help"  || "$1" == "-?" ]]; then
+    usage
+    exit 0
+fi
+
+C=0
+for n in $(ls -d *.git/); 
+do 
+    #echo "==================================================================="
+    echo -e "Checking $n ... \c"
+    cd $n 
+    git checkout master &>/dev/null
+    
+    if [ "$1" == "b" ]; then echo -e "\n\e[33mBRANCHES:\e[0m\n"; git branch -a; echo -e "\t\t\t\t\tSTATE: \c"; fi
+    
+    git status | grep clean &>/dev/null
+    if [ $? -ne 0 ]; then
+        echo -e "\t\e[41mCHANGES OPEN\e[0m"
+    else
+        echo -e "\t\e[42mOK\e[0m"
+        echo -e "\e[44m\c" 
+        git stash list
+        echo -e "\e[0m\c"
+        if [ "$1" == "gc" ]; then 
+            git gc
+            if [ "$2" == "get" ]; then 
+                git pull origin master
+                git push origin master
+            fi
+        fi
+    fi
+    
+    YOUR=$(git status | grep -i your | wc -l)
+    if [ $YOUR -ne 0 ]; then
+        echo $n
+        git status
+        echo ""
+    fi
+    
+    
+    cd ..
+    #echo  " " 
+    C=$(expr $C + 1)
+done
+echo ""
+echo "Checked $C repositories."
+
+
