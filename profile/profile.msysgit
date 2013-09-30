@@ -1,0 +1,69 @@
+#!/bin/sh
+
+alias ls='ls --color=auto'
+alias l='ls '
+alias ll='ls -l'
+alias la='ls -a'
+alias ltr='ls -ltr'
+alias mv='mv -i'
+alias rm='rm -v'
+alias n='nslookup'
+
+#
+# msysgit ####################################################################
+#
+export TZ=GMT-2
+alias dos2unix='dos2unix --d2u'
+alias make='dmake'
+
+#
+# git aliases ################################################################
+#
+alias fetch='git fetch -v'
+alias gitone='git log --pretty=oneline'
+alias gitoneline='gitone'
+alias gitpretty='gitone'
+alias gitlast='git diff HEAD^..HEAD'
+alias gitlog='git log -p'
+alias gitlogsum='git log --stat --summary'
+alias stat='git status ; git stash list'
+alias gitime="git log --pretty=format:'%h was %an, %ar, message: %s'"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias changelog='git log > changelog'
+alias gb='git branch -av'
+alias STATALL='/D/REPOS/gittools.git/STATALL'
+
+#
+# perl #######################################################################
+#
+alias perl='/c/strawberry/perl/bin/perl.exe'
+
+#
+# editors ####################################################################
+#
+alias ko='c:\\programme\\ActiveState\ Komodo\ Edit\ 8\\komodo.exe'
+alias np='c:\\programme\\notepad++\\notepad++.exe'
+alias gy='C:\\Programme\\Geany\\bin\\Geany.exe'
+alias sc='D:\\bin\\wscite\\SciTE.exe'
+alias gv='"D:\\bin\\vim\\vim73\\gvim.exe"'
+alias pc='C:\\Programme\\PerlCodeEditor\\pce.exe'
+alias ce='d:\\bin\\crimson\\cedt.exe'
+alias rj='d:\\bin\\RJTextEd\\texted.exe'
+alias pp='C:\\Programme\\PSPad\ editor\\pspad.exe'
+alias wintail='/d/bin/wintailfree/WinTail.exe'
+alias sub='/D/bin/SublimeText2.0.2/sublime_text.exe'
+alias vi='/D/bin/vim/vim74/gvim.exe'
+
+#
+# PATH
+#
+export PATH="/d/bin/putty/:/c/strawberry/perl/bin/:$PATH"
+
+#
+# WORKDIR ####################################################################
+# 
+cd /D/REPOS
+
+
+
