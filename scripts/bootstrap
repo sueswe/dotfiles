@@ -5,6 +5,7 @@ echo 'bootstrap v0.2'
 DOTFILES_ROOT="`pwd`"
 #info "$DOTFILES_ROOT"
 
+
 info () {
     printf "\r\033[2K [\033[0;35mINFO\033[0m] $1\n"
 }
@@ -44,6 +45,7 @@ fi
 if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { info "done." ; } fi
 chmod 0750 ~/.profile
 
+
 #
 # linking .profile to .bash_profile
 #
@@ -57,11 +59,13 @@ else
     ln -sf ~/.profile ~/.bash_profile
 fi
 
+
 #
 # adding . .profile to .bashrc
 #
 info ".bashrc found, adding source .profile ..."
 echo '. ~/.profile' >> ~/.bashrc
+
 
 #
 # installing ~/bin
@@ -76,6 +80,19 @@ for n in $(ls $DOTFILES_ROOT/bin/); do
     if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { success "done." ; } fi
     
 done
+
+
+#
+# installing .vimrc
+#
+info "installing .vimrc"
+if [ -e "~/.vimrc" ]; then
+    warn "saving old .vimrc"
+    mv -f ~/.vimrc ~/.vimrc.bak
+fi
+cp -f vim/vimrc ~/.vimrc
+success "done"
+
 
 
 
