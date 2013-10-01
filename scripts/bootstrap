@@ -19,7 +19,7 @@ fail () {
 }
 
 warn () {
-    printf "\r\033[2K [\033[0;31mFAIL\033[0m] $1\n"
+    printf "\r\033[2K [\031[0;31mWARN\033[0m] $1\n"
 }
 
 
@@ -50,11 +50,10 @@ chmod 0750 ~/.profile
 # linking .profile to .bash_profile
 #
 info "linking .profile to .bash_profile"
-if [ -e "~/.bash_profile" ]; then
+if [ -e ~/.bash_profile ] ; then
     warn "Saving old .bash_profile"
     mv -f ~/.bash_profile ~/.bash_profile.backup
     ln -sf ~/.profile ~/.bash_profile
-    
 else
     ln -sf ~/.profile ~/.bash_profile
 fi
@@ -63,8 +62,10 @@ fi
 #
 # adding . .profile to .bashrc
 #
-info ".bashrc found, adding source .profile ..."
-echo '. ~/.profile' >> ~/.bashrc
+if [ -e ~/.bashrc ]; then
+    info ".bashrc found, adding source .profile ..."
+    echo '. ~/.profile' >> ~/.bashrc
+fi
 
 
 #
@@ -78,7 +79,6 @@ for n in $(ls $DOTFILES_ROOT/bin/); do
     info "installing $n ... "
     cp -f $n ~/bin/ ; rtc=$?
     if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { success "done." ; } fi
-    
 done
 
 
@@ -86,7 +86,7 @@ done
 # installing .vimrc
 #
 info "installing .vimrc"
-if [ -e "~/.vimrc" ]; then
+if [ -e ~/.vimrc ]; then
     warn "saving old .vimrc"
     mv -f ~/.vimrc ~/.vimrc.bak
 fi
