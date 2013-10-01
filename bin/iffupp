@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo "-----------------------------------------------"
+rfkill list 
+DEV=$(rfkill list | grep -i wireless)
+DEV=${DEV%%:*}
+rfkill unblock $DEV
+echo "-----------------------------------------------"
+rfkill list 
+echo "-----------------------------------------------"
+#echo "ifup wlan0 :"
+#sudo ifup wlan0
+#echo "-----------------------------------------------"
+exit 0
