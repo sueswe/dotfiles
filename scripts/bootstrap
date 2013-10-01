@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo 'bootstrap v0.2'
+echo 'bootstrap v0.3'
 
 DOTFILES_ROOT="`pwd`"
 #info "$DOTFILES_ROOT"
@@ -8,6 +8,7 @@ DOTFILES_ROOT="`pwd`"
 
 info () {
     printf "\r\033[2K [\033[0;35mINFO\033[0m] $1\n"
+    #echo "[\033[0;35mINFO\033[0m] $1 "
 }
 
 success () {
@@ -19,7 +20,7 @@ fail () {
 }
 
 warn () {
-    printf "\r\033[2K [\031[0;31mWARN\033[0m] $1\n"
+    printf "\r\033[2K [\033[0;33mWARN\033[0m] $1\n"
 }
 
 
@@ -93,6 +94,17 @@ fi
 cp -f vim/vimrc ~/.vimrc
 success "done"
 
+
+#
+# installing .gitconfig
+#
+info "installing .gitconfig"
+if [ -e ~/.gitconfig ]; then
+    warn "saving old .gitconfig"
+    mv -f ~/.gitconfig ~/.gitconfig.bak
+fi
+cp -f git/gitconfig ~/.gitconfig
+success "done"
 
 
 
