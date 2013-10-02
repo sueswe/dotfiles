@@ -1,9 +1,14 @@
 #!/bin/sh
 
+echo 'bootstrap v0.3'
+
 DOTFILES_ROOT="`pwd`"
+#info "$DOTFILES_ROOT"
+
 
 info () {
     printf "\r\033[2K [\033[0;35mINFO\033[0m] $1\n"
+    #echo "[\033[0;35mINFO\033[0m] $1 "
 }
 
 success () {
@@ -14,7 +19,10 @@ fail () {
     printf "\r\033[2K [\033[0;31mFAIL\033[0m] $1\n"
 }
 
-info "$DOTFILES_ROOT"
+warn () {
+    printf "\r\033[2K [\033[0;33mWARN\033[0m] $1\n"
+}
+
 
 #
 # installing new .profile 
@@ -24,7 +32,7 @@ mv -f ~/.profile ~/.profile.bak 2>/dev/null || {
     }
 $(export | grep OS | grep -i windows)
 rtc=$?
-if [[ $rtc -eq 0 ]]; then
+if [ $rtc -eq 0 ]; then
     info "it seems we are under Windows Msysgit"
     info "installing new .profile ... "
     cp -f profile/profile.msysgit ~/.profile
@@ -35,7 +43,31 @@ else
     cp -f profile/profile.unix ~/.profile
     rtc=$?
 fi
-if [[ "$rtc" -ne 0 ]]; then { fail "copy failed."; exit $rtc ; } else { info "done." ; } fi
+if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { info "done." ; } fi
+chmod 0750 ~/.profile
+
+
+#
+# linking .profile to .bash_profile
+#
+info "linking .profile to .bash_profile"
+if [ -e ~/.bash_profile ] ; then
+    warn "Saving old .bash_profile"
+    mv -f ~/.bash_profile ~/.bash_profile.backup
+    ln -sf ~/.profile ~/.bash_profile
+else
+    ln -sf ~/.profile ~/.bash_profile
+fi
+
+
+#
+# adding . .profile to .bashrc
+#
+if [ -e ~/.bashrc ]; then
+    info ".bashrc found, adding source .profile ..."
+    echo '. ~/.profile' >> ~/.bashrc
+fi
+
 
 #
 # installing ~/bin
@@ -45,11 +77,34 @@ mkdir ~/bin 2>/dev/null || {
     }
 for n in $(ls $DOTFILES_ROOT/bin/); do
     n="bin/$n"
-    info "installing $n"
-    cp -i $n ~/bin/ ; rtc=$?
-    if [[ "$rtc" -ne 0 ]]; then { fail "copy failed."; exit $rtc ; } else { info "done." ; } fi
-    
+    info "installing $n ... "
+    cp -f $n ~/bin/ ; rtc=$?
+    if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { success "done." ; } fi
 done
+
+
+#
+# installing .vimrc
+#
+info "installing .vimrc"
+if [ -e ~/.vimrc ]; then
+    warn "saving old .vimrc"
+    mv -f ~/.vimrc ~/.vimrc.bak
+fi
+cp -f vim/vimrc ~/.vimrc
+success "done"
+
+
+#
+# installing .gitconfig
+#
+info "installing .gitconfig"
+if [ -e ~/.gitconfig ]; then
+    warn "saving old .gitconfig"
+    mv -f ~/.gitconfig ~/.gitconfig.bak
+fi
+cp -f git/gitconfig ~/.gitconfig
+success "done"
 
 
 
@@ -59,7 +114,7 @@ done
 # end
 #
 echo ''
-info "that's it."
+success "that's it."
 
 
 
