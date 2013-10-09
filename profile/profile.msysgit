@@ -66,5 +66,9 @@ export PATH="/d/bin/putty/:/c/strawberry/perl/bin/:$PATH"
 # 
 cd /D/REPOS
 
+#
+# EXPORT DATE
+#
+export datum=$(date +%Y%m%d)
 
 

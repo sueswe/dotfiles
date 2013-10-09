@@ -16,8 +16,9 @@ fi
 C=0
 for n in $(ls -d *.git/); 
 do 
+    C=$(expr $C + 1)
     #echo "==================================================================="
-    echo -e "Checking $n ... \c"
+    echo -e "\n $C # Checking $n ... \c"
     cd $n 
     git checkout master &>/dev/null
     
@@ -50,7 +51,7 @@ do
     
     cd ..
     #echo  " " 
-    C=$(expr $C + 1)
+    
 done
 echo ""
 echo "Checked $C repositories."
