@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PATH=$PATH:~/bin/
+PATH=/opt/freeware/bin:$PATH:~/bin/
 
 alias ls='ls --color=auto'
 alias l='ls '
