@@ -1,6 +1,10 @@
 #!/bin/sh
 
-PATH=/opt/freeware/bin:$PATH:~/bin/
+if [ -s "$MAIL" ]           # This is at Shell startup.  In normal
+then echo "$MAILMSG"        # operation, the Shell checks periodically.
+fi
+
+PATH=$PATH:.:~/bin/
 
 alias ls='ls --color=auto'
 alias l='ls '
@@ -10,6 +14,7 @@ alias ltr='ls -ltr'
 alias mv='mv -i'
 alias rm='rm -v'
 alias n='nslookup'
+alias s='sudo su -'
 
 #
 # git aliases ################################################################
@@ -32,4 +37,5 @@ alias gb='git branch -l'
 # PS1 ########################################################################
 #
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;35m\] \w\[\033[01;33m\]\[\033[01;35m\] \$\[\033[00m\] '
+
 
