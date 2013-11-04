@@ -45,7 +45,7 @@ do
     if [ $YOUR -ne 0 ]; then
         echo $n
         git status
-        echo ""
+        #echo ""
     fi
     
     
