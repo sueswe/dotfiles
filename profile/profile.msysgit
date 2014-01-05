@@ -48,13 +48,7 @@ alias np='c:\\programme\\notepad++\\notepad++.exe'
 alias gy='C:\\Programme\\Geany\\bin\\Geany.exe'
 alias sc='D:\\bin\\wscite\\SciTE.exe'
 alias gv='"D:\\bin\\vim\\vim73\\gvim.exe"'
-alias pc='C:\\Programme\\PerlCodeEditor\\pce.exe'
-alias ce='d:\\bin\\crimson\\cedt.exe'
-alias rj='d:\\bin\\RJTextEd\\texted.exe'
-alias pp='C:\\Programme\\PSPad\ editor\\pspad.exe'
 alias wintail='/d/bin/wintailfree/WinTail.exe'
-alias sub='/D/bin/SublimeText2.0.2/sublime_text.exe'
-alias vi='/D/bin/vim/vim74/gvim.exe'
 
 #
 # PATH

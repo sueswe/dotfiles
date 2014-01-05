@@ -1,6 +1,6 @@
 [user]
-	name = Werner Suess
-	email = suess_w@gmx.net
+    name = Werner Suess
+    email = werner.suess@itsv.at
 
 [color]
   branch = auto
@@ -24,4 +24,4 @@
   untracked = red
 
 [core]
-	editor = vim
+    editor = vim
