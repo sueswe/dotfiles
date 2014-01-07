@@ -1,10 +1,10 @@
 #!/bin/bash
 
 function usage {
-    echo -e "Usage: $0 \e[36m [b|gc] [get]\e[0m \n"
+    echo -e "Usage: $0 \e[36m [b|gc|get]\e[0m \n"
     echo "b = list branches"
     echo "gc = run garbagecollector"
-    echo "get = git pull origin master"
+    echo "get = git pull origin master (includes gc)"
     echo ""
 }
 
@@ -32,11 +32,11 @@ do
         echo -e "\e[44m\c" 
         git stash list
         echo -e "\e[0m\c"
-        if [ "$1" == "gc" ]; then 
+        if [[ "$1" == "gc" || "$1" == "get" ]]; then 
             git gc
-            if [ "$2" == "get" ]; then 
+            if [[ "$2" == "get" || "$1" == "get" ]]; then 
                 git pull origin master
-                git push origin master
+                # git push origin master
             fi
         fi
     fi
