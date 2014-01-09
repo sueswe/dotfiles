@@ -35,6 +35,15 @@ do
         elif [[ "$1" == "get" ]]; then
             git pull origin master
         fi
+        
+        to_push=$(git status | grep -E 'git push')
+        if [[ ! -z $to_push ]]; then
+            echo -e "\n\t\t\t\t\e[43mYOU HAVE TO PUSH SOME CHANGES. =) \e[0m"
+        fi
+        to_pull=$(git status | grep -E 'git pull')
+        if [[ ! -z $to_pull ]]; then
+            echo -e "\n\t\t\t\t\e[44mYOU CAN PULL SOME CHANGES. =) \e[0m"
+        fi
     fi
     
     #YOUR=$(git status | grep -i your | wc -l)
