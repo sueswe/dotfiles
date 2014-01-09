@@ -34,6 +34,7 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias changelog='git log > changelog'
 alias gb='git branch -av'
+alias chm='git update-index --chmod=+x'
 
 #
 # perl #######################################################################
