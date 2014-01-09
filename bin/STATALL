@@ -1,10 +1,9 @@
 #!/bin/sh
 
 function usage {
-    echo -e "Usage: $0 \e[36m [b|gc|get]\e[0m \n"
-    echo "b = list branches"
+    echo -e "Usage: $0 \e[36m [gc|get]\e[0m \n"
     echo "gc = run garbagecollector"
-    echo "get = git pull origin master (includes gc)"
+    echo "get = git pull origin master"
     echo ""
     echo "Checks only .git - directories."
     echo ""
@@ -19,45 +18,37 @@ C=0
 for n in $(ls -d *.git/); 
 do 
     C=$(expr $C + 1)
-    #echo "==================================================================="
-    echo -e "\n $C # Checking $n (master) ... \c"
+    echo -e "\n $C # Checking $n (master) ... "
     cd $n 
-    git checkout master 
-    git fetch -p 
-    
-    if [ "$1" == "b" ]; then echo -e "\n\e[33mBRANCHES:\e[0m\n"; git branch -av; echo -e "\t\t\t\t\tSTATE: \c"; fi
+    git checkout master 2>/dev/null
+    git fetch -p 2>/dev/null
+    # if [ "$1" == "b" ]; then echo -e "\n\e[33mBRANCHES:\e[0m\n"; git branch -av; echo -e "\t\t\t\t\tSTATE: \c"; fi
     
     git status | grep clean 
     if [ $? -ne 0 ]; then
-        echo -e "\t\e[41mCHANGES OPEN\e[0m"
+        echo -e "\n\t\t\t\t\e[41mCHANGES OPEN , ABORT. FIX IT AND START ME AGAIN =) \e[0m"
+        exit 1
     else
-        echo -e "\t\e[42mOK\e[0m"
-        # echo -e "\e[44m\c" 
-        # git stash list
-        # echo -e "\e[0m\c"
-        if [[ "$1" == "gc" || "$1" == "get" ]]; then 
-            git gc
-            if [[ "$2" == "get" || "$1" == "get" ]]; then 
-                git pull origin master
-                # git push origin master
-            fi
+        echo -e "\n\t\t\t\t\t\t\t\t\e[42mOK\e[0m"
+        if [[ "$1" == "gc" ]]; then 
+            git gc 
+        elif [[ "$1" == "get" ]]; then
+            git pull origin master
         fi
     fi
     
-    YOUR=$(git status | grep -i your | wc -l)
-    if [ $YOUR -ne 0 ]; then
-        echo $n
-        git status
-        #echo ""
-    fi
+    #YOUR=$(git status | grep -i your | wc -l)
+    #if [ $YOUR -ne 0 ]; then
+    #    echo $n
+    #    git status
+    #    #echo ""
+    #fi
     
     
     cd ..
-    #sleep 1
-    echo  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" 
-    
+    echo " "
 done
 echo ""
-echo "Checked $C repositories."
+echo "$C repositories OK."
 
 
