@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 function usage {
     echo -e "Usage: $0 \e[36m [b|gc|get]\e[0m \n"
@@ -22,11 +22,12 @@ do
     #echo "==================================================================="
     echo -e "\n $C # Checking $n (master) ... \c"
     cd $n 
-    git checkout master &>/dev/null
+    git checkout master 
+    git fetch -p 
     
     if [ "$1" == "b" ]; then echo -e "\n\e[33mBRANCHES:\e[0m\n"; git branch -av; echo -e "\t\t\t\t\tSTATE: \c"; fi
     
-    git status | grep clean &>/dev/null
+    git status | grep clean 
     if [ $? -ne 0 ]; then
         echo -e "\t\e[41mCHANGES OPEN\e[0m"
     else
@@ -52,7 +53,8 @@ do
     
     
     cd ..
-    #echo  " " 
+    #sleep 1
+    echo  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" 
     
 done
 echo ""
