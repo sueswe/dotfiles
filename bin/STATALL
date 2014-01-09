@@ -26,10 +26,11 @@ do
     
     git status | grep clean 
     if [ $? -ne 0 ]; then
-        echo -e "\n\t\t\t\t\e[41mCHANGES OPEN , ABORT. FIX IT AND START ME AGAIN =) \e[0m"
+        echo -e "\t\t\e[41mCHANGES OPEN , ABORT. FIX IT AND START ME AGAIN  \e[0m"
+        git status
         exit 1
     else
-        echo -e "\n\t\t\t\t\t\t\t\t\e[42mOK\e[0m"
+        echo -e "\t\t\t\t\t\t\t\t\e[42mOK\e[0m"
         if [[ "$1" == "gc" ]]; then 
             git gc 
         elif [[ "$1" == "get" ]]; then
@@ -38,11 +39,11 @@ do
         
         to_push=$(git status | grep -E 'git push')
         if [[ ! -z $to_push ]]; then
-            echo -e "\n\t\t\t\t\e[43mYOU HAVE TO PUSH SOME CHANGES. =) \e[0m"
+            echo -e "\t\t\t\t\e[43mYOU HAVE TO PUSH SOME CHANGES. =) \e[0m"
         fi
         to_pull=$(git status | grep -E 'git pull')
         if [[ ! -z $to_pull ]]; then
-            echo -e "\n\t\t\t\t\e[44mYOU CAN PULL SOME CHANGES. =) \e[0m"
+            echo -e "\t\t\t\t\e[44mYOU CAN PULL SOME CHANGES. =) \e[0m"
         fi
     fi
     
