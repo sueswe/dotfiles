@@ -1,9 +1,10 @@
 #!/bin/sh
 
 function usage {
-    echo -e "Usage: $0 \e[36m [gc|get]\e[0m \n"
-    echo "gc = run garbagecollector"
+    echo -e "Usage: $0 \e[36m [gc|get|br]\e[0m \n"
+    echo "gc  = run garbagecollector"
     echo "get = git pull origin master"
+    echo "br  = show branches"
     echo ""
     echo "Checks only .git - directories."
     echo ""
@@ -18,7 +19,7 @@ C=0
 for n in $(ls -d *.git/); 
 do 
     C=$(expr $C + 1)
-    echo -e "\n $C # Checking $n (master) ... "
+    echo -e "\n $C # Checking \e[1;36m$n\e[0m (master) ... "
     cd $n 
     git checkout master 2>/dev/null
     git fetch -p 2>/dev/null
@@ -47,6 +48,13 @@ do
         to_pull=$(git status | grep -E 'git pull')
         if [[ ! -z $to_pull ]]; then
             echo -e "\t\t\t\t\e[44mYOU CAN PULL SOME CHANGES. =) \e[0m"
+        fi
+        
+        if [[ "$1" == "br" ]]; then
+            echo "branches _without_ master:"
+            echo -e "\e[1;35m"
+            git branch -a | grep -v master 
+            echo -e "\e[0m"
         fi
     fi
     
