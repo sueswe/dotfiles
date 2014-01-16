@@ -22,14 +22,16 @@ do
     echo -e "\n $C # Checking \e[1;36m$n\e[0m (master) ... "
     cd $n 
     git checkout master 2>/dev/null
-    git fetch -p 2>/dev/null
+    git fetch -p 
     # if [ "$1" == "b" ]; then echo -e "\n\e[33mBRANCHES:\e[0m\n"; git branch -av; echo -e "\t\t\t\t\tSTATE: \c"; fi
     
     git status | grep clean 
     if [ $? -ne 0 ]; then
-        echo -e "\t\t\e[41mCHANGES OPEN , ABORT. FIX IT AND START ME AGAIN  \e[0m"
+        echo -e "\t\t\t\t\t\e[41mCHANGES OPEN   \e[0m"
+        echo "_________________________________________________________________"
         git status
-        exit 1
+        echo "_________________________________________________________________"
+        #exit 1
     else
         echo -e "\t\t\t\t\t\t\t\t\e[42mOK\e[0m"
         if [[ "$1" == "gc" ]]; then 
