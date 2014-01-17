@@ -50,7 +50,7 @@ alias gy='C:\\Programme\\Geany\\bin\\Geany.exe'
 alias sc='D:\\bin\\wscite\\SciTE.exe'
 alias gv='"D:\\bin\\vim\\vim73\\gvim.exe"'
 alias wintail='/d/bin/wintailfree/WinTail.exe'
-alias ce='/d/bin/crimson/cedit.exe'
+alias ce='/d/bin/crimson/cedt.exe'
 
 #
 # PATH
