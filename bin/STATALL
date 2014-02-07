@@ -10,6 +10,8 @@ function usage {
     echo ""
 }
 
+reposToPush=""
+
 if [[ "$1" == "--help"  || "$1" == "-?" ]]; then
     usage
     exit 1
@@ -46,6 +48,7 @@ do
         to_push=$(git status | grep -E 'git push')
         if [[ ! -z $to_push ]]; then
             echo -e "\t\t\t\t\e[43mYOU HAVE TO PUSH SOME CHANGES. =) \e[0m"
+            reposToPush="${reposToPush} $n"
         fi
         to_pull=$(git status | grep -E 'git pull')
         if [[ ! -z $to_pull ]]; then
@@ -73,5 +76,7 @@ do
 done
 echo ""
 echo "$C repositories OK."
+echo "Repos you could push: $reposToPush"
+
 
 
