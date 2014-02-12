@@ -51,7 +51,6 @@ alias sc='D:\\bin\\wscite\\SciTE.exe'
 alias gv='"D:\\bin\\vim\\vim74\\gvim.exe"'
 alias wintail='/d/bin/wintailfree/WinTail.exe'
 alias ce='/d/bin/crimson/cedt.exe'
-alias pn='/d/bin/pn/pn.exe'
 alias sub='/D/bin/SublimeText2.0.2/sublime_text.exe'
 
 #
