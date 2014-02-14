@@ -17,6 +17,7 @@ alias n='nslookup'
 export TZ=GMT-2
 alias dos2unix='dos2unix --d2u'
 alias make='dmake'
+alias open='C:\\Programme\\Mozilla\ Firefox\\firefox.exe'
 
 #
 # git aliases ################################################################
