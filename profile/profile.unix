@@ -38,6 +38,7 @@ alias gb='git branch -l'
 #
 alias np='gedit'
 alias gy='geany'
+alias showrgb='showrgb | less'
 
 
 #
