@@ -1,10 +1,10 @@
 #!/bin/sh
 
-echo 'bootstrap v0.3'
+echo 'bootstrap v0.4'
 
 DOTFILES_ROOT="`pwd`"
-#info "$DOTFILES_ROOT"
 
+##############################################################################
 
 info () {
     printf "\r\033[2K [\033[0;35mINFO\033[0m] $1\n"
@@ -12,7 +12,7 @@ info () {
 }
 
 success () {
-    printf "\r\033[2K [\033[0;32mOK\033[0m] $1\n"
+    printf "\t\033[2K [\033[0;32mOK\033[0m] $1\n"
 }
 
 fail () {
@@ -23,6 +23,7 @@ warn () {
     printf "\r\033[2K [\033[0;33mWARN\033[0m] $1\n"
 }
 
+##############################################################################
 
 #
 # installing new .profile 
@@ -103,7 +104,20 @@ if [ -e ~/.gitconfig ]; then
     warn "saving old .gitconfig"
     mv -f ~/.gitconfig ~/.gitconfig.bak
 fi
-cp -f git/gitconfig ~/.gitconfig
+# are we at home or in the office?
+myIP=$(ifconfig | grep addr: | grep 192 | awk '{print$2}' | awk -F: '{print $2}')
+myNET=$(echo $myIP | awk -F. '{print $1 }')
+#echo "MyNET: $myNET"
+
+if [ "$myNET" -eq "192" ]; then
+    # we're at home, baby
+    cp -f git/gitconfig ~/.gitconfig
+    if [ $? -ne 0 ]; then fail "Cannot copy gitconfig"; exit 2 ; fi
+else
+    cp -f git/gitconfig.itsv ~/.gitconfig
+    if [ $? -ne 0 ]; then fail "Cannot copy gitconfig.itsv"; exit 2 ; fi
+fi
+
 success "done"
 
 
