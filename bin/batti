@@ -1,0 +1,4 @@
+#!/bin/sh
+cd ~/batti-0.3.8
+./batti &
+
