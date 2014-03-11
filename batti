@@ -1,6 +1,0 @@
-#!/bin/sh
-# http://code.google.com/p/batti-gtk/downloads/list
-# we use this for fluxbox =)
-cd ~/batti-0.3.8
-./batti &
-
