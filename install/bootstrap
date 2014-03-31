@@ -12,7 +12,7 @@ info () {
 }
 
 success () {
-    printf "\t\033[2K [\033[0;32mOK\033[0m] $1\n"
+    printf " \033[2K [\033[0;32mOK\033[0m] $1\n"
 }
 
 fail () {
@@ -104,12 +104,20 @@ if [ -e ~/.gitconfig ]; then
     warn "saving old .gitconfig"
     mv -f ~/.gitconfig ~/.gitconfig.bak
 fi
+
 # are we at home or in the office?
-myIP=$(ifconfig | grep addr: | grep 192 | awk '{print$2}' | awk -F: '{print $2}')
+ifconfig 2>/dev/null
+if [ $? -ne 0 ]; then 
+    fail "cannot get ip, but thats OK now."
+    myNET="172"
+else
+    myIP=$(ifconfig | grep addr: | grep 192 | awk '{print$2}' | awk -F: '{print $2}')
+fi
+
 myNET=$(echo $myIP | awk -F. '{print $1 }')
 #echo "MyNET: $myNET"
 
-if [ "$myNET" -eq "192" ]; then
+if [[ "$myNET" -eq "192" ]]; then
     # we're at home, baby
     cp -f git/gitconfig ~/.gitconfig
     if [ $? -ne 0 ]; then fail "Cannot copy gitconfig"; exit 2 ; fi
