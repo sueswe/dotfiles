@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo 'bootstrap v0.5'
+echo 'bootstrap v0.6'
 
 DOTFILES_ROOT="`pwd`"
 
@@ -63,10 +63,16 @@ fi
 #
 # adding . .profile to .bashrc
 #
+info ".bashrc found ... \n"
 if [ -e ~/.bashrc ]; then
-    info ".bashrc found, adding source .profile ...\n"
-    echo '. ~/.profile' >> ~/.bashrc
+    if [[ $(grep '.profile' ~/.bashrc) ]]; then
+        info "profile already exists in .bashrc \n"
+    else
+        info "adding source .profile ...\n"
+        echo '. ~/.profile' >> ~/.bashrc
+    fi
 fi
+success ""
 
 
 #
@@ -104,7 +110,9 @@ if [ -e ~/.gitconfig ]; then
     mv -f ~/.gitconfig ~/.gitconfig.bak
 fi
 
+#
 # are we at home or in the office?
+#
 ifconfig 2>/dev/null
 if [ $? -ne 0 ]; then 
     fail "cannot get ip, but thats OK now."
@@ -125,7 +133,10 @@ else
     if [ $? -ne 0 ]; then fail "Cannot copy gitconfig.itsv"; exit 2 ; fi
 fi
 
-success "done"
+
+
+
+
 
 
 
