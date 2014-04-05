@@ -1,26 +1,25 @@
 #!/bin/sh
 
-echo 'bootstrap v0.4'
+echo 'bootstrap v0.6'
 
 DOTFILES_ROOT="`pwd`"
 
 ##############################################################################
 
 info () {
-    printf "\r\033[2K [\033[0;35mINFO\033[0m] $1\n"
-    #echo "[\033[0;35mINFO\033[0m] $1 "
+    echo -e "\e[0;35mINFO\033[0m $1\c"
 }
 
 success () {
-    printf "\t\033[2K [\033[0;32mOK\033[0m] $1\n"
+    echo -e "\e[0;32mOK\033[0m $1 "
 }
 
 fail () {
-    printf "\r\033[2K [\033[0;31mFAIL\033[0m] $1\n"
+    echo -e "\e[0;31mFAIL\033[0m $1"
 }
 
 warn () {
-    printf "\r\033[2K [\033[0;33mWARN\033[0m] $1\n"
+    echo -e "\e[0;33mWARN\033[0m $1"
 }
 
 ##############################################################################
@@ -29,31 +28,31 @@ warn () {
 # installing new .profile 
 #
 mv -f ~/.profile ~/.profile.bak 2>/dev/null || { 
-    info "no old ~/.profile found. Good." 
+    info "no old ~/.profile found. Good. \n" 
     }
 $(export | grep OS | grep -i windows)
 rtc=$?
 if [ $rtc -eq 0 ]; then
-    info "it seems we are under Windows Msysgit"
-    info "installing new .profile ... "
+    info "it seems we are under Windows Msysgit \n"
+    info "installing new .profile ... \n"
     cp -f profile/profile.msysgit ~/.profile
     rtc=$?
 else
-    info "it seems we are under Linux"
-    info "installing new .profile ... "
+    info "it seems we are under Linux \n"
+    info "installing new .profile ... \n"
     cp -f profile/profile.unix ~/.profile
     rtc=$?
 fi
-if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { info "done." ; } fi
+if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { info "done.\n" ; } fi
 chmod 0750 ~/.profile
 
 
 #
 # linking .profile to .bash_profile
 #
-info "linking .profile to .bash_profile"
+info "linking .profile to .bash_profile \n"
 if [ -e ~/.bash_profile ] ; then
-    warn "Saving old .bash_profile"
+    warn "Saving old .bash_profile \n"
     mv -f ~/.bash_profile ~/.bash_profile.backup
     ln -sf ~/.profile ~/.bash_profile
 else
@@ -64,30 +63,36 @@ fi
 #
 # adding . .profile to .bashrc
 #
+info ".bashrc found ... \n"
 if [ -e ~/.bashrc ]; then
-    info ".bashrc found, adding source .profile ..."
-    echo '. ~/.profile' >> ~/.bashrc
+    if [[ $(grep '.profile' ~/.bashrc) ]]; then
+        info "profile already exists in .bashrc \n"
+    else
+        info "adding source .profile ...\n"
+        echo '. ~/.profile' >> ~/.bashrc
+    fi
 fi
+success ""
 
 
 #
 # installing ~/bin
 #
 mkdir ~/bin 2>/dev/null || { 
-    info "~/bin already exists."
+    info "~/bin already exists.\n"
     }
 for n in $(ls $DOTFILES_ROOT/bin/); do
     n="bin/$n"
     info "installing $n ... "
     cp -f $n ~/bin/ ; rtc=$?
-    if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { success "done." ; } fi
+    if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { success "" ; } fi
 done
 
 
 #
 # installing .vimrc
 #
-info "installing .vimrc"
+info "installing .vimrc \n"
 if [ -e ~/.vimrc ]; then
     warn "saving old .vimrc"
     mv -f ~/.vimrc ~/.vimrc.bak
@@ -99,17 +104,27 @@ success "done"
 #
 # installing .gitconfig
 #
-info "installing .gitconfig"
+info "installing .gitconfig \n"
 if [ -e ~/.gitconfig ]; then
     warn "saving old .gitconfig"
     mv -f ~/.gitconfig ~/.gitconfig.bak
 fi
+
+#
 # are we at home or in the office?
-myIP=$(ifconfig | grep addr: | grep 192 | awk '{print$2}' | awk -F: '{print $2}')
+#
+ifconfig 2>/dev/null
+if [ $? -ne 0 ]; then 
+    fail "cannot get ip, but thats OK now."
+    myNET="172"
+else
+    myIP=$(ifconfig | grep addr: | grep 192 | awk '{print$2}' | awk -F: '{print $2}')
+fi
+
 myNET=$(echo $myIP | awk -F. '{print $1 }')
 #echo "MyNET: $myNET"
 
-if [ "$myNET" -eq "192" ]; then
+if [[ "$myNET" -eq "192" ]]; then
     # we're at home, baby
     cp -f git/gitconfig ~/.gitconfig
     if [ $? -ne 0 ]; then fail "Cannot copy gitconfig"; exit 2 ; fi
@@ -118,7 +133,10 @@ else
     if [ $? -ne 0 ]; then fail "Cannot copy gitconfig.itsv"; exit 2 ; fi
 fi
 
-success "done"
+
+
+
+
 
 
 
