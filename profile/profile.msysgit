@@ -53,6 +53,7 @@ alias perl='/c/strawberry/perl/bin/perl.exe'
 #
 alias ko='c:\\programme\\ActiveState\ Komodo\ Edit\ 8\\komodo.exe'
 alias np='c:\\programme\\notepad++\\notepad++.exe'
+alias pn='D:\\bin\\pn\\pn.exe'
 alias gy='C:\\Programme\\Geany\\bin\\Geany.exe'
 alias sc='D:\\bin\\wscite\\SciTE.exe'
 alias gv='"D:\\bin\\vim\\vim74\\gvim.exe"'
