@@ -1,0 +1,14 @@
+
+Host ssh.github.com
+    ProxyCommand /bin/connect.exe -H foo.bar.at:8181 %h %p
+    User git
+    Port 443
+    Hostname ssh.github.com
+    IdentityFile "/c/.ssh/id_rsa"
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+
+
+    
+
+
