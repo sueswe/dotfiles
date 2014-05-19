@@ -1,48 +1,24 @@
-#!/bin/sh
+# If termdef command returns terminal type (i.e. a non NULL value),
+# set TERM to the returned value, else set TERM to default lft.
+TERM_DEFAULT=lft
+TERM=`termdef`
+TERM=${TERM:-$TERM_DEFAULT}
+set -o vi
 
-cd () {
-  builtin cd "$@"
-  ls IMPORTANT* >/dev/null 2>&1 && echo -e "\e[31mImportant File found.\e[0m"
-  ls README* >/dev/null 2>&1 && echo -e "\e[32mReadme File found.\e[0m"
-}
+export TERM=dtterm
+export TERMINAL_EMULATOR=dtterm
+export LOGNAME MAIL MAILMSG TERM
 
-if [ -s "$MAIL" ]           # This is at Shell startup.  In normal
-then echo "$MAILMSG"        # operation, the Shell checks periodically.
+if [ "${MYSHELL}" = "bash" ]; then
+  export PS1="[\u@\H:\w] \$ "
+  export PS2="[\u@\H] > "
+else
+  export PS1=['$LOGIN'@$(uname -n):'$PWD']" # "
+  export PS2=['$LOGIN'@$(uname -n)"] > "
 fi
 
-PATH=/usr/bin:/etc:/usr/sbin:/usr/ucb:/usr/bin/X11:/sbin:.
-PATH=$PATH:~/bin/:/opt/freeware/bin
-
-alias ls='/opt/freeware/bin/ls --color=auto'
-alias l='ls '
-alias ll='ls -l'
-alias la='ls -a'
+alias s='sudo su - '
+alias ls='ls -la '
+alias ll='ls -la'
 alias ltr='ls -ltr'
-alias mv='mv -i'
-alias rm='rm -v'
-alias n='nslookup'
-alias s='sudo su -'
-
-#
-# git aliases ################################################################
-#
-alias fetch='git fetch -v'
-alias gitone='git log --pretty=oneline'
-alias gitoneline='gitone'
-alias gitpretty='gitone'
-alias gitlast='git diff HEAD^..HEAD'
-alias gitlog='git log -p'
-alias gitlogsum='git log --stat --summary'
-alias stat='git status ; git stash list'
-alias gitime="git log --pretty=format:'%h was %an, %ar, message: %s'"
-alias gd="git diff"
-alias gdc="git diff --cached"
-alias changelog='git log > changelog'
-alias gb='git branch -l'
-
-#
-# PS1 ########################################################################
-#
-export PS1='\[\033[01;32m\]\u@\h\[\033[01;35m\] \w\[\033[01;33m\]\[\033[01;35m\] \$\[\033[00m\] '
-
-
+alias elsam='cd /usr/local/lsam/'
