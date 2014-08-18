@@ -4,6 +4,7 @@ echo "-----------------------------------------------"
 rfkill list 
 DEV=$(rfkill list | grep -i wireless)
 DEV=${DEV%%:*}
+rfkill block $DEV
 rfkill unblock $DEV
 echo "-----------------------------------------------"
 rfkill list 
