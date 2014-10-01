@@ -11,6 +11,7 @@ function usage {
 }
 
 reposToPush=""
+changesOpen=""
 
 if [[ "$1" == "--help"  || "$1" == "-?" ]]; then
     usage
@@ -34,6 +35,7 @@ do
         echo -e "\t\t\t\t\t\e[41mCHANGES OPEN   \e[0m"
         git status
         echo "_________________________________________________________________"
+        changesOpen="${changesOpen} $n"
         #exit 1
     else
         echo -e "\t\t\t\t\t\t\t\t\e[42mOK\e[0m"
@@ -79,5 +81,9 @@ echo ""
 echo "$C repositories OK."
 if [[ ! -z $reposToPush ]]; then
     echo "Repos you could push: $reposToPush"
+fi
+
+if [[ ! -z $changesOpen ]]; then
+    echo "Chages open: $changesOpen"
 fi
 
