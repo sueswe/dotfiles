@@ -69,7 +69,7 @@ export PATH="/d/bin/putty/:/c/strawberry/perl/bin/:$PATH"
 #
 # WORKDIR ####################################################################
 # 
-cd /D/REPOS
+cd /C/REPOS
 
 #
 # EXPORT DATE
