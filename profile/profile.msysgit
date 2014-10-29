@@ -51,15 +51,10 @@ alias perl='/c/strawberry/perl/bin/perl.exe'
 #
 # editors ####################################################################
 #
-alias ko='c:\\programme\\ActiveState\ Komodo\ Edit\ 8\\komodo.exe'
 alias np='c:\\programme\\notepad++\\notepad++.exe'
-alias pn='D:\\bin\\pn\\pn.exe'
-alias gy='C:\\Programme\\Geany\\bin\\Geany.exe'
-alias sc='D:\\bin\\wscite\\SciTE.exe'
-alias gv='"D:\\bin\\vim\\vim74\\gvim.exe"'
-alias wintail='/d/bin/wintailfree/WinTail.exe'
-alias ce='/d/bin/crimson/cedt.exe'
-alias sub='/D/bin/SublimeText2.0.2/sublime_text.exe'
+alias rj='C:\\bin\\RJTextEd\\TextEd.exe'
+alias lt='C:\\bin\\LightTable\\LightTable.exe'
+alias atom='C:\\bin\\atom\\Atom\\atom.exe'
 
 #
 # PATH
