@@ -52,9 +52,7 @@ alias perl='/c/strawberry/perl/bin/perl.exe'
 # editors ####################################################################
 #
 alias np='c:\\programme\\notepad++\\notepad++.exe'
-alias rj='C:\\bin\\RJTextEd\\TextEd.exe'
-alias lt='C:\\bin\\LightTable\\LightTable.exe'
-alias atom='C:\\bin\\atom\\Atom\\atom.exe'
+alias gy='C:\\bin\\Geany\\bin\\Geany.exe'
 
 #
 # PATH
