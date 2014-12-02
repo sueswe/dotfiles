@@ -23,7 +23,7 @@ alias n='nslookup'
 export TZ=GMT-2
 alias dos2unix='dos2unix --d2u'
 alias make='dmake'
-alias open='C:\\Programme\\Mozilla\ Firefox\\firefox.exe'
+alias open='C:\\Program\ Files\ \(x86\)\\Mozilla\ Firefox\\firefox.exe'
 
 #
 # git aliases ################################################################
@@ -53,11 +53,12 @@ alias perl='/c/strawberry/perl/bin/perl.exe'
 #
 alias np='c:\\programme\\notepad++\\notepad++.exe'
 alias gy='C:\\bin\\Geany\\bin\\Geany.exe'
+alias ko='C:\\bin\\KomodoEdit8\\komodo.exe'
 
 #
 # PATH
 #
-export PATH="/d/bin/putty/:/c/strawberry/perl/bin/:$PATH"
+export PATH="/c/bin/putty/:/c/strawberry/perl/bin/:$PATH"
 
 #
 # WORKDIR ####################################################################
