@@ -84,6 +84,6 @@ if [[ ! -z $reposToPush ]]; then
 fi
 
 if [[ ! -z $changesOpen ]]; then
-    echo "Chages open: $changesOpen"
+    echo "Changes open: $changesOpen"
 fi
 
