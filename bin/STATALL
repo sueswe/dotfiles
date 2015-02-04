@@ -19,11 +19,14 @@ if [[ "$1" == "--help"  || "$1" == "-?" ]]; then
 fi
 
 C=0
-for n in $(ls -d *.git/); 
-do 
+for n in $(ls -d */); 
+do
     C=$(expr $C + 1)
     echo -e "\n $C # Checking \e[1;36m$n\e[0m (master) ... "
-    cd $n 
+    cd $n
+    
+    if [[ ! -d ".git" ]]; then echo -e "\t\t\t\t\t\t\t \e[1;33m skipped.\e[0m (not a git-repo) "; cd .. ; continue; fi
+    
     echo -e "Checking out master ... "
     git checkout master 2>/dev/null
     git fetch -p 
@@ -31,14 +34,14 @@ do
     
     git status | grep clean 
     if [ $? -ne 0 ]; then
-        echo "_________________________________________________________________"
-        echo -e "\t\t\t\t\t\e[41mCHANGES OPEN   \e[0m"
-        git status
-        echo "_________________________________________________________________"
+        echo -e "\t_________________________________"
+        echo -e "\t\t\t\t\t\t\t \e[1;31mChanges open\e[0m"
+        git status | grep modif
+        echo -e "\t_________________________________"
         changesOpen="${changesOpen} $n"
         #exit 1
     else
-        echo -e "\t\t\t\t\t\t\t\t\e[42mOK\e[0m"
+        echo -e "\t\t\t\t\t\t\t \e[1;32mOK\e[0m"
         if [[ "$1" == "gc" ]]; then 
             git gc 
         elif [[ "$1" == "get" ]]; then
@@ -84,6 +87,6 @@ if [[ ! -z $reposToPush ]]; then
 fi
 
 if [[ ! -z $changesOpen ]]; then
-    echo "Changes open: $changesOpen"
+    echo -e "\n\e[1;35mChanges open:\e[0m $changesOpen"
 fi
 
