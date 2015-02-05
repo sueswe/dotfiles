@@ -52,6 +52,8 @@ alias perl='/c/strawberry/perl/bin/perl.exe'
 # editors ####################################################################
 #
 alias lt='C:\\bin\\LightTable\\LightTable.exe'
+alias at='c:\\bin\\atom\\Atom\\atom.exe'
+alias ato='c:\\bin\\atom\\Atom\\atom.exe'
 alias np='c:\\programme\\notepad++\\notepad++.exe'
 alias gy='C:\\bin\\Geany\\bin\\Geany.exe'
 alias ko='C:\\bin\\KomodoEdit8\\komodo.exe'
