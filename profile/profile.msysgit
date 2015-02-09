@@ -57,6 +57,7 @@ alias ato='c:\\bin\\atom\\Atom\\atom.exe'
 alias np='c:\\programme\\notepad++\\notepad++.exe'
 alias gy='C:\\bin\\Geany\\bin\\Geany.exe'
 alias ko='C:\\bin\\KomodoEdit8\\komodo.exe'
+alias vi='C:\\bin\\vim\\vim74\\gvim.exe'
 
 #
 # PATH
