@@ -34,10 +34,10 @@ do
     
     git status | grep clean 
     if [ $? -ne 0 ]; then
-        echo -e "\t_________________________________"
+        #echo -e "\t_________________________________"
         echo -e "\t\t\t\t\t\t\t \e[1;31mChanges open\e[0m"
         git status | grep modif
-        echo -e "\t_________________________________"
+        #echo -e "\t_________________________________"
         changesOpen="${changesOpen} $n"
         #exit 1
     else
