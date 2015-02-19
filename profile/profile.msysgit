@@ -42,6 +42,7 @@ alias gdc="git diff --cached"
 alias changelog='git log > changelog'
 alias gb='git branch -av'
 alias chm='git update-index --chmod=+x'
+alias arch='git archive --format=zip -o latest.zip -9 HEAD'
 
 #
 # perl #######################################################################
