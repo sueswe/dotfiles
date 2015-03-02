@@ -82,11 +82,12 @@ do
 done
 echo ""
 echo "$C repositories OK."
+echo ""
 if [[ ! -z $reposToPush ]]; then
-    echo "Repos you could push: $reposToPush"
+    echo -e "Repos you could \e[1;36mpush\e[0m: $reposToPush"
 fi
 
 if [[ ! -z $changesOpen ]]; then
-    echo -e "\n\e[1;35mChanges open:\e[0m $changesOpen"
+    echo -e "\n\e[1;35mChanges open\e[0m:       $changesOpen"
 fi
 
