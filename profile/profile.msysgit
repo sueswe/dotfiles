@@ -61,6 +61,7 @@ alias ko='C:\\bin\\KomodoEdit8\\komodo.exe'
 alias vi='C:\\bin\\vim\\vim74\\gvim.exe'
 alias wm='C:\\bin\\WriteMonkey\\writemonkey.exe'
 alias ta='C:\\bin\\textadept\\textadept.exe'
+alias rj='C:\\bin\\RJ_TextEd_NoInstall\\Win64\\TextEd.exe'
 
 #
 # PATH
