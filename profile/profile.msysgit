@@ -63,6 +63,7 @@ alias wm='C:\\bin\\WriteMonkey\\writemonkey.exe'
 alias ta='C:\\bin\\textadept\\textadept.exe'
 alias rj='C:\\bin\\RJ_TextEd_NoInstall\\Win64\\TextEd.exe'
 alias sb='C:\\bin\\Sublime_Text_2.0.2\\sublime_text.exe'
+alias ce='C:\\bin\\CrimsonEditorSVN286M\\cedt.exe'
 
 #
 # PATH
@@ -78,5 +79,9 @@ cd /C/REPOS
 # EXPORT DATE
 #
 export datum=$(date +%Y%m%d)
+
+#
+# PS1
+#
 
 
