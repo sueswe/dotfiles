@@ -1,11 +1,5 @@
 #!/bin/sh
 
-cd () {
-  builtin cd "$@"
-  ls IMPORTANT* >/dev/null 2>&1 && echo -e "\e[31mImportant File found.\e[0m"
-  ls README* >/dev/null 2>&1 && echo -e "\e[32mReadme File found.\e[0m"
-}
-
 PATH=$PATH:~/bin/
 
 alias ls='ls --color=auto'
