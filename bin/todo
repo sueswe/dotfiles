@@ -4,7 +4,8 @@ $(export | grep OS | grep -i windows)
 rtc=$?
 if [[ $rtc -eq 0 ]]; then
     #echo "Windows"
-    touch "$USERPROFILE"/Desktop/"$*"
+    #touch "$USERPROFILE"/Desktop/"$*"
+    touch $APHOMESHARE\\Desktop/"$*"
 else
     #echo "Unix"
     touch ~/Desktop/"$*"
