@@ -5,7 +5,8 @@ rtc=$?
 if [[ $rtc -eq 0 ]]; then
     #echo "Windows"
     #touch "$USERPROFILE"/Desktop/"$*"
-    touch $APHOMESHARE\\Desktop/"$*"
+    #touch $APHOMESHARE\\Desktop/"$*"
+    touch $APDesktop/"$*"
 else
     #echo "Unix"
     touch ~/Desktop/"$*"
