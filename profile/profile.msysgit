@@ -48,6 +48,7 @@ alias perl='/c/strawberry/perl/bin/perl.exe'
 #
 alias np='C:\\Program\ Files\ \(x86\)\\notepad++\\notepad++.exe'
 alias pn='C:\\bin\\pn\\pn.exe'
+alias ge='C:\\bin\\gedit\\bin\\gedit.exe'
 
 #
 # PATH
