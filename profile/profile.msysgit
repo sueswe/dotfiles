@@ -49,8 +49,8 @@ alias perl='/c/strawberry/perl/bin/perl.exe'
 alias np='C:\\Program\ Files\ \(x86\)\\notepad++\\notepad++.exe'
 alias gy='C:\\bin\\Geany\\bin\\geany.exe'
 alias br='C:\\bin\\Brackets\\brackets.exe'
-alias er='start "R:\GRP_AmBetrStrgSTP\02_Daten"'
-alias je='C:\\bin\\jedit\\jedit.exe'
+alias ce='C:\\bin\\cedit\\cedt.exe'
+alias sb='C:\\bin\\sublimetext2\\sublime_text.exe'
 
 #
 # PATH
