@@ -47,7 +47,10 @@ alias perl='/c/strawberry/perl/bin/perl.exe'
 # editors ####################################################################
 #
 alias np='C:\\Program\ Files\ \(x86\)\\notepad++\\notepad++.exe'
+alias pn='c:\\bin\\pn\\pn.exe'
+alias gy='c:\\bin\\geany\\bin\\geany.exe'
 alias pad='start padre'
+alias sub='c:\\bin\\sublimetext2\\sublime_text.exe'
 
 #
 # PATH
@@ -56,7 +59,7 @@ export PATH="/c/bin/putty/:/c/strawberry/perl/bin/:$PATH"
 
 #
 # WORKDIR ####################################################################
-# 
+#
 cd /C/REPOS
 
 #
