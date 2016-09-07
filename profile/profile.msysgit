@@ -10,6 +10,7 @@ alias ltr='ls -ltr'
 alias mv='mv -i'
 alias rm='rm -v'
 alias n='nslookup'
+alias w='/C/bin/wallpaper.exe "C:\Windows\Globalization\MCT\MCT-DE\Wallpaper\DE-wp4.jpg"'
 
 #
 # msysgit ####################################################################
