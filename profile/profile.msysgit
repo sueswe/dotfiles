@@ -10,7 +10,9 @@ alias ltr='ls -ltr'
 alias mv='mv -i'
 alias rm='rm -v'
 alias n='nslookup'
-alias w='/C/bin/wallpaper.exe "C:\Windows\Globalization\MCT\MCT-DE\Wallpaper\DE-wp4.jpg"'
+alias w1='/C/bin/wallpaper.exe "C:\Windows\Globalization\MCT\MCT-DE\Wallpaper\DE-wp4.jpg"'
+alias w2='/C/bin/wallpaper.exe "U:\14_images\wallpaper-1812167.jpg" '
+alias w3='/C/bin/wallpaper.exe "C:\temp\downloads\lighthouse.jpg" '
 
 #
 # msysgit ####################################################################
@@ -72,5 +74,3 @@ export datum=$(date +%Y%m%d)
 #
 # PS1
 #
-
-
