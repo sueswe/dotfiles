@@ -13,6 +13,7 @@ alias n='nslookup'
 alias w1='/C/bin/wallpaper.exe "C:\Windows\Globalization\MCT\MCT-DE\Wallpaper\DE-wp4.jpg"'
 alias w2='/C/bin/wallpaper.exe "U:\14_images\wallpaper-1812167.jpg" '
 alias w3='/C/bin/wallpaper.exe "C:\temp\downloads\lighthouse.jpg" '
+alias w4='/C/bin/wallpaper.exe "c:\temp\downloads\wallpaper.jpg"'
 
 #
 # msysgit ####################################################################
@@ -55,6 +56,7 @@ alias pn='c:\\bin\\pn\\pn.exe'
 alias gy='c:\\bin\\geany\\bin\\geany.exe'
 alias pad='start padre'
 alias sub='c:\\bin\\sublimetext2\\sublime_text.exe'
+alias syn='C:\\bin\\synwrite\\syn.exe'
 
 #
 # PATH
