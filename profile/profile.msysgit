@@ -14,6 +14,7 @@ alias w1='/C/bin/wallpaper.exe "C:\Windows\Globalization\MCT\MCT-DE\Wallpaper\DE
 alias w2='/C/bin/wallpaper.exe "U:\14_images\wallpaper-1812167.jpg" '
 alias w3='/C/bin/wallpaper.exe "C:\temp\downloads\lighthouse.jpg" '
 alias w4='/C/bin/wallpaper.exe "c:\temp\downloads\wallpaper.jpg"'
+alias w5='/C/bin/wallpaper.exe "c:\temp\downloads\nicewallpaper.jpg"'
 
 #
 # msysgit ####################################################################
