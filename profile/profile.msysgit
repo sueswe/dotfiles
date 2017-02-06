@@ -55,9 +55,9 @@ alias perl='/c/strawberry/perl/bin/perl.exe'
 alias np='C:\\Program\ Files\ \(x86\)\\notepad++\\notepad++.exe'
 alias pn='c:\\bin\\pn\\pn.exe'
 alias gy='c:\\bin\\geany\\bin\\geany.exe'
-alias pad='start padre'
 alias sub='c:\\bin\\sublimetext2\\sublime_text.exe'
 alias syn='C:\\bin\\synwrite\\syn.exe'
+alias br='/C/bin/Brackets/Brackets.exe'
 
 #
 # PATH
