@@ -57,6 +57,7 @@ alias pn='c:\\bin\\pn\\pn.exe'
 alias gy='c:\\bin\\geany\\bin\\geany.exe'
 alias sub='c:\\bin\\sublimetext2\\sublime_text.exe'
 alias syn='C:\\bin\\synwrite\\syn.exe'
+alias cu='C:\\bin\\cuda\\cudatext.exe'
 alias br='/C/bin/Brackets/Brackets.exe'
 
 #
