@@ -19,20 +19,20 @@ if [[ "$1" == "--help"  || "$1" == "-?" ]]; then
 fi
 
 C=0
-for n in $(ls -d */); 
+for n in $(ls -d */);
 do
     C=$(expr $C + 1)
     echo -e "\n $C # Checking \e[1;36m$n\e[0m (master) ... "
     cd $n
-    
+
     if [[ ! -d ".git" ]]; then echo -e "\t\t\t\t\t\t\t \e[1;33m skipped.\e[0m (not a git-repo) "; cd .. ; continue; fi
-    
+
     echo -e "Checking out master ... "
     git checkout master 2>/dev/null
-    git fetch -p 
+    git fetch -p
     # if [ "$1" == "b" ]; then echo -e "\n\e[33mBRANCHES:\e[0m\n"; git branch -av; echo -e "\t\t\t\t\tSTATE: \c"; fi
-    
-    git status | grep clean 
+
+    git status | grep clean
     if [ $? -ne 0 ]; then
         #echo -e "\t_________________________________"
         echo -e "\t\t\t\t\t\t\t \e[1;31mChanges open\e[0m"
@@ -42,15 +42,18 @@ do
         #exit 1
     else
         echo -e "\t\t\t\t\t\t\t \e[1;32mOK\e[0m"
-        if [[ "$1" == "gc" ]]; then 
-            git gc 
+        if [[ "$1" == "gc" ]]; then
+            echo -e "\t \e[1;21m>>>performing a gc<<<\e[0m"
+            git gc
+            echo -e "\t \e[1;21m>>>performing a fsck<<<\e[0m"
+            git fsck
         elif [[ "$1" == "get" ]]; then
             git pull origin master 2>/dev/null
             if [ $? -ne 0 ]; then
-                echo -e "\t\t\e[41mPULL NOT POSSIBLE. \e[0m"
+                echo -e "\t\t\e[41mPULL NOT POSSIBLE! \e[0m"
             fi
         fi
-        
+
         to_push=$(git status | grep -E 'git push')
         if [[ ! -z $to_push ]]; then
             echo -e "\t\t\t\t\e[43mYOU HAVE TO PUSH SOME CHANGES. =) \e[0m"
@@ -60,23 +63,23 @@ do
         if [[ ! -z $to_pull ]]; then
             echo -e "\t\t\t\t\e[44mYOU CAN PULL SOME CHANGES. =) \e[0m"
         fi
-        
+
         if [[ "$1" == "br" ]]; then
             echo "branches _without_ master:"
             echo -e "\e[1;35m"
-            git branch -a | grep -v master 
+            git branch -a | grep -v master
             echo -e "\e[0m"
         fi
     fi
-    
+
     #YOUR=$(git status | grep -i your | wc -l)
     #if [ $YOUR -ne 0 ]; then
     #    echo $n
     #    git status
     #    #echo ""
     #fi
-    
-    
+
+
     cd ..
     echo " "
 done
