@@ -43,9 +43,9 @@ do
     else
         echo -e "\t\t\t\t\t\t\t \e[1;32mOK\e[0m"
         if [[ "$1" == "gc" ]]; then
-            echo -e "\t \e[1;21m>>>performing a gc<<<\e[0m"
+            echo -e " \e[1;21m>performing a gc:\e[0m"
             git gc
-            echo -e "\t \e[1;21m>>>performing a fsck<<<\e[0m"
+            echo -e " \e[1;21m>performing a fsck:\e[0m"
             git fsck
         elif [[ "$1" == "get" ]]; then
             git pull origin master 2>/dev/null
@@ -93,4 +93,3 @@ fi
 if [[ ! -z $changesOpen ]]; then
     echo -e "\n\e[1;35mChanges open\e[0m:       $changesOpen"
 fi
-
