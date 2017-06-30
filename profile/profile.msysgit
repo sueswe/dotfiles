@@ -62,11 +62,13 @@ alias perl='/c/strawberry/perl/bin/perl.exe'
 #
 # editors ####################################################################
 #
+alias sub='C:\\bin\\SublimeText3\\sublime_text.exe'
+alias sb='C:\\bin\\SublimeText3\\sublime_text.exe'
 alias np='C:\\Program\ Files\ \(x86\)\\notepad++\\notepad++.exe'
 alias pn='c:\\bin\\pn\\pn.exe'
 alias gy='c:\\bin\\geany\\bin\\geany.exe'
-alias sub='c:\\bin\\sublimetext2\\sublime_text.exe'
 alias br='/C/bin/Brackets/Brackets.exe'
+alias np2='C:\\bin\\notepad2_4.2.25_x64\\notepad2.exe'
 
 #
 # PATH
