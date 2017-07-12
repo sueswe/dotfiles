@@ -21,9 +21,11 @@ alias n='nslookup'
 #alias w5='/C/bin/wallpaper.exe "c:\temp\downloads\nicewallpaper.jpg"'
 c=1
 picture_dir=${HOME}/Pictures/
+echo -e "creating aliases ... \c" >&2
 for jpg in $(find ${picture_dir} -name "*.jpg"); do
     alias w${c}="/C/bin/wallpaper.exe ${jpg}"
     let c="${c}+1"
+    echo -e ".\c" >&2
 done
 
 #
