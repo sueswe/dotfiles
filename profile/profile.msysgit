@@ -71,6 +71,7 @@ alias pn='c:\\bin\\pn\\pn.exe'
 alias gy='c:\\bin\\geany\\bin\\geany.exe'
 alias br='/C/bin/Brackets/Brackets.exe'
 alias np2='C:\\bin\\notepad2_4.2.25_x64\\notepad2.exe'
+alias code='C:\\bin\\VSCode\\code.exe'
 
 #
 # PATH
