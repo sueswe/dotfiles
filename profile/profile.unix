@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. /etc/bash_completion.d/git-prompt
+
 cd () {
   builtin cd "$@"
   ls IMPORTANT* >/dev/null 2>&1 && echo -e "\e[31mImportant File found.\e[0m"
@@ -42,10 +44,10 @@ alias gb='git branch -l'
 #
 # editors
 #
+alias code='/usr/share/code/code'
 alias np='gedit'
 alias gy='geany'
 alias showrgb='showrgb | less'
-alias sub='~/bin/sublime_text_3/sublime_text'
 
 
 #

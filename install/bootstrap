@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'bootstrap v0.6'
+echo 'bootstrap v0.7'
 
 DOTFILES_ROOT="`pwd`"
 
