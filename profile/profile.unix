@@ -48,7 +48,7 @@ alias code='/usr/share/code/code'
 alias np='gedit'
 alias gy='geany'
 alias showrgb='showrgb | less'
-
+alias gcm='python ~/bin/gnome-connection-manager/gnome_connection_manager.py'
 
 #
 # PS1 ########################################################################
