@@ -113,19 +113,20 @@ fi
 #
 # are we at home or in the office?
 #
-ifconfig 2>/dev/null
-if [ $? -ne 0 ]; then 
-    fail "cannot get ip, but thats OK now."
-    myNET="172"
-else
-    myIP=$(ifconfig | grep addr: | grep 192 | awk '{print$2}' | awk -F: '{print $2}')
-fi
+#ifconfig 2>/dev/null
+#if [ $? -ne 0 ]; then 
+#    fail "cannot get ip, but thats OK now."
+#    myNET="172"
+#else
+#    myIP=$(ifconfig | grep addr: | grep 192 | awk '{print$2}' | awk -F: '{print $2}')
+#fi
 
+myIP=$(ifconfig | grep addr: | grep 192 | awk '{print$2}' | awk -F: '{print $2}')
 myNET=$(echo $myIP | awk -F. '{print $1 }')
-#echo "MyNET: $myNET"
+echo "MyNET: $myNET"
 
 if [[ "$myNET" -eq "192" ]]; then
-    # we're at home, baby
+    echo "we're at home, baby"
     cp -f git/gitconfig ~/.gitconfig
     if [ $? -ne 0 ]; then fail "Cannot copy gitconfig"; exit 2 ; fi
 else

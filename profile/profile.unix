@@ -39,7 +39,7 @@ alias gitime="git log --pretty=format:'%h was %an, %ar, message: %s'"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias changelog='git log > changelog'
-alias gb='git branch -l'
+alias gb='git branch -a'
 
 #
 # editors
