@@ -1,0 +1,8 @@
+XTerm*VT100.cutNewLine: false
+XTerm*VT100.cutToBeginningOfLine: false
+XTerm*charClass: 36-47:48,58-59:48
+XTerm*on3Clicks: regex [[:alpha:]]+://([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
+XTerm*SaveLines: 9000
+XTerm.vt100.faceName: Liberation Mono:size=12:antialias=false
+XTerm.vt100.font: 7x13
+
