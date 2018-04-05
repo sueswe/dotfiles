@@ -1,0 +1,11 @@
+tint2 &
+#docky &
+~/bin/dual-monitor.sh &
+#feh --bg-fill Pictures/milky_way_sky-wide.jpg &
+feh --bg-fill Pictures/cublinux-wallhaven-441571.png &
+hexchat &
+guake &
+xscreensaver -no-splash &
+vmware-view &
+
+
