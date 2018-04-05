@@ -3,6 +3,7 @@ XTerm*VT100.cutToBeginningOfLine: false
 XTerm*charClass: 36-47:48,58-59:48
 XTerm*on3Clicks: regex [[:alpha:]]+://([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
 XTerm*SaveLines: 9000
-XTerm.vt100.faceName: Liberation Mono:size=12:antialias=false
+XTerm.vt100.faceName: Cousine Mono:size=11:antialias=false
 XTerm.vt100.font: 7x13
+XTerm*geometry: 150x29+200+200
 

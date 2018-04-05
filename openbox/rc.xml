@@ -178,7 +178,7 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
-    <!-- Keybindings for desktop switching -->
+
     <keybind key="A-F2">
       <action name="Execute">
         <startupnotify>
@@ -188,6 +188,100 @@
         <command>gmrun</command>
       </action>
     </keybind>
+    
+    <keybind key="C-t">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Terminal-popup</name>
+        </startupnotify>
+        <command>xterm</command>
+      </action>
+    </keybind>
+
+    <keybind key="C-F1">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Terminal-popup</name>
+        </startupnotify>
+        <command>11pr</command>
+      </action>
+    </keybind>
+    <keybind key="C-F2">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Terminal-popup</name>
+        </startupnotify>
+        <command>12pr</command>
+      </action>
+    </keybind>
+    <keybind key="C-F3">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Terminal-popup</name>
+        </startupnotify>
+        <command>13pr</command>
+      </action>
+    </keybind>
+    <keybind key="C-F4">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Terminal-popup</name>
+        </startupnotify>
+        <command>14pr</command>
+      </action>
+    </keybind>
+    <keybind key="C-F5">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Terminal-popup</name>
+        </startupnotify>
+        <command>15pr</command>
+      </action>
+    </keybind>
+    <keybind key="C-F6">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Terminal-popup</name>
+        </startupnotify>
+        <command>16pr</command>
+      </action>
+    </keybind>
+    <keybind key="C-F7">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Terminal-popup</name>
+        </startupnotify>
+        <command>17pr</command>
+      </action>
+    </keybind>
+    <keybind key="C-F8">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Terminal-popup</name>
+        </startupnotify>
+        <command>18pr</command>
+      </action>
+    </keybind>
+    <keybind key="C-F9">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Terminal-popup</name>
+        </startupnotify>
+        <command>19pr</command>
+      </action>
+    </keybind>
+    
+    <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop">
         <to>left</to>
@@ -737,7 +831,7 @@
   # order that they appear in this list
 
 
-    # each rule element can be left out or set to 'default' to specify to not 
+    # each rule element can be left out or set to 'default' to specify to not
     # change that attribute of the window
 
     <decor>yes</decor>
