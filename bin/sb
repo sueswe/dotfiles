@@ -1,4 +1,4 @@
 #!/bin/bash
-xset dpms force standby &
-
-xscreensaver-command -lock
+# xscreensaver-command -lock &
+i3lock &
+xset dpms force off &
