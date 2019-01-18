@@ -1,11 +1,17 @@
 tint2 &
-#docky &
+# fbpanel &
+# docky &
 ~/bin/dual-monitor.sh &
-#feh --bg-fill Pictures/milky_way_sky-wide.jpg &
-feh --bg-fill Pictures/cublinux-wallhaven-441571.png &
-hexchat &
-guake &
-xscreensaver -no-splash &
-vmware-view &
-
+# feh --bg-fill Pictures/milky_way_sky-wide.jpg &
+# feh --bg-fill Pictures/cublinux-wallhaven-441571.png &
+# feh --bg-fill Pictures/00_wallpaper/__wallpaper.jpg &
+# feh --bg-fill Pictures/abstract-art-blur-325225.jpg &
+# hexchat &
+# guake &
+# xscreensaver -no-splash &
+# vmware-view &
+# feh --bg-fill ~/Pictures/ubuntu_bubbles_linux_93773_1920x1080.jpg &
+# feh --bg-fill $HOME/Pictures/cublinux-wallhaven-441571.png &
+# feh --bg-fill $HOME/Pictures/Floorboards_by_Dawid_Huczyński.jpg 
+$HOME/bin/fehbg &
 

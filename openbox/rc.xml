@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Numix</name>
+    <name>Natura</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -178,7 +178,6 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
-
     <keybind key="A-F2">
       <action name="Execute">
         <startupnotify>
@@ -188,8 +187,7 @@
         <command>gmrun</command>
       </action>
     </keybind>
-    
-    <keybind key="C-t">
+    <keybind key="A-t">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -198,7 +196,15 @@
         <command>xterm</command>
       </action>
     </keybind>
-
+    <keybind key="C-F10">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Terminal-popup</name>
+        </startupnotify>
+        <command>hema</command>
+      </action>
+    </keybind>
     <keybind key="C-F1">
       <action name="Execute">
         <startupnotify>
@@ -280,7 +286,6 @@
         <command>19pr</command>
       </action>
     </keybind>
-    
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop">
