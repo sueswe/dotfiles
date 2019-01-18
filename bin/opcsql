@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd bin/squirrelsql-3.8.1-standard/
+
+./squirrel-sql.sh &
+

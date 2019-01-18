@@ -1,4 +1,9 @@
 #!/bin/bash
 # xscreensaver-command -lock &
-i3lock &
-xset dpms force off &
+# i3lock -i ~/Pictures/00_wallpaper/weyland_industries_wallpaper_by_rocketmantan-d5jp8ge.png &
+# i3lock -i ~/Pictures/Pics_Werner/radiotelescopios-wallpaper-1680x1050.png &
+# xset dpms force off &
+# cinnamon-screensaver-command -a
+# xset dpms force off &
+# i3lock -c 00ff88 -f
+i3lock -d -i /home/itsv.org.sv-services.at/31300094/Pictures/radiotelescopios-wallpaper-1680x1050.png -f -t

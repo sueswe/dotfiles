@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ ! -z $1 ]; then
+    hist=$1
+else
+    hist=1
+fi
+git log -n $hist --diff-filter=D --summary
