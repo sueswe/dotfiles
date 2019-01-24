@@ -10,7 +10,7 @@ if ( ! defined $fileextension ) { &usage(); exit(1); }
 
 
 my @files = <*>;
-foreach my $name (@files) { 
+foreach my $name (@files) {
     if ( $name =~ m/\Q$fileextension/g ) {
         print "renaming $name \t -> ";
         (my $newname = $name) =~ s/\ |,/_/ig;
@@ -20,8 +20,8 @@ foreach my $name (@files) {
 }
 
 sub usage {
+    print "Removes spaces in filenames\n";
     print "Usage: $0 <fileextension> \n\n";
     print "    example: $0 mp3\n";
     return 0
 }
-
