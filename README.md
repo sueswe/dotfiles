@@ -2,9 +2,8 @@
 
 ## Installation:
 
-
 ```sh
-git clone https://github.com/holman/dotfiles.git dotfiles.git
+git clone https://github.com/sueswe/dotfiles.git dotfiles.git
 cd dotfiles.git
 install/bootstrap
 ```
