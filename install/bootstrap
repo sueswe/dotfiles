@@ -25,10 +25,10 @@ warn () {
 ##############################################################################
 
 #
-# installing new .profile 
+# installing new .profile
 #
-mv -f ~/.profile ~/.profile.bak 2>/dev/null || { 
-    info "no old ~/.profile found. Good. \n" 
+mv -f ~/.profile ~/.profile.bak 2>/dev/null || {
+    info "no old ~/.profile found. Good. \n"
     }
 $(export | grep OS | grep -i windows)
 rtc=$?
@@ -78,7 +78,7 @@ fi
 #
 # installing ~/bin
 #
-mkdir ~/bin 2>/dev/null || { 
+mkdir ~/bin 2>/dev/null || {
     info "~/bin already exists.\n"
     }
 for n in $(ls $DOTFILES_ROOT/bin/); do
@@ -115,7 +115,7 @@ fi
 # are we at home or in the office?
 #
 #ifconfig 2>/dev/null
-#if [ $? -ne 0 ]; then 
+#if [ $? -ne 0 ]; then
 #    fail "cannot get ip, but thats OK now."
 #    myNET="172"
 #else
@@ -132,10 +132,24 @@ if [[ "$myNET" -eq "192" ]]; then
 else
     info "installing gitconfig.itsv ..."
     cp -f git/gitconfig.itsv ~/.gitconfig
-    if [ $? -ne 0 ]; then fail "Cannot copy gitconfig.itsv"; exit 2 ; 
+    if [ $? -ne 0 ]; then fail "Cannot copy gitconfig.itsv"; exit 2 ;
     else success "done."
     fi
 fi
+
+echo ""
+
+info "now we install liquidpromt do $HOME ..."
+cd
+git clone https://github.com/nojhan/liquidprompt.git
+if [[ $? -ne 0 ]]; then
+    fail "whoops ... that didn't work!"
+else
+    info "... and loading it."
+fi
+echo ""
+
+source liquidprompt/liquidprompt
 
 
 #
@@ -143,8 +157,3 @@ fi
 #
 echo ""
 success "that's it."
-
-
-
-
-
