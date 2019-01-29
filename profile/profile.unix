@@ -1,6 +1,24 @@
 #!/bin/sh
 
-. /etc/bash_completion.d/git-prompt
+info () {
+    echo -e "\e[0;35m😏\033[0m $1\c"
+}
+
+success () {
+    echo -e "\e[0;32m😁\033[0m $1 "
+}
+
+fail () {
+    echo -e "\e[0;31m😣\033[0m $1"
+}
+
+warn () {
+    echo -e "\e[0;33m😱\033[0m $1"
+}
+
+
+. /etc/bash_completion.d/git-prompt || fail "Cannot source /etc/bash_completion.d/git-prompt"
+
 
 cd () {
   builtin cd "$@"
@@ -9,7 +27,8 @@ cd () {
 }
 
 if [ -s "$MAIL" ]           # This is at Shell startup.  In normal
-then echo "$MAILMSG"        # operation, the Shell checks periodically.
+then 
+    echo "$MAILMSG"        # operation, the Shell checks periodically.
 fi
 
 PATH=$PATH:.:~/bin/
