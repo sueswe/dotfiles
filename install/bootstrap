@@ -1,25 +1,25 @@
 #!/bin/bash
 
-echo 'bootstrap v0.7'
+echo 'bootstrap v0.8'
 
 DOTFILES_ROOT="`pwd`"
 
 ##############################################################################
 
 info () {
-    echo -e "\e[0;35mINFO\033[0m $1\c"
+    echo -e "\e[0;35m💡\033[0m $1 "
 }
 
 success () {
-    echo -e "\e[0;32mOK\033[0m $1 "
+    echo -e "\e[0;32m👍\033[0m $1 "
 }
 
 fail () {
-    echo -e "\e[0;31mFAIL\033[0m $1"
+    echo -e "\e[0;31m😣\033[0m $1 "
 }
 
 warn () {
-    echo -e "\e[0;33mWARN\033[0m $1"
+    echo -e "\e[0;33m⚠\033[0m $1 "
 }
 
 ##############################################################################
@@ -63,8 +63,8 @@ fi
 #
 # adding . .profile to .bashrc
 #
-info ".bashrc found ... \n"
 if [ -e ~/.bashrc ]; then
+    info ".bashrc found ... \n"
     if [[ $(grep '.profile' ~/.bashrc) ]]; then
         info "profile already exists in .bashrc \n"
     else
@@ -72,7 +72,7 @@ if [ -e ~/.bashrc ]; then
         echo '. ~/.profile' >> ~/.bashrc
     fi
 fi
-success ""
+
 
 
 #
@@ -83,7 +83,7 @@ mkdir ~/bin 2>/dev/null || {
     }
 for n in $(ls $DOTFILES_ROOT/bin/); do
     n="bin/$n"
-    info "installing $n ... "
+    info "installing $n ... \c"
     cp -f $n ~/bin/ ; rtc=$?
     if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { success "" ; } fi
 done
@@ -92,7 +92,8 @@ done
 #
 # installing .vimrc
 #
-info "installing .vimrc \n"
+echo ""
+info "installing .vimrc "
 if [ -e ~/.vimrc ]; then
     warn "saving old .vimrc"
     mv -f ~/.vimrc ~/.vimrc.bak
@@ -104,7 +105,7 @@ success "done"
 #
 # installing .gitconfig
 #
-info "installing .gitconfig \n"
+info "installing .gitconfig "
 if [ -e ~/.gitconfig ]; then
     warn "saving old .gitconfig"
     mv -f ~/.gitconfig ~/.gitconfig.bak
@@ -123,30 +124,24 @@ fi
 
 myIP=$(ifconfig | grep addr: | grep 192 | awk '{print$2}' | awk -F: '{print $2}')
 myNET=$(echo $myIP | awk -F. '{print $1 }')
-echo "MyNET: $myNET"
 
 if [[ "$myNET" -eq "192" ]]; then
     echo "we're at home, baby"
     cp -f git/gitconfig ~/.gitconfig
     if [ $? -ne 0 ]; then fail "Cannot copy gitconfig"; exit 2 ; fi
 else
+    info "installing gitconfig.itsv ..."
     cp -f git/gitconfig.itsv ~/.gitconfig
-    if [ $? -ne 0 ]; then fail "Cannot copy gitconfig.itsv"; exit 2 ; fi
+    if [ $? -ne 0 ]; then fail "Cannot copy gitconfig.itsv"; exit 2 ; 
+    else success "done."
+    fi
 fi
-
-
-
-
-
-
-
-
 
 
 #
 # end
 #
-echo ''
+echo ""
 success "that's it."
 
 
