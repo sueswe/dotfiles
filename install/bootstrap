@@ -125,7 +125,7 @@ fi
 myIP=$(ifconfig | grep addr: | grep 192 | awk '{print$2}' | awk -F: '{print $2}')
 myNET=$(echo $myIP | awk -F. '{print $1 }')
 
-if [[ "$myNET" -eq "192" ]]; then
+if [[ "$myNET" -eq "192" || $HOSTNAME == *[Ss]wift* ]]; then
     echo "we're at home, baby"
     cp -f git/gitconfig ~/.gitconfig
     if [ $? -ne 0 ]; then fail "Cannot copy gitconfig"; exit 2 ; fi
@@ -149,7 +149,7 @@ else
 fi
 echo ""
 
-source liquidprompt/liquidprompt
+source ~/liquidprompt/liquidprompt
 
 
 #
@@ -157,3 +157,4 @@ source liquidprompt/liquidprompt
 #
 echo ""
 success "that's it."
+
