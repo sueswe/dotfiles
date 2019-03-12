@@ -1,0 +1,250 @@
+# ===========================================
+# Shades of Grey 
+# ===========================================
+
+# -------------------------------------------
+# General Settings
+# -------------------------------------------
+ThemeDescription="Shades of Grey"
+ThemeAuthor="<valery@@@vslash.com> and Marcus Moeller <m.moeller@@@fsfe.org>"
+Look=flat
+Gradients="buttonA.xpm buttonI.xpm dialogbg.xpm logoutbg.xpm switchbg.xpm menubg.xpm menusel.xpm menusep.xpm taskbuttonactive.xpm taskbarbg.xpm taskbuttonbg.xpm taskbuttonminimized.xpm toolbuttonbg.xpm workspacebuttonbg.xpm workspacebuttonactive.xpm titleAB.xpm titleAS.xpm titleAT.xpm titleIB.xpm titleIS.xpm titleIT.xpm"
+
+#Gradients="taskbarbg.xpm taskbuttonbg.xpm taskbuttonactive.xpm taskbuttonminimized.xpm workspacebuttonbg.xpm workspacebuttonactive.xpm"
+
+# Window Settings
+# -------------------------------------------
+BorderSizeX=3
+BorderSizeY=3
+CornerSizeX=19
+CornerSizeY=19
+DlgBorderSizeX=3
+DlgBorderSizeY=3
+MoveSizeInterior=0
+
+# -------------------------------------------
+# Window Title Bar Buttons & Text Setting
+# -------------------------------------------
+TitleButtonsLeft=""
+TitleButtonsRight="xmir"
+TitleButtonsSupported="sxmir"
+TitleBarCentered=1
+TitleBarHeight=19
+TitleBarJustify=1
+#TitleBarHorzOffset=0
+TitleBarVertOffset=0
+ShowMenuButtonIcon=0
+RolloverButtonsSupported=1
+TrayDrawBevel=0
+
+# -------------------------------------------
+# Behaviors Setting (some)
+# -------------------------------------------
+MenuMouseTracking=1 
+MenuActivateDelay=1
+SubmenuMenuActivateDelay=1
+CenterMaximizedWindows=1
+
+# -------------------------------------------
+# Background
+# -------------------------------------------
+DesktopBackgroundColor="rgb:30/30/30"
+DesktopBackgroundScaled=0 				# 0 / 1
+DesktopBackgroundCenter=1 				# 0 / 1
+SupportSemitransparency=1 # 0 / 1
+DesktopTransparencyColor="rgb:ff/ff/ff"
+
+# -------------------------------------------
+# Ice Menu Settings
+# -------------------------------------------
+MenuMaximalWidth=200 # 0-20000
+
+# -------------------------------------------
+# Window Title Bar Color
+# -------------------------------------------
+# Active
+ColorActiveTitleBar="rgb:70/70/70"
+ColorActiveTitleBarText="rgb:d0/d4/d4"
+ColorActiveTitleBarShadow="rgb:00/00/00"
+# Inactive
+ColorNormalTitleBar="rgb:A0/A0/A0"
+ColorNormalTitleBarText="rgb:b8/b8/b8"
+ColorNormalTitleBarShadow="rgb:40/40/40"
+
+ColorNormalTitleButtonText="rgb:00/00/00"
+
+# -------------------------------------------
+# Task Bar Colors
+# -------------------------------------------
+# ToolBar Buttons
+ColorToolButton="rgb:40/44/44"
+ColorToolButtonText="rgb:e0/e0/e0"
+
+# Workspace Buttons
+ColorNormalWorkspaceButton="rgb:40/44/44"
+ColorNormalWorkspaceButtonText="rgb:e0/e0/e0"
+
+ColorActiveWorkspaceButton="rgb:6a/70/70"
+ColorActiveWorkspaceButtonText="rgb:f0/f0/f0"
+
+
+# TaskBar App Buttons
+ColorDefaultTaskBar="rgb:5C/5C/5C"
+
+ColorMinimizedTaskBarApp="rgb:50/54/54"
+ColorMinimizedTaskBarAppText="rgb:a0/a0/a0"
+
+ColorNormalTaskBarApp="rgb:50/54/54"
+ColorNormalTaskBarAppText="rgb:e0/e0/e0"
+
+ColorActiveTaskBarApp="rgb:70/74/74"
+ColorActiveTaskBarAppText="rgb:f0/f0/f0"
+
+ColorInvisibleTaskBarApp="rgb:30/34/34"
+ColorInvisibleTaskBarAppText="rgb:b0/b0/b0"
+
+
+# Address Bar
+ColorInput="rgb:00/00/00"
+ColorInputText="rgb:00/FF/00"
+ColorInputSelection="rgb:60/60/60"
+ColorInputSelectionText="rgb:00/FF/00"
+
+# Net Applet
+ColorNetIdle="rgb:00/00/00"
+ColorNetSend="rgb:C0/E3/69"
+ColorNetReceive="rgb:60/A8/E8"
+
+# CPU Applet
+ColorCPUStatusIdle="rgb:00/00/00"
+ColorCPUStatusUser="rgb:00/FF/00"
+ColorCPUStatusSystem="rgb:FF/00/00"
+ColorCPUStatusNice="rgb:00/00/FF"
+ColorCPUStatusIoWait="rgb:60/00/60"
+ColorCPUStatusSoftIrq="rgb:00/FF/FF"
+
+## Clock Applet								-1.2
+#TaskBarClockLeds=1
+#ColorClock="rgb:00/00/00"
+#ColorClockText="rgb:F0/F0/F0"
+# Clock Applet								+1.2
+TaskBarClockLeds=0
+ColorClock=""
+ColorClockText="rgb:f0/f0/f0"
+
+# -------------------------------------------
+# IceWM Menu Colors
+# -------------------------------------------
+ColorNormalMenu="rgb:50/52/51"
+ColorNormalMenuItemText="rgb:e0/e0/e0"
+ColorActiveMenuItem="rgb:2F/33/2D"
+ColorActiveMenuItemText="rgb:f0/f0/f0"
+ColorDisabledMenuItemText="rgb:85/85/85"
+ColorDisabledMenuItemShadow="rgb:1a/1a/1a"
+
+# -------------------------------------------
+# List Box Colors
+# -------------------------------------------
+ColorListBox="rgb:66/66/66"
+ColorListBoxText="rgb:bf/bf/af"
+ColorListBoxSelection="rgb:2F/33/2D"
+ColorListBoxSelectionText="rgb:BF/D8/2C"
+
+# -------------------------------------------
+# ScrollBar Colors
+# -------------------------------------------
+ColorScrollBar="rgb:6C/6C/6C"
+ColorScrollBarArrow="rgb:50/50/50"
+ColorScrollBarSlider="rgb:50/50/50"
+ColorScrollBarButton="rgb:5C/5C/5C"
+ColorScrollBarButtonArrow="rgb:c0/c0/c0"
+ColorScrollBarInactiveArrow="rgb:80/80/80"
+
+# -------------------------------------------
+# Misc Colors
+# -------------------------------------------
+# QuickSwitch
+ColorQuickSwitch="rgb:5c/5c/5c"
+ColorQuickSwitchText="rgb:C0/C0/C0"
+ColorQuickSwitchActive="rgb:60/60/60"
+
+# Dialog box color
+ColorDialog="rgb:5C/5C/5C"
+ColorDialogText ="rgb:C0/C0/C0"
+
+# Dialog Label color
+ColorLabel="rgb:5C/5C/5C"
+ColorLabelText="rgb:C0/C0/C0"
+
+# Normal button color
+ColorNormalButton="rgb:64/64/64"
+ColorNormalButtonText="rgb:e0/e0/e0"
+
+# Active button color
+ColorActiveButton="rgb:5c/5c/5c"
+ColorActiveButtonText="rgb:d0/d0/d0"
+
+# Tooltip color
+ColorToolTip="rgb:50/50/50"
+ColorToolTipText="rgb:ff/ff/ff"
+
+# Move Size
+ColorMoveSizeStatus="rgb:5c/5c/5c"
+ColorMoveSizeStatusText="rgb:cf/e8/30"
+
+# Minimized window Color
+ColorNormalMinimizedWindow="rgb:5c/5c/5c"
+ColorNormalMinimizedWindowText="rgb:c0/c0/c0"
+ColorActiveMinimizedWindow="rgb:50/50/50"
+ColorActiveMinimizedWindowText="rgb:cf/e8/c3"
+
+# -------------------------------------------
+# Fonts Specification
+# -------------------------------------------
+# --------------
+# Xft 
+# --------------
+TitleFontNameXft			="bitstream vera sans:pixelsize=11:bold"
+MenuFontNameXft				="bitstream vera sans:size=8"
+MinimizedWindowFontNameXft	="bitstream vera sans:pixelsize=9"
+ActiveButtonFontNameXft		="bitstream vera sans:size=8:bold"		
+NormalButtonFontNameXft		="bitstream vera sans:pixelsize=11:bold"
+NormalWorkspaceFontNameXft	="bitstream vera sans:pixelsize=12"	 
+ActiveWorkspaceFontNameXft	="bitstream vera sans:pixelsize=12"	
+QuickSwitchFontNameXft		="terminal:size=9:medium"
+moveSizeFontNameXft			="terminal:size=9"
+ListBoxFontNameXft			="bitstream vera sans:pixelsize=11"
+LabelFontNameXft			="bitstream vera sans:size=8"
+StatusFontNameXft			="terminal:size=9" 
+FxFontNameXft				="terminal:size=9:medium"
+InputFontNameXft			="terminal:size=9:medium"
+ToolTipFontNameXft			="terminal:size=9:bold"
+ToolButtonFontNameXft		="terminal:size=9:medium"
+ActiveTaskBarFontNameXft	="bitstream vera sans:pixelsize=11"
+NormalTaskBarFontNameXft	="bitstream vera sans:pixelsize=11"
+ApmFontNameXft				="terminal:size=9:medium"
+ClockFontNameXft			="terminal:size=9:medium"
+#
+# --------------
+# Corefonts
+# --------------
+#TitleFontName				="-bitstream-bitstream vera sans-medium-r-normal-*-*-90-*-*-p-*-iso8859-1"
+#MenuFontName				="-bitstream-bitstream vera sans-medium-r-normal-*-*-80-*-*-p-*-iso8859-1"
+#MinimizedWindowFontName	="-bitstream-bitstream vera sans-medium-r-normal-*-*-90-*-*-p-*-iso8859-1"
+#ActiveButtonFontName		="-bitstream-bitstream vera sans-medium-r-normal-*-*-80-*-*-p-*-iso8859-1"
+#NormalButtonFontName		="-bitstream-bitstream vera sans-bold-r-normal-*-*-110-*-*-p-*-iso8859-1"
+#NormalWorkspaceFontName	="-bitstream-bitstream vera sans-medium-r-normal-*-*-120-*-*-p-*-iso8859-1"
+#ActiveWorkspaceFontName	="-bitstream-bitstream vera sans-medium-r-normal-*-*-120-*-*-p-*-iso8859-1"
+#QuickSwitchFontName		="-bitstream-bitstream vera sans mono-bold-r-normal--11-80-100-100-m-70-ascii-0"
+#moveSizeFontName			="-bitstream-bitstream vera sans mono-medium-r-normal--11-80-100-100-m-70-ascii-0"
+#ListBoxFontName			="-bitstream-bitstream vera sans-medium-r-normal-*-*-80-*-*-p-*-iso8859-1"
+#LabelFontName				="-bitstream-bitstream vera sans-medium-r-normal-*-*-80-*-*-p-*-iso8859-1"
+#StatusFontName				="-bitstream-bitstream vera sans mono-medium-r-normal--11-80-100-100-m-70-ascii-0"
+#FxFontName					="-bitstream-bitstream vera sans mono-medium-r-normal--11-80-100-100-m-70-ascii-0"
+#InputFontName				="-bitstream-bitstream vera sans mono-medium-r-normal--11-80-100-100-m-70-ascii-0"
+#ToolTipFontName			="-bitstream-bitstream vera sans mono-bold-r-normal--11-80-100-100-m-70-ascii-0"
+#ToolButtonFontName			="-bitstream-bitstream vera sans mono-medium-r-normal--11-80-100-100-m-70-ascii-0"
+#ActiveTaskBarFontName		="-bitstream-bitstream vera sans-medium-r-normal-*-*-110-*-*-p-*-iso8859-1"
+#NormalTaskBarFontName		="-bitstream-bitstream vera sans-medium-r-normal-*-*-110-*-*-p-*-iso8859-1"
+#ApmFontName				="-bitstream-bitstream vera sans mono-medium-r-normal--11-80-100-100-m-70-ascii-0"
+#ClockFontName				="-bitstream-bitstream vera sans mono-bold-r-normal--11-80-100-100-m-70-ascii-0"

@@ -1,0 +1,23 @@
+/* XPM */
+static char *fserver_16x16[]={
+"16 16 4 1",
+". c None",
+"a c #3a3a3a",
+"# c #c3c3c3",
+"b c #ffac58",
+"................",
+"..############..",
+"..#aaaaaaaaaa#a.",
+"..#a.bbbbbb..#a.",
+"..#a.bbbbbba.#a.",
+"..#a.bbbbbba.#a.",
+"..#a.bbbbbba.#a.",
+"..#a.bbbbbba.#a.",
+"..#a.bbbbbba.#a.",
+"..#a..a##aaa.#a.",
+"..############a.",
+"...aaaa##aaaaaa.",
+".......##.......",
+".##############.",
+"..aaaaa##aaaaaaa",
+"........aa......"};

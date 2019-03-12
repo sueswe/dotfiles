@@ -1,0 +1,3 @@
+key "Alt+F2"    gmrun
+key "Alt+T"     x-terminal-emulator
+key "Ctrl+Alt+Del"  i3lock -d -i /home/itsv.org.sv-services.at/31300094/Pictures/radiotelescopios-wallpaper-1680x1050.png -f -t

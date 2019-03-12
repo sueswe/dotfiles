@@ -1,0 +1,25 @@
+# SVG-ice
+#
+# The SVG-ice Theme is a IceWM theme based on 
+# the "SVG Deco - concept" by "spasemunkie".
+# (http://www.kde-look.org/content/show.php?content=20002)
+#
+# Thanks for this cool artwork! ;)
+
+ThemeDescription"svg-ice"
+ThemeAuthor="jan-victor.krille@gmx.de"
+
+Look=pixmap
+TitleButtonsRight=xmi
+TitleButtonsLeft=s
+TitleBarHeight=30
+
+BorderSizeX=1
+BorderSizeY=1
+CornerSizeX=14
+CornerSizeY=14
+
+ColorActiveTitleBar="rgb:F9/5A/32"
+ColorNormalTitleBar="rgb:AA/AA/AA"
+ColorNormalButton="rgb:AA/AA/AA"
+ColorActiveButton="rgb:FF/00/00"

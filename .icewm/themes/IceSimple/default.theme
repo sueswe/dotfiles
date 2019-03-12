@@ -1,0 +1,180 @@
+ThemeDescription="IceSimple; 
+An IceWM (1.2.27) port of the 'Simple' Metacity & GTK themes, 
+& elements from the Gnome icon theme on Ubuntu 6.10"
+
+ThemeAuthor="thomas@trueFormat.co.uk"
+
+
+
+# general options BEGIN
+
+Look=metal
+
+RolloverButtonsSupported=0
+TitleButtonsSupported="xmis"
+ShowMenuButtonIcon=1
+TaskBarClockLeds=0 # forcing this because digital clocks look terrible
+ConsiderVBorder=0
+ConsiderHBorder=0
+
+# general options END
+
+
+
+# geometry BEGIN
+
+TitleBarJustify=50
+TitleBarHeight=20
+BorderSizeX=4
+BorderSizeY=4
+CornerSizeX=20
+CornerSizeY=20
+DlgBorderSizeX=4
+DlgBorderSizeY=4
+
+# geometry END
+
+
+
+
+# general colors BEGIN
+
+ColorToolTip="rgb:e2/e2/de"
+ColorToolTipText="rgb:00/00/00"
+
+ColorLabel="rgb:e2/e2/de" #  Background of labels, leave empty to force transparency
+ColorLabelText="rgb:00/00/00" 
+
+# quickswitch BEGIN
+
+ColorQuickSwitch="rgb:e2/e2/de" # bgcolor  
+ColorQuickSwitchText="rgb:00/00/00" # unselected app text
+# see ColorActiveTitleBarText for text
+
+ColorQuickSwitchActive="rgb:45/6b/7f" #  Rectangle arround the active icon in the quick switch window
+
+
+
+# quickswitch END
+
+
+# window BEGIN
+
+ColorActiveTitleBarText="rgb:ff/ff/ff" # !! also affects quickswitch selected app text
+ColorActiveTitleBarShadow="rgb:4c/4c/4c"
+
+ColorNormalTitleBarText="rgb:7f/7f/7f" # unfocused titlebar text color
+ColorNormalTitleBarShadow=""
+
+ColorActiveBorder="rgb:3D/3D/3D" # transparent move border color (moved bordercolor = bg - ColorActiveBorder)
+ColorNormalBorder="rgb:00/00/00" # does nothing on a pixmap border theme
+
+ColorDialog="rgb:e2/e2/de" # dialog bgcolor 
+# see ColorNormalButtonText for active dialog button text color
+
+ColorListBox="rgb:e2/e2/de" # windowlist bgcolor
+ColorListBoxText="rgb:00/00/00" 
+
+ColorListBoxSelection="rgb:45/6b/7f" # window list selected item bgcolor
+ColorListBoxSelectionText="rgb:ff/ff/ff" # windowlist selected item text
+
+ColorScrollBar="rgb:c2/c2/be" # scrollbar bgcolor
+ColorScrollBarSlider="rgb:e2/e2/de" # scrollbar color
+ColorScrollBarButton="rgb:e2/e2/de"
+ColorScrollBarButtonArrow="rgb:00/00/00"
+
+ColorMoveSizeStatus="rgb:e2/e2/de"
+ColorMoveSizeStatusText="rgb:00/00/00"
+
+# window END
+
+
+# menu BEGIN
+
+ColorNormalMenu="rgb:e2/e2/de" # popup menu bgcolor (all)
+ColorNormalMenuItemText="rgb:00/00/00" 
+ColorActiveMenuItem="rgb:a1/a1/98" # selected menu item bg
+ColorActiveMenuItemText="rgb:41/5a/92" # menu selected item text
+ColorDisabledMenuItemText="rgb:96/96/96"
+ColorDisabledMenuItemShadow="rgb:ff/ff/ff"
+
+# menu END
+
+
+# taskbar BEGIN
+
+ColorDefaultTaskBar="rgb:e2/e2/de"
+
+ColorNormalButton="rgb:e2/e2/de" # all taskbar button bgcolors except workspace and active programs  
+ColorNormalButtonText="rgb:00/00/00" # inactive workspace button text color - !! also affects active dialog button text color
+
+ColorNormalWorkspaceButton="rgb:e2/e2/de" # workspace button bg
+ColorActiveWorkspaceButton="rgb:c2/c2/be"
+
+ColorActiveButton="rgb:c2/c2/be" # ?
+ColorActiveButtonText="rgb:31/4a/82" # active workspace & button text color
+
+ColorInput="rgb:e2/e2/de" # taskbar: command input area bgcolor
+ColorInputText="rgb:00/00/00"
+
+ColorInputSelection="rgb:45/6b/7f" #  Background of selected text in an entry field
+ColorInputSelectionText="rgb:ff/ff/ff" #  Selected text in an entry field
+
+ColorNormalTaskBarApp="rgb:e2/e2/de" # unfocused app bg
+ColorNormalTaskBarAppText="rgb:00/00/00"
+
+ColorInvisibleTaskBarApp="rgb:e2/e2/de" # app on other workspace bg
+ColorInvisibleTaskBarAppText="rgb:b5/b3/ac" 
+
+ColorActiveTaskBarApp="rgb:c2/c2/be" # focused app bg
+ColorActiveTaskBarAppText="rgb:31/4a/82"
+
+ColorMinimizedTaskBarApp="rgb:e2/e2/de" # minimised app bg
+ColorMinimizedTaskBarAppText="rgb:50/50/50"
+
+ColorApm="" # apm status bgcolor
+ColorApmText="rgb:00/00/00"
+
+ColorCPUStatusIdle="rgb:c2/c2/be" # cpu status bgcolor
+ColorCPUStatusInterrupts="rgb:00/00/00"
+ColorCPUStatusIoWait="rgb:80/80/80"
+ColorCPUStatusSoftIrq="rgb:ff/ff/ff"
+
+ColorCPUStatusUser="rgb:72/9f/cf"
+ColorCPUStatusSystem="rgb:45/6b/7f"
+ColorCPUStatusNice="rgb:b7/ca/a5"
+
+ColorNetIdle="rgb:c2/c2/be" # net status bgcolor
+ColorNetReceive="rgb:72/9f/cf"
+ColorNetSend="rgb:45/6b/7f"
+
+ColorClock="" # clock bgcolor
+ColorClockText="rgb:00/00/00"
+
+# taskbar END
+
+
+# general colors END
+
+
+
+# Font Specifications BEGIN
+
+TitleFontNameXft		=	sans-serif:size=10
+MenuFontNameXft			=	sans-serif:size=10
+MinimizedWindowFontNameXft	=	sans-serif:size=10
+ActiveButtonFontNameXft		=	sans-serif:size=10
+NormalButtonFontNameXft		=	sans-serif:size=10
+ToolButtonFontNameXft		=	sans-serif:size=10
+NormalWorkspaceFontNameXft	=	sans-serif:size=10
+ActiveWorkspaceFontNameXft	=	sans-serif:size=10
+QuickSwitchFontNameXft		=	sans-serif:size=10
+ListBoxFontNameXft		=	sans-serif:size=10
+StatusFontNameXft		=	sans-serif:size=10
+ToolTipFontNameXft		=	sans-serif:size=10
+ActiveTaskBarFontNameXft	=	sans-serif:size=10
+NormalTaskBarFontNameXft	=	sans-serif:size=10
+ClockFontNameXft		=	sans-serif:size=10
+InputFontNameXft		=	sans-serif:size=10
+
+# Font Specifications END

@@ -1,0 +1,41 @@
+////////// WAR1OCK - DIE H/\CK |V ////////////
+
+
+Inspired from 'Die Hard Iv' movie as seen on
+the chat window 'Warlock' from Farrell
+hacker desktop theme.
+
+1. xcompmgr
+For people using xcompmgr, reduce shadow border 
+size, and decrease left shift, 
+because theme right's edge is an empty area, 
+but window's edge is not, so shading would
+overlap 2 much your desktop.
+Try this :
+% xcompmgr -c -o .30 -r 3 -l -6 -t -1 -C -f -D 4
+The best we could do i think.
+
+2. integration
+- Gtk 1, 2 : 'darkilouch' or something is nice.
+- xmms : ldc
+- icons used on shot are 'Mac4Lin'
+
+3. Fonts
+theme is based on bitstream fonts.
+It use Xft Icewm feature ; if you are not
+Xft compliant, uncomment last lines on
+theme.default (and comment Xft ones)
+
+4. Colors
+wish to change color ?
+% cd _warlock_theme_dir_/frame
+% grep -l 'oldcolor' |\
+  xargs sed -i -e 's/oldcolor/newcolor/g'
+% cd _warlock_theme_dir_/menu
+% sed -i -e 's/oldcolor/newcolor/g' menusel.xpm
+
+warlock::color			: CE8301
+warlock_green::color 	: AFC81C
+
+
+////////////// vslash.com //// 2009-2010 ////

@@ -1,0 +1,23 @@
+/* XPM */
+static char *folder_mpt_16x16[]={
+"16 16 4 1",
+". c None",
+"a c #3a3a3a",
+"# c #c3c3c3",
+"b c #ffac58",
+"................",
+".##############.",
+".#aaaaaaaaaaaa#a",
+".#a...........#a",
+".#a...........#a",
+".#a..bbbbbb...#a",
+"..a..bbbbbba...a",
+".....bbbbbba....",
+".....bbbbbba....",
+".....bbbbbba....",
+".#...bbbbbba..#.",
+".#a...aaaaaa..#a",
+".#a...........#a",
+".#a...........#a",
+".##############a",
+"..aaaaaaaaaaaaaa"};
