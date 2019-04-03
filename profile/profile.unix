@@ -42,6 +42,7 @@ alias mv='mv -i'
 alias rm='rm -v'
 alias n='nslookup'
 alias s='sudo su -'
+alias lxterminal='lxterminal --geometry=100x57'
 
 #
 # git aliases ################################################################
