@@ -3,6 +3,5 @@
 ~/bin/dual-monitor.sh &
 pidgin &
 hexchat &
-tilix &
 guake &
 

@@ -10,4 +10,4 @@ prog XTerm xterm x-terminal-emulator
 prog    "WWW" /usr/share/icons/Pop/48x48/apps/chrome.svg x-www-browser
 prog    "vmware-view" vmware-view vmware-view
 prog bareftp /usr/share/icons/Pop/48x48/apps/bareftp.svg bareftp
-prog Opcon /home/itsv.org.sv-services.at/31300094/bin/EnterpriseManager/icon.xpm /home/itsv.org.sv-services.at/31300094/bin/em
+prog Opcon /home/itsv.org.sv-services.at/31300094/bin/EnterpriseManager18/EnterpriseManager/icon.xpm /home/itsv.org.sv-services.at/31300094/bin/em18
