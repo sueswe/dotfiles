@@ -64,7 +64,7 @@ alias gb='git branch -a'
 #
 # editors
 #
-alias np='gedit'
+alias np='mousepad'
 alias gy='geany'
 alias showrgb='showrgb | less'
 
