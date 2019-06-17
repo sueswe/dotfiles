@@ -1,0 +1,4 @@
+echo '
+Open dconf-editor
+Go to org/gnome/desktop/wm/keybindings
+'

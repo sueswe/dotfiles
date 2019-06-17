@@ -1,0 +1,3 @@
+google-chrome-stable &
+# --no-proxy-server
+# --proxy=http://proxy.sozvers.at:8080 

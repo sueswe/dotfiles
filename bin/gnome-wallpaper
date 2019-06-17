@@ -12,4 +12,7 @@ else
     #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//94.jpg
     #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//milky_way_sky-wide.jpg
     #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/System76-System76_Logo_Blue-by_Kate_Hazen_of_System76.jpg
+    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/Floorboards_by_Dawid_Huczyński.jpg
+    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/abstract-art-blur-713644.jpg
+    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/adult-alcohol-alcoholic-206527.jpg
 fi
