@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'bootstrap v0.8'
+echo 'bootstrap v0.9.1'
 
 DOTFILES_ROOT="`pwd`"
 
@@ -66,7 +66,7 @@ fi
 if [ -e ~/.bashrc ]; then
     info ".bashrc found ... \n"
     if [[ $(grep '.profile' ~/.bashrc) ]]; then
-        info "profile already exists in .bashrc \n"
+        info ".profile - string already exists in ~/.bashrc \n"
     else
         info "adding source .profile ...\n"
         echo '. ~/.profile' >> ~/.bashrc
@@ -101,6 +101,24 @@ fi
 cp -f vim/vimrc ~/.vimrc
 success "done"
 
+#
+# git binary
+#
+info "checking for git ..."
+if [[ -x $(which git) ]]; then
+    success " ... good."
+else
+    fail "git not found."
+    info "trying to apt ..."
+    sudo apt-get install git
+    rtc=$?
+    if [[ $rtc -eq 0 ]]; then
+        success "done"
+    else
+        fail "cannot install git"
+        exit 44
+    fi
+fi
 
 #
 # installing .gitconfig
@@ -139,7 +157,8 @@ fi
 
 echo ""
 
-info "now we install liquidpromt do $HOME ..."
+
+info "now we're cloning liquidpromt to $HOME ..."
 cd
 git clone https://github.com/nojhan/liquidprompt.git
 if [[ $? -ne 0 ]]; then
@@ -148,13 +167,10 @@ else
     info "... and loading it."
 fi
 echo ""
-
 source ~/liquidprompt/liquidprompt
-
 
 #
 # end
 #
 echo ""
 success "that's it."
-
