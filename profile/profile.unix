@@ -69,6 +69,11 @@ alias gy='geany'
 alias showrgb='showrgb | less'
 
 #
+# ansible
+#
+export ANSIBLE_SSH_ARGS=''
+
+#
 # we try rhis out ...
 #
 source ~/liquidprompt/liquidprompt
