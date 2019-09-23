@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Bazik_Dark_Yellow</name>
+    <name>Natura</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -177,6 +177,30 @@
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
   <keyboard>
+    <keybind key="W-Left">
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo">
+          <x>0</x>
+          <y>0</y>
+          <width>50%</width>
+          <height>97%</height>
+        </action>
+    </keybind>
+    <keybind key="W-Right">
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo">
+          <x>1/2</x>
+          <y>0</y>
+          <width>50%</width>
+          <height>97%</height>
+        </action>
+    </keybind>
+    <keybind key="W-Down">
+        <action name="Iconify"/>
+    </keybind>
+    <keybind key="W-Up">
+        <action name="Maximize"/>
+    </keybind>
     <chainQuitKey>C-g</chainQuitKey>
     <keybind key="A-F2">
       <action name="Execute">
@@ -187,7 +211,6 @@
         <command>gmrun</command>
       </action>
     </keybind>
-
     <keybind key="A-t">
       <action name="Execute">
         <startupnotify>
@@ -197,7 +220,6 @@
         <command>lxterminal</command>
       </action>
     </keybind>
-
     <keybind key="C-A-l">
       <action name="Execute">
         <startupnotify>
@@ -207,7 +229,6 @@
         <command>~/bin/sb</command>
       </action>
     </keybind>
-
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop">
@@ -280,7 +301,6 @@
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
-
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
       <action name="Close"/>
@@ -331,7 +351,6 @@
         </finalactions>
       </action>
     </keybind>
-
     <!-- Keybindings for window switching with the arrow keys -->
     <keybind key="W-S-Right">
       <action name="DirectionalCycleWindows">
@@ -363,7 +382,6 @@
         <command>kfmclient openProfile filemanagement</command>
       </action>
     </keybind>
-    
     <!-- Launch scrot when Print is pressed -->
     <keybind key="Print">
       <action name="Execute">
