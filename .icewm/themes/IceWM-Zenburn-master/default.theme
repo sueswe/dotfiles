@@ -1,0 +1,199 @@
+ThemeAuthor="Ryan Reamsbottom"
+ThemeDescription="Zenburn"
+
+Look=flat
+TrayDrawBevel=0
+
+RolloverButtonsSupported=1 # 0 / 1
+
+# ---------------------------------------------------------------------------
+# Titlebar
+# ---------------------------------------------------------------------------
+TitleButtonsSupported="dhimrsx"
+# TitleButtonsLeft="d"
+
+# ---------------------------------------------------------------------------
+# Window
+# ---------------------------------------------------------------------------
+ColorNormalButtonBorder="#2b2a29"
+ColorNormalTitleBar="#3f3f3f"
+ColorNormalTitleBarText="#dcdccc"
+ColorNormalTitleButton="#8cd0d3"
+ColorNormalBorder="#3f3f3f"
+
+ColorActiveBorder="#dcdccc"
+ColorActiveTitleBar="#dcdccc"
+ColorActiveTitleBarText="#3f3f3f"
+ColorToolButton=""
+
+TitleBarHeight=20 # 0-128
+TitleBarHorzOffset=10 # -128-128
+
+BorderSizeX=5 # 0-128
+BorderSizeY=5 # 0-128
+CornerSizeX=10 # 0-64
+CornerSizeY=10 # 0-64
+
+#BorderSizeX=0 # 0-128
+#BorderSizeY=0 # 0-128
+#CornerSizeX=0 # 0-64
+#CornerSizeY=0 # 0-64
+
+DlgBorderSizeX=3 # 0-128
+DlgBorderSizeY=3 # 0-128
+
+ShapesProtectClientWindow=0 # 0 / 1
+
+# ---------------------------------------------------------------------------
+#	Menu
+# ---------------------------------------------------------------------------
+ColorNormalMenu="#3f3f3f"
+ColorActiveMenuItem="#dcdccc"
+ColorNormalMenuItemText="#dcdccc"
+ColorActiveMenuItemText="#3f3f3f"
+ColorDisabledMenuItemText="#E0B000"
+
+# ---------------------------------------------------------------------------
+#	Move status
+# ---------------------------------------------------------------------------
+ColorMoveSizeStatus="#3f3f3f"
+ColorMoveSizeStatusText="#dcdccc"
+
+# ---------------------------------------------------------------------------
+# Dialog Window and buttons
+# ---------------------------------------------------------------------------
+ColorDialog="#3f3f3f"
+ColorNormalButton="#3f3f3f"
+ColorNormalButtonText="#dcdccc"
+
+# ---------------------------------------------------------------------------
+# Windows list
+# ---------------------------------------------------------------------------
+
+ColorListBox="#3f3f3f"
+ColorListBoxText="#dcdccc"
+ColorListBoxSelection="#496eb0"
+ColorListBoxSelectionText="#3f3f3f"
+
+# ---------------------------------------------------------------------------
+# Quick switch
+# ---------------------------------------------------------------------------
+ColorQuickSwitch="#3f3f3f"
+ColorQuickSwitchText="#dcdccc"
+ColorQuickSwitchActive="#496eb0"
+
+# ---------------------------------------------------------------------------
+# Clock
+# ---------------------------------------------------------------------------
+ColorClock="#3f3f3f"
+ColorClockText="#dcdcdc"
+
+# ---------------------------------------------------------------------------
+# CPU status
+# ---------------------------------------------------------------------------
+ColorCPUStatusUser="#FF8C00"
+ColorCPUStatusSystem="#FF0000"
+ColorCPUStatusNice="#0000FF"
+ColorCPUStatusIdle="#252525"
+
+# ---------------------------------------------------------------------------
+# Network status
+# ---------------------------------------------------------------------------
+ColorNetSend="#b76262"
+ColorNetReceive="#5f9c5f"
+ColorNetIdle="#3f3f3f"
+
+# ---------------------------------------------------------------------------
+# Taskbar
+# ---------------------------------------------------------------------------
+
+# ToolTip
+ColorToolTip="#3f3f3f"
+ColorToolTipText="#dcdccc"
+
+ColorInput="#3f3f3f"
+ColorInputText="#dcdccc"
+ColorInputSelection="#8faf9f"
+ColorInputSelectionText="#dcdccc"
+
+# Workspaces
+ColorNormalWorkspaceButton="#3f3f3f"
+ColorNormalWorkspaceButtonText="#dcdccc"
+ColorActiveWorkspaceButton="#8faf9f"
+ColorActiveWorkspaceButtonText="#3f3f3f"
+
+# Taskbar
+ColorDefaultTaskBar="#3f3f3f"
+ColorNormalTaskBarApp="#3f3f3f"
+ColorNormalTaskBarAppText="#dcdccc"
+ColorMinimizedTaskBarApp="#3f3f3f"
+ColorMinimizedTaskBarAppText="696969"
+ColorActiveTaskBarApp="#8cd0d3"
+ColorActiveTaskBarAppText="#3f3f3f"
+
+# ---------------------------------------------------------------------------
+# Font Specifications
+# ---------------------------------------------------------------------------
+
+#TitleFontName="-*-sans-medium-r-*-*-10-*-*-*-*-*-*-*"
+TitleFontNameXft="Noto Sans:size=10:normal"
+
+#MenuFontName="-*-sans-bold-r-normal-*-14-*-*-p-*--*-*"
+MenuFontNameXft="Noto Sans:size=10:medium"
+
+#NormalTaskBarFontName="-*-sans-bold-r-normal-*-7-*-*-p-*--*-*"
+NormalTaskBarFontNameXft="Noto Sans:size=10:medium"
+
+#ActiveTaskBarFontName="-*-sans-bold-r-normal-*-14-*-*-p-*--*-*"
+ActiveTaskBarFontNameXft="Noto Sans:size=10:bold"
+
+#NormalButtonFontName="-*-sans-medium-r-normal-*-14-*-*-p-*--*-*"
+NormalButtonFontNameXft="Noto Sans:size=9:medium"
+
+#ActiveButtonFontName="-*-sans-bold-r-normal-*-14-*-*-p-*--*-*"
+ActiveButtonFontNameXft="Noto Sans:size=9:bold"
+
+#LabelFontName="-*-sans-medium-r-normal-*-14-*-*-p-*--*-*"
+LabelFontNameXft="Noto Sans:size=12:bold"
+
+#ToolTipFontName="-*-sans-medium-r-normal-*-14-*-*-p-*--*-*"
+ToolTipFontNameXft="Noto Sans:size=10:medium"
+
+#ClockFontName="-*-monospace-medium-r-normal-*-14-*-*-p-*--*-*"
+ClockFontNameXft="Noto Sans:size=12:medium"
+
+#ApmFontName="-*-monospace-medium-r-normal-*-14-*-*-p-*--*-*"
+ApmFontNameXft="Menlo LG S for Powerline Regular:size=10"
+
+#InputFontName="-*-monospace-medium-r-normal-*-14-*-*-p-*--*-*"
+InputFontNameXft="Menlo LG S for Powerline Regular:size=12"
+
+#moveSizeFontName="-*-sans-bold-r-normal-*-14-*-*-p-*--*-*"
+moveSizeFontNameXft="Noto Sans:size=12:bold"
+
+#QuickSwitchFontName="-*-sans-bold-r-normal-*-14-*-*-p-*--*-*"
+QuickSwitchFontNameXft="Noto Sans:size=12:bold"
+
+#ListBoxFontName="-*-sans-bold-r-normal-*-14-*-*-p-*--*-*"
+ListBoxFontNameXft="Noto Sans:size=10:medium"
+
+#StatusFontName="-sans-bold-r-normal-*-14-*-*-p-*--*-*"
+StatusFontNameXft="Noto Sans:size=12:bold"
+
+#ToolButtonFontName="-*-monospace-bold-r-normal-*-14-*-*-p-*--*-*"
+ToolButtonFontNameXft="Menlo LG S for Powerline Bold:size=10"
+
+#FxFontName="-*-monospace-bold-r-normal-*-14-*-*-p-*--*-*"
+FxFontNameXft="Menlo LG S for Powerline Bold:size=10"
+
+#MinimizedWindowFontName="-*-sans-medium-r-normal-*-14-*-*-p-*--*-*"
+MinimizedWindowFontNameXft="Noto Sans:size=10:medium"
+
+# ---------------------------------------------------------------------------
+# Background
+# ---------------------------------------------------------------------------
+DesktopBackgroundColor = #3f3f3f
+DesktopBackgroundCenter = 1
+DesktopBackgroundScaled = 1 
+#DesktopBackgroundImage = 'ku_2.png'
+

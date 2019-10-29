@@ -1,0 +1,31 @@
+# This theme has been ported from the Axios Enlightenment theme from Tokyo, who
+# has ported it from Gear and Allout.
+
+ThemeDescription="Axios"
+ThemeAuthor="yaba@yeap.de"
+Look=pixmap
+
+TitleButtonsLeft=""
+TitleButtonsRight="xmi"
+TitleButtonsSupported="imx"
+
+TitleBarCentered=0                                            
+TitleBarHeight=16
+BorderSizeX=5
+BorderSizeY=5
+CornerSizeX=15
+CornerSizeY=21
+
+ColorNormalTitleBarText="#c0c0c0"
+ColorActiveTitleBarText="#000000"
+#ColorActiveBorder="#7b7b7b"
+#ColorNormalBorder="#7b7b7b"
+
+ShowMenuButtonIcon=1
+
+
+
+
+
+
+

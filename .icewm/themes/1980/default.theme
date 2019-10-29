@@ -1,0 +1,29 @@
+#Fensterdekorationen für KDE mit der IceWM-Engine; inspiriert vom Openbox-Theme "1977"
+
+ThemeDescription="1980 0.1"
+ThemeAuthor="pseb"
+
+Look=pixmap
+
+TitleButtonsLeft="s"
+TitleButtonsRight="xmi"
+TitleButtonsSupported="sxmio"
+TitleBarCentered=0
+TitleBarHeight=18
+
+BorderSizeX=2
+BorderSizeY=2
+CornerSizeX=12
+CornerSizeY=12
+
+ColorNormalButton="rgb:00/00/00"
+ColorNormalButtonText="rgb:ff/ff/ff"
+ColorActiveButton="rgb:00/00/00"
+ColorActiveButtonText="rgb:ff/00/00"
+
+ColorActiveTitleBar="rgb:00/00/00"
+ColorNormalTitleBar="rgb:00/00/00"
+ColorActiveTitleBarText="rgb:ff/ff/ff"
+ColorNormalTitleBarText="rgb:80/80/80"
+ColorActiveBorder="rgb:00/00/00"
+ColorNormalBorder="rgb:00/00/00"

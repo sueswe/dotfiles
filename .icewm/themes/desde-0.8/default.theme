@@ -1,0 +1,96 @@
+ThemeName="desde 0.8"
+ThemeDescription="A simple blue theme inspired in the web Desdelinux.net"
+ThemeAuthor="Ren Canteros <ren DOT kudun AT gmx DOT com>"
+License="GPL"
+Look=flat
+
+TitleBarCentered=1
+TitleBarHeight=14
+TitleBarJustify=50
+TitleButtonsSupported="xmis"
+TitleButtonsLeft="s"
+TitleButtonsRight="xmi"
+
+DesktopBackgroundColor="rgb:13/a1/d3"
+DesktopBackgroundCenter=0 # 0 / 1
+DesktopBackgroundScaled=0 # 0 / 1
+DesktopBackgroundImage="desde.jpg"
+
+ColorActiveTitleBar="rgb:02/84/b1"
+ColorNormalTitleBar="rgb:02/84/b1"
+BorderSizeX=1
+BorderSizeY=1
+ColorActiveBorder="rgb:70/a8/bb"
+ColorNormalBorder="rgb:70/a8/bb"
+ColorNormalButton="rgb:02/84/b1"
+
+ColorNormalTitleBarText="black"
+ColorActiveTitleBarText="rgb:ff/ff/ff"
+
+ColorNormalMenu="rgb:02/84/b1"
+ColorActiveMenuItem="rgb:02/84/b1"
+ColorNormalMenuItemText="white"
+ColorActiveMenuItemText="rgb:35/84/b1"
+ColorDisabledMenuItemText="rgb:e2/e4/e5"
+
+ColorMoveSizeStatus="rgb:96/cc/e6"
+ColorMoveSizeStatusText="white"
+
+ColorDefaultTaskBar="rgb:13/a1/d3"
+ColorNormalTaskBarApp="rgb:13/a1/d3"
+ColorNormalTaskBarAppText="white"
+ColorActiveTaskBarApp="rgb:13/a1/d3"
+ColorActiveTaskBarAppText="rgb:35/84/b1"
+
+ColorCPUStatusIdle="rgb:44/44/44"
+ColorCPUStatusInterrupts="rgb:44/44/44"
+ColorCPUStatusIoWait="rgb:fe/fe/fe"
+ColorCPUStatusSoftIrq="rgb:ff/ff/ff"
+ColorCPUStatusUser="rgb:01/af/e1"
+ColorCPUStatusSystem="rgb:9b/c5/de"
+ColorCPUStatusNice="rgb:76/84/42"
+
+ColorNetIdle="rgb:44/44/44"
+ColorNetReceive="rgb:4c/5c/6e"
+ColorNetSend="rgb:d7/d7/d7"
+
+ColorQuickSwitch="rgb:02/84/b1"
+ColorQuickSwitchText="white"
+ColorQuickSwitchActive="rgb:13/a1/d3"
+
+ColorToolTip="rgb:13/a1/d3"
+ColorToolTipText="white"
+ColorLabel="rgb:13/a1/d3"
+ColorLabelText="white"
+
+ColorClock="black"
+ColorClockText="rgb:01/af/e1"
+
+TitleFontNameXft	   = 	"Snap:size=10,sans-serif:size=8"
+MenuFontNameXft	           =    "Snap:size=10,sans-serif:size=8"
+MinimizedWindowFontNameXft =    "Snap:size=10,sans-serif:size=8"
+ActiveButtonFontNameXft    =    "Snap:size=10,sans-serif:size=8:bold"
+NormalButtonFontNameXft    =    "Snap:size=10,sans-serif:size=8"
+QuickSwitchFontNameXft     =    "Snap:size=10,sans-serif:size=8"
+ListBoxFontNameXft         =    "Snap:size=10,sans-serif:size=8"
+StatusFontNameXft          =    "Snap:size=10,sans-serif:size=8"
+ToolTipFontNameXft         =    "Snap:size=10,sans-serif:size=8"
+ActiveTaskBarFontNameXft   =    "Snap:size=10,sans-serif:size=8:bold"
+NormalTaskBarFontNameXft   =    "Snap:size=10,sans-serif:size=8"
+ClockFontNameXft           =    "lucida:size=14:bold,sans-serif:size=14:bold"
+ApmFontNameXft             =    "lucida:size=14:bold,sans-serif:size=14:bold"
+
+TitleFontName		=	"-artwiz-snap-regular-r-normal-sans-10-*-*-*-*-*-*-*"
+MenuFontName		=	"-artwiz-snap-regular-r-normal-sans-10-*-*-*-*-*-*-*"
+MinimizedWindowFontName	=	"-artwiz-snap-regular-r-normal-sans-10-*-*-*-*-*-*-*"
+ActiveButtonFontName	=	"-artwiz-snap-regular-r-normal-sans-10-*-*-*-*-*-*-*"
+NormalButtonFontName	=	"-artwiz-snap-regular-r-normal-sans-10-*-*-*-*-*-*-*"
+QuickSwitchFontName	=	"-artwiz-snap-regular-r-normal-sans-10-*-*-*-*-*-*-*"
+ListBoxFontName		=	"-artwiz-snap-regular-r-normal-sans-10-*-*-*-*-*-*-*"
+StatusFontName		=	"-artwiz-snap-regular-r-normal-sans-10-*-*-*-*-*-*-*"
+ToolTipFontName		=	"-artwiz-snap-regular-r-normal-sans-10-*-*-*-*-*-*-*"
+ActiveTaskBarFontName	=	"-artwiz-snap-regular-r-normal-sans-10-*-*-*-*-*-*-*"
+NormalTaskBarFontName	=	"-artwiz-snap-regular-r-normal-sans-10-*-*-*-*-*-*-*"
+ClockFontName		=	"-b&h-lucida-bold-r-normal-sans-14-*-*-*-*-*-*-*"
+ApmFontName		=	"-b&h-lucida-bold-r-normal-sans-14-*-*-*-*-*-*-*"
+
