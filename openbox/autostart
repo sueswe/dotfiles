@@ -7,6 +7,6 @@ tint2 &
 guake &
 # xscreensaver -no-splash &
 # tilix &
-compton -b -c &
+# compton -b -c &
 
 
