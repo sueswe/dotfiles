@@ -1,3 +1,0 @@
-#!/bin/sh
-konsole -e "ssh sueswe@lvghema01.sozvers.at" &
-konsole -e "ssh sueswe@lvghema01t.test.sozvers.at" &
