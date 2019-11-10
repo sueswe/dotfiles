@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'bootstrap v0.9.1'
+echo 'bootstrap v0.9.2'
 
 DOTFILES_ROOT="`pwd`"
 
@@ -119,6 +119,15 @@ else
         exit 44
     fi
 fi
+
+#
+# install Pictures 
+#
+info "copying Pictures "
+if ! -d ~/Pictures ; then
+    mkdir ~/Pictures
+fi
+cp -f Pictures/* ~/Pictures/
 
 #
 # installing .gitconfig
