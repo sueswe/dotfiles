@@ -121,12 +121,13 @@ else
 fi
 
 #
-# install Pictures 
+# install Pictures
 #
 info "copying Pictures "
-if ! -d ~/Pictures ; then
+if [[ ! -d ~/Pictures ]] ; then
     mkdir ~/Pictures
 fi
+pwd -P
 cp -f Pictures/* ~/Pictures/
 
 #
@@ -166,18 +167,19 @@ fi
 
 echo ""
 
-
 info "now we're cloning liquidpromt to $HOME ..."
 cd
 git clone https://github.com/nojhan/liquidprompt.git
 if [[ $? -ne 0 ]]; then
     fail "whoops ... that didn't work!"
 else
-    info "... and loading it."
+    #info "... and loading it."
+    #source ~/liquidprompt/liquidprompt
+    echo ""
 fi
-echo ""
-source ~/liquidprompt/liquidprompt
 
+
+fehbg
 #
 # end
 #
