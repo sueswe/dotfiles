@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'bootstrap v0.9.2'
+echo 'bootstrap v0.9.3'
 
 DOTFILES_ROOT="`pwd`"
 
@@ -168,7 +168,7 @@ fi
 echo ""
 
 info "now we're cloning liquidpromt to $HOME ..."
-cd
+cd $HOME
 git clone https://github.com/nojhan/liquidprompt.git
 if [[ $? -ne 0 ]]; then
     fail "whoops ... that didn't work!"
@@ -188,8 +188,11 @@ info "loading default wallpaper ..."
 #
 # Getting tint2rc
 #
+cd -
 info "Installing tint2rc-config-templates ..."
-cp tint2/*rc* ~/.config/tint2/
+pwd
+# ls -l tint2/tint2rc.*
+cp tint2/tint2rc.* ~/.config/tint2/
 info "Default tint2rc is:"
 if [[ ! -e ~/.config/tint2/tint2rc ]]; then
     ln -s ~/.config/tint2/tint2rc.DB-Blue ~/.config/tint2/tint2rc
