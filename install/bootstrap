@@ -178,8 +178,23 @@ else
     echo ""
 fi
 
+#
+# Loading Wallpaper
+#
+info "loading default wallpaper ..."
+~/bin/fehbg
 
-fehbg
+
+#
+# Getting tint2rc
+#
+info "Installing tint2rc-config-templates ..."
+cp tint2/*rc* ~/.config/tint2/
+info "Default tint2rc is:"
+if [[ ! -e ~/.config/tint2/tint2rc ]]; then
+    ln -s ~/.config/tint2/tint2rc.DB-Blue ~/.config/tint2/tint2rc
+fi
+ls -l ~/.config/tint2/tint2rc
 #
 # end
 #
