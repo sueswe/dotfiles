@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'bootstrap v0.9.4'
+echo 'bootstrap v0.9.5'
 
 DOTFILES_ROOT="`pwd`"
 
@@ -38,61 +38,61 @@ if [ $rtc -eq 0 ]; then
     cp -f profile/profile.msysgit ~/.profile
     rtc=$?
 else
-    info "it seems we are under Linux \n"
-    info "installing new .profile ... \n"
+    info "it seems we are under Linux "
+    info "installing new .profile ... "
     cp -f profile/profile.unix ~/.profile
     rtc=$?
 fi
 if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { info "done.\n" ; } fi
 chmod 0750 ~/.profile
-
+echo ""
 
 #
 # linking .profile to .bash_profile
 #
-info "linking .profile to .bash_profile \n"
+info "linking .profile to .bash_profile "
 if [ -e ~/.bash_profile ] ; then
-    warn "Saving old .bash_profile \n"
+    warn "Saving old .bash_profile "
     mv -f ~/.bash_profile ~/.bash_profile.backup
     ln -sf ~/.profile ~/.bash_profile
 else
     ln -sf ~/.profile ~/.bash_profile
 fi
-
+echo ""
 
 #
 # adding . .profile to .bashrc
 #
 if [ -e ~/.bashrc ]; then
-    info ".bashrc found ... \n"
+    info ".bashrc found ... "
     if [[ $(grep '.profile' ~/.bashrc) ]]; then
-        info ".profile - string already exists in ~/.bashrc \n"
+        info ".profile - string already exists in ~/.bashrc "
     else
-        info "adding source .profile ...\n"
+        info "adding source .profile ..."
         echo '. ~/.profile' >> ~/.bashrc
     fi
 fi
-
+echo ""
 
 
 #
 # installing ~/bin
 #
+info "Insalling bin/ - files ..."
 mkdir ~/bin 2>/dev/null || {
-    info "~/bin already exists.\n"
+    info "    (~/bin already exists ...)"
     }
 for n in $(ls $DOTFILES_ROOT/bin/); do
     n="bin/$n"
-    info "installing $n ... \c"
+    #info "installing $n ... \c"
     cp -f $n ~/bin/ ; rtc=$?
-    if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { success "" ; } fi
+    if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { echo -e ".\c" ; } fi
 done
-
+echo -e "\n"
 
 #
 # installing .vimrc
 #
-echo ""
 info "installing .vimrc "
 if [ -e ~/.vimrc ]; then
     warn "saving old .vimrc"
@@ -100,6 +100,7 @@ if [ -e ~/.vimrc ]; then
 fi
 cp -f vim/vimrc ~/.vimrc
 success "done"
+echo ""
 
 #
 # git binary
@@ -119,16 +120,6 @@ else
         exit 44
     fi
 fi
-
-#
-# install Pictures
-#
-info "copying Pictures "
-if [[ ! -d ~/Pictures ]] ; then
-    mkdir ~/Pictures
-fi
-pwd -P
-cp -f Pictures/* ~/Pictures/
 
 #
 # installing .gitconfig
@@ -154,7 +145,7 @@ myIP=$(ifconfig | grep addr: | grep 192 | awk '{print$2}' | awk -F: '{print $2}'
 myNET=$(echo $myIP | awk -F. '{print $1 }')
 
 if [[ "$myNET" -eq "192" || $HOSTNAME == *[Ss]wift* ]]; then
-    echo "we're at home, baby"
+    info "we're at home, baby"
     cp -f git/gitconfig ~/.gitconfig
     if [ $? -ne 0 ]; then fail "Cannot copy gitconfig"; exit 2 ; fi
 else
@@ -164,15 +155,27 @@ else
     else success "done."
     fi
 fi
+echo ""
 
+#
+# install Pictures
+#
+info "copying Pictures "
+if [[ ! -d ~/Pictures ]] ; then
+    mkdir ~/Pictures
+fi
+pwd -P
+cp -f Pictures/* ~/Pictures/
 echo ""
 
 info "now we're cloning liquidpromt to $HOME ..."
 cd $HOME
-git clone https://github.com/nojhan/liquidprompt.git
-if [[ $? -ne 0 ]]; then
-    fail "whoops ... that didn't work!"
-#else
+if [[ ! -d ~/liquidprompt ]]; then
+    git clone https://github.com/nojhan/liquidprompt.git
+    if [[ $? -ne 0 ]]; then
+        fail "whoops ... that didn't work!"
+    fi
+else
     cd ~/liquidprompt
     git checkout master
     git pull origin master
@@ -181,7 +184,7 @@ if [[ $? -ne 0 ]]; then
     echo ""
 fi
 
-cd -
+cd ${DOTFILES_ROOT}
 #
 # Loading Wallpaper
 #
@@ -192,7 +195,7 @@ info "loading default wallpaper ..."
 # Getting tint2rc
 #
 info "Installing tint2rc-config-templates ..."
-pwd
+#pwd
 # ls -l tint2/tint2rc.*
 cp tint2/tint2rc.* ~/.config/tint2/
 info "Default tint2rc is:"
