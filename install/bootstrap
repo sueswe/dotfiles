@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'bootstrap v0.9.3'
+echo 'bootstrap v0.9.4'
 
 DOTFILES_ROOT="`pwd`"
 
@@ -172,29 +172,32 @@ cd $HOME
 git clone https://github.com/nojhan/liquidprompt.git
 if [[ $? -ne 0 ]]; then
     fail "whoops ... that didn't work!"
-else
+#else
+    cd ~/liquidprompt
+    git checkout master
+    git pull origin master
     #info "... and loading it."
     #source ~/liquidprompt/liquidprompt
     echo ""
 fi
 
+cd -
 #
 # Loading Wallpaper
 #
 info "loading default wallpaper ..."
 ~/bin/fehbg
 
-
 #
 # Getting tint2rc
 #
-cd -
 info "Installing tint2rc-config-templates ..."
 pwd
 # ls -l tint2/tint2rc.*
 cp tint2/tint2rc.* ~/.config/tint2/
 info "Default tint2rc is:"
 if [[ ! -e ~/.config/tint2/tint2rc ]]; then
+    info "setting a new one ..."
     ln -s ~/.config/tint2/tint2rc.DB-Blue ~/.config/tint2/tint2rc
 fi
 ls -l ~/.config/tint2/tint2rc

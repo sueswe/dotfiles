@@ -1,0 +1,3 @@
+#!/bin/bash
+
+~/bin/sublime_text/sublime_text $* &

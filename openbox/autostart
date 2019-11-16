@@ -3,10 +3,11 @@ tint2 &
 # fbpanel &
 # docky &
 ~/bin/dual-monitor.sh &
-# hexchat &
+hexchat &
 guake &
 # xscreensaver -no-splash &
 # tilix &
 # compton -b -c &
+lxterminal &
 
 
