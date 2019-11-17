@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'bootstrap v0.9.5'
+echo 'bootstrap v0.9.6'
 
 DOTFILES_ROOT="`pwd`"
 
@@ -158,6 +158,15 @@ fi
 echo ""
 
 #
+# Install missing things ...
+#
+info "Try to install some nice packages ..."
+packages_to_install="scrot thunar i3lock feh guake openbox obmenu obconf openbox-menu tint2"
+info "    ${packages_to_install}"
+sudo apt-get install ${packages_to_install}
+echo ""
+
+#
 # install Pictures
 #
 info "copying Pictures "
@@ -190,6 +199,27 @@ cd ${DOTFILES_ROOT}
 #
 info "loading default wallpaper ..."
 ~/bin/fehbg
+
+
+#
+# install openbox config
+#
+info "Installing openbox config ..."
+for c in ~/.config/openbox/* ; do
+    if [[ -e ${c} ]]; then 
+        mv -f ${c} ${c}.backup 
+    fi
+done
+for nc in openbox/* ; do
+    echo -e "\t${nc} ... \c"
+    cp -f ${nc} ~/.config/openbox/
+    if [[ $? -eq 0 ]]; then
+        echo -e "OK\n"
+    else 
+        fail "FAILED!"
+    fi
+done
+
 
 #
 # Getting tint2rc

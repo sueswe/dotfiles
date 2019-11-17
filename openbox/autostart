@@ -8,6 +8,6 @@ guake &
 # xscreensaver -no-splash &
 # tilix &
 # compton -b -c &
-lxterminal &
+# lxterminal &
 
 
