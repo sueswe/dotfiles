@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Lollipop
+Comment=Delicious
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+Name=Lollipop
+GtkTheme=Lollipop
+MetacityTheme=Lollipop

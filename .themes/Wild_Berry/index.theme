@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Wild Berry
+Comment=Delicious
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+Name=Wild Berry
+GtkTheme=Wild Berry
+MetacityTheme=Wild_Berry

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Dark Chocolate
+Comment=Delicious
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+Name=Dark Chocolate
+GtkTheme=Dark Chocolate
+MetacityTheme=Dark_Chocolate

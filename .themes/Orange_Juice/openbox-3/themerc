@@ -1,0 +1,162 @@
+# Jorge Domingo Cabrera Velázquez (https://github.com/ju1464)
+# Orange Juice Openbox Theme
+
+# Window geometry
+padding.width: 6
+border.width: 1
+window.client.padding.width: 1
+window.client.padding.height: 0
+window.handle.width: 2
+
+#Menu geometry
+menu.border.width: 8
+menu.overlap.x: -10
+menu.overlap.y: 0
+
+# Border colors
+window.active.border.color: #cb6300
+window.inactive.border.color: #e18a19
+menu.border.color: #e18a19
+window.active.client.color: #e18a19
+window.inactive.client.color: #e18a19
+
+# Text shadows
+window.active.label.text.font: shadow=n
+window.inactive.label.text.font: shadow=n
+menu.items.font: shadow=n
+menu.title.text.font: shadow=n
+
+# title justification
+window.label.text.justify: center
+menu.title.text.justify: center
+
+### Menu ###
+
+menu.title.bg: Solid Flat
+menu.title.bg.color: #cb6300
+menu.title.text.color: #181818
+
+menu.items.bg: Solid Flat
+menu.items.bg.color: #e18a19
+menu.items.text.color: #181818
+menu.items.disabled.text.color: #181818
+
+menu.items.active.bg: Solid Flat
+menu.items.active.bg.color: #cb6300
+menu.items.active.text.color: #E7E7E7
+
+menu.separator.color: #181818
+menu.separator.width: 1
+menu.separator.padding.width: 0
+menu.separator.padding.height: 10
+
+### Active window ###
+window.active.title.bg: Flat solid
+window.active.title.bg.color: #e18a19
+window.active.title.bg.border.color: #371416
+
+window.active.label.bg: Parentrelative
+window.active.label.text.color: #e18a19
+
+window.active.handle.bg: Flat solid
+window.active.handle.bg.color: #e18a19
+
+window.active.gr181818ip.bg: Flat solid
+window.active.grip.bg.color: #e18a19
+
+window.active.button.unpressed.bg: Flat solid
+window.active.button.unpressed.bg.color: #e18a19
+window.active.button.unpressed.bg.border.color: #e18a19
+window.active.button.unpressed.image.color: #181818
+
+window.active.button.pressed.bg: Flat solid
+window.active.button.pressed.bg.color: #e18a19
+window.active.button.pressed.bg.border.color: #e18a19
+window.active.button.pressed.image.color: #cb6300
+
+window.active.button.disabled.bg: Flat solid
+window.active.button.disabled.bg.color: #e18a19
+window.active.button.disabled.image.color: #181818
+
+window.active.button.toggled.unpressed.bg: Flat solid
+window.active.button.toggled.unpressed.bg.color: #e18a19
+window.active.button.toggled.unpressed.bg.border.color: #e18a19
+window.active.button.toggled.unpressed.image.color: #181818
+
+window.active.button.toggled.pressed.bg: Flat solid
+window.active.button.toggled.pressed.bg.color: #e18a19
+window.active.button.toggled.pressed.bg.border.color: #e18a19
+window.active.button.toggled.pressed.image.color: #cb6300
+
+window.active.button.toggled.hover.bg: Flat solid
+window.active.button.toggled.hover.bg.color: #e18a19
+window.active.button.toggled.hover.bg.border.color: #e18a19
+window.active.button.toggled.hover.image.color: #cb6300
+
+window.active.button.hover.bg: Flat solid
+window.active.button.hover.bg.color: #e18a19
+window.active.button.hover.bg.border.color: #e18a19
+window.active.button.hover.image.color: #cb6300
+
+### Inactive windows ###
+window.inactive.title.bg: Flat solid
+window.inactive.title.bg.color: #e18a19
+window.inactive.title.bg.border.color: #e18a19
+
+window.inactive.label.bg: Parentrelative
+window.inactive.label.text.color: #e18a19
+
+window.inactive.handle.bg: Flat solid
+window.inactive.handle.bg.color: #e18a19
+
+window.inactive.grip.bg: Flat solid
+window.inactive.grip.bg.color: #e18a19
+
+window.inactive.button.unpressed.bg: Flat solid
+window.inactive.button.unpressed.bg.color: #e18a19
+window.inactive.button.unpressed.bg.border.color: #e18a19
+window.inactive.button.unpressed.image.color: #181818
+
+window.inactive.button.pressed.bg: Flat solid
+window.inactive.button.pressed.bg.color: #e18a19
+window.inactive.button.pressed.bg.border.color: #e18a19
+window.inactive.button.pressed.image.color: #cb6300
+
+window.inactive.button.disabled.bg: Flat solid
+window.inactive.button.disabled.bg.color: #e18a19
+window.inactive.button.disabled.image.color: #181818
+
+window.inactive.button.toggled.unpressed.bg: Flat solid
+window.inactive.button.toggled.unpressed.bg.color: #e18a19
+window.inactive.button.toggled.unpressed.bg.border.color: #e18a19
+window.inactive.button.toggled.unpressed.image.color: #181818
+
+window.inactive.button.toggled.pressed.bg: Flat solid
+window.inactive.button.toggled.pressed.bg.color: #e18a19
+window.inactive.button.toggled.pressed.bg.border.color: #e18a19
+window.inactive.button.toggled.pressed.image.color: #cb6300
+
+window.inactive.button.toggled.hover.bg: Flat solid
+window.inactive.button.toggled.hover.bg.color: #e18a19
+window.inactive.button.toggled.hover.bg.border.color: #e18a19
+window.inactive.button.toggled.hover.image.color: #cb6300
+
+window.inactive.button.hover.bg: Flat solid
+window.inactive.button.hover.bg.color: #e18a19
+window.inactive.button.hover.bg.border.color: #e18a19
+window.inactive.button.hover.image.color: #cb6300
+
+### On-Screen-Display ###
+osd.border.width: 0
+osd.border.color:  #e18a19
+
+osd.bg: flat border solid
+osd.bg.color: #e18a19
+osd.bg.border.color: #e18a19
+
+osd.label.bg: parentrelative
+osd.label.text.color: #181818
+
+osd.hilight.bg: flat solid border
+osd.hilight.bg.color: #e18a19
+osd.hilight.bg.border.color: #e18a19
