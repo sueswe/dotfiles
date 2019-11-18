@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'bootstrap v0.9.6'
+echo 'bootstrap v0.9.7'
 
 DOTFILES_ROOT="`pwd`"
 
@@ -234,6 +234,20 @@ if [[ ! -e ~/.config/tint2/tint2rc ]]; then
     ln -s ~/.config/tint2/tint2rc.DB-Blue ~/.config/tint2/tint2rc
 fi
 ls -l ~/.config/tint2/tint2rc
+
+#
+# Installing openbox themes:
+#
+info "Installing Openbox themes (~/.themes)"
+cp -fr ${DOTFILES_ROOT}/.themes ~/
+if [[ $? -ne 0 ]]; then
+    fail "Something make problems"
+else
+    success "done."
+fi
+echo ""
+
+
 #
 # end
 #
