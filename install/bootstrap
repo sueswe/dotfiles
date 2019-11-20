@@ -161,7 +161,7 @@ echo ""
 # Install missing things ...
 #
 info "Try to install some nice packages ..."
-packages_to_install="scrot thunar i3lock pavucontrol feh guake openbox obmenu obconf openbox-menu tint2"
+packages_to_install="rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox obmenu obconf openbox-menu tint2"
 info "    ${packages_to_install}"
 sudo apt-get install ${packages_to_install}
 echo ""
