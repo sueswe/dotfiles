@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'bootstrap v0.9.7'
+echo 'bootstrap v0.9.8'
 
 DOTFILES_ROOT="`pwd`"
 
@@ -161,7 +161,7 @@ echo ""
 # Install missing things ...
 #
 info "Try to install some nice packages ..."
-packages_to_install="rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox obmenu obconf openbox-menu tint2 xfce4-power-manager"
+packages_to_install="lxterminal rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox obmenu obconf openbox-menu tint2 xfce4-power-manager"
 info "    ${packages_to_install}"
 sudo apt-get install ${packages_to_install}
 echo ""
@@ -204,10 +204,11 @@ echo ""
 #
 # install openbox config
 #
+mkdir ~/.config/openbox/
 info "Installing openbox config ..."
 for c in ~/.config/openbox/* ; do
-    if [[ -e ${c} ]]; then 
-        mv -f ${c} ${c}.backup 
+    if [[ -e ${c} ]]; then
+        mv -f ${c} ${c}.backup
     fi
 done
 for nc in openbox/* ; do
@@ -215,7 +216,7 @@ for nc in openbox/* ; do
     cp -f ${nc} ~/.config/openbox/
     if [[ $? -eq 0 ]]; then
         echo -e "OK\n"
-    else 
+    else
         fail "FAILED!"
     fi
 done
@@ -224,6 +225,7 @@ done
 #
 # Getting tint2rc
 #
+mkdir ~/.config/tint2/
 info "Installing tint2rc-config-templates ..."
 #pwd
 # ls -l tint2/tint2rc.*

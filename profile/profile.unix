@@ -20,11 +20,11 @@ warn () {
 . /etc/bash_completion.d/git-prompt || fail "Cannot source /etc/bash_completion.d/git-prompt"
 
 
-cd () {
-  builtin cd "$@"
-  ls IMPORTANT* >/dev/null 2>&1 && echo -e "\e[31mImportant File found.\e[0m"
-  ls README* >/dev/null 2>&1 && echo -e "\e[32mReadme File found.\e[0m"
-}
+#cd () {
+#  builtin cd "$@"
+#  ls IMPORTANT* >/dev/null 2>&1 && echo -e "\e[31mImportant File found.\e[0m"
+#  ls README* >/dev/null 2>&1 && echo -e "\e[32mReadme File found.\e[0m"
+#}
 
 if [ -s "$MAIL" ]           # This is at Shell startup.  In normal
 then
@@ -32,6 +32,8 @@ then
 fi
 
 PATH=$PATH:.:~/bin/:~/bin/node/bin
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/repos/go-lang.git
 
 alias ls='ls --color=auto'
 alias l='ls '
@@ -74,7 +76,7 @@ alias showrgb='showrgb | less'
 export ANSIBLE_SSH_ARGS=''
 
 #
-# we try rhis out ...
+# we try this out ...
 #
 source ~/liquidprompt/liquidprompt
 
