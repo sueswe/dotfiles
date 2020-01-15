@@ -33,7 +33,7 @@ fi
 
 PATH=$PATH:.:~/bin/:~/bin/node/bin
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=~/repos/go-lang.git
+export JAVA_HOME="~/bin/java/jre1.8.0_211"
 
 alias ls='ls --color=auto'
 alias l='ls '
@@ -45,6 +45,7 @@ alias rm='rm -v'
 alias n='nslookup'
 alias s='sudo su -'
 alias lxterminal='lxterminal --geometry=100x57'
+alias showrgb='showrgb | less'
 
 #
 # git aliases ################################################################
@@ -66,9 +67,9 @@ alias gb='git branch -a'
 #
 # editors
 #
-alias np='mousepad'
+alias np='gedit'
 alias gy='geany'
-alias showrgb='showrgb | less'
+alias sub='~/bin/sublime_text/sublime_text'
 
 #
 # ansible
