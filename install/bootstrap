@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'bootstrap v0.9.8'
+echo 'bootstrap v0.9.09'
 
 DOTFILES_ROOT="`pwd`"
 
@@ -23,10 +23,10 @@ warn () {
 }
 
 ##############################################################################
-
 #
 # installing new .profile
 #
+##############################################################################
 mv -f ~/.profile ~/.profile.bak 2>/dev/null || {
     info "no old ~/.profile found. Good. \n"
     }
@@ -47,9 +47,11 @@ if [ "$rtc" -ne 0 ]; then { fail "copy failed."; exit $rtc ; } else { info "done
 chmod 0750 ~/.profile
 echo ""
 
+##############################################################################
 #
 # linking .profile to .bash_profile
 #
+##############################################################################
 info "linking .profile to .bash_profile "
 if [ -e ~/.bash_profile ] ; then
     warn "Saving old .bash_profile "
@@ -60,9 +62,11 @@ else
 fi
 echo ""
 
+##############################################################################
 #
 # adding . .profile to .bashrc
 #
+##############################################################################
 if [ -e ~/.bashrc ]; then
     info ".bashrc found ... "
     if [[ $(grep '.profile' ~/.bashrc) ]]; then
@@ -75,9 +79,13 @@ fi
 echo ""
 
 
+
+
+##############################################################################
 #
 # installing ~/bin
 #
+##############################################################################
 info "Insalling bin/ - files ..."
 mkdir ~/bin 2>/dev/null || {
     info "    (~/bin already exists ...)"
@@ -90,9 +98,11 @@ for n in $(ls $DOTFILES_ROOT/bin/); do
 done
 echo -e "\n"
 
+##############################################################################
 #
 # installing .vimrc
 #
+##############################################################################
 info "installing .vimrc "
 if [ -e ~/.vimrc ]; then
     warn "saving old .vimrc"
@@ -102,9 +112,11 @@ cp -f vim/vimrc ~/.vimrc
 success "done"
 echo ""
 
+##############################################################################
 #
 # git binary
 #
+##############################################################################
 info "checking for git ..."
 if [[ -x $(which git) ]]; then
     success " ... good."
@@ -121,9 +133,11 @@ else
     fi
 fi
 
+##############################################################################
 #
 # installing .gitconfig
 #
+##############################################################################
 info "installing .gitconfig "
 if [ -e ~/.gitconfig ]; then
     warn "saving old .gitconfig"
@@ -157,18 +171,23 @@ else
 fi
 echo ""
 
+##############################################################################
 #
-# Install missing things ...
+# APT: Install missing things ...
 #
+##############################################################################
 info "Try to install some nice packages ..."
-packages_to_install="lxterminal rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox obmenu obconf openbox-menu tint2 xfce4-power-manager"
+packages_to_install="lxterminal rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox obmenu obconf openbox-menu tint2 xfce4-power-manager orage"
 info "    ${packages_to_install}"
 sudo apt-get install ${packages_to_install}
 echo ""
 
+
+##############################################################################
 #
 # install Pictures
 #
+##############################################################################
 info "copying Pictures "
 if [[ ! -d ~/Pictures ]] ; then
     mkdir ~/Pictures
@@ -177,6 +196,12 @@ pwd -P
 cp -f Pictures/* ~/Pictures/
 echo ""
 
+
+##############################################################################
+#
+# LIQUIDPROMT
+#
+##############################################################################
 info "now we're cloning liquidpromt to $HOME ..."
 cd $HOME
 if [[ ! -d ~/liquidprompt ]]; then
@@ -194,16 +219,21 @@ else
 fi
 
 cd ${DOTFILES_ROOT}
+##############################################################################
 #
 # Loading Wallpaper
 #
+##############################################################################
 info "loading default wallpaper ..."
 ~/bin/fehbg
 echo ""
 
+
+##############################################################################
 #
 # install openbox config
 #
+##############################################################################
 mkdir ~/.config/openbox/
 info "Installing openbox config ..."
 for c in ~/.config/openbox/* ; do
@@ -222,24 +252,11 @@ for nc in openbox/* ; do
 done
 
 
-#
-# Getting tint2rc
-#
-mkdir ~/.config/tint2/
-info "Installing tint2rc-config-templates ..."
-#pwd
-# ls -l tint2/tint2rc.*
-cp tint2/tint2rc.* ~/.config/tint2/
-info "Default tint2rc is:"
-if [[ ! -e ~/.config/tint2/tint2rc ]]; then
-    info "setting a new one ..."
-    ln -s ~/.config/tint2/tint2rc.DB-Blue ~/.config/tint2/tint2rc
-fi
-ls -l ~/.config/tint2/tint2rc
-
+##############################################################################
 #
 # Installing openbox themes:
 #
+##############################################################################
 info "Installing Openbox themes (~/.themes)"
 cp -fr ${DOTFILES_ROOT}/.themes ~/
 if [[ $? -ne 0 ]]; then
@@ -249,6 +266,27 @@ else
 fi
 echo ""
 
+
+
+
+##############################################################################
+#
+# Getting tint2rc
+#
+##############################################################################
+mkdir ~/.config/tint2/
+info "Installing tint2rc-config-templates ..."
+#pwd
+# ls -l tint2/tint2rc.*
+cp tint2/tint2rc.* ~/.config/tint2/
+info "Default tint2rc is:"
+if [[ ! -e ~/.config/tint2/tint2rc ]]; then
+    info "setting a new one ..."
+    ln -s ~/.config/tint2/tint2rc.DB-Blue ~/.config/tint2/tint2rc
+else
+    info "There is already a tint2rc file in your config-directory"
+fi
+ls -l ~/.config/tint2/tint2rc
 
 #
 # end
