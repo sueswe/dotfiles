@@ -2,8 +2,12 @@ XTerm*VT100.cutNewLine: false
 XTerm*VT100.cutToBeginningOfLine: false
 XTerm*charClass: 36-47:48,58-59:48
 XTerm*on3Clicks: regex [[:alpha:]]+://([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
-XTerm*SaveLines: 9000
+XTerm*SaveLines: 999000
 XTerm.vt100.faceName: Cousine Mono:size=11:antialias=false
 XTerm.vt100.font: 7x13
-XTerm*geometry: 150x29+200+200
+XTerm*geometry: 130x29+200+200
+xterm*background: Black
+xterm*faceName: Fira Mono
+xterm*faceSize: 11
+xterm*foreground: grey
 
