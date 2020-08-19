@@ -8,12 +8,17 @@
 		</item>
 		<item label="Terminal emulator">
 			<action name="Execute">
-				<execute>x-terminal-emulator</execute>
+				<execute>lxterminal</execute>
 			</action>
 		</item>
-		<item label="Web browser">
+		<item label="chromium-browser">
 			<action name="Execute">
-				<execute>google-chrome-stable</execute>
+				<execute>chromium-browser</execute>
+			</action>
+		</item>
+        <item label="Thunar">
+			<action name="Execute">
+				<execute>thunar</execute>
 			</action>
 		</item>
 		<!-- This requires the presence of the 'menu' package to work -->

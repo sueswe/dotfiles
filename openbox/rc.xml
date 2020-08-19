@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Sephia</name>
+    <name>Cub Linux Blue</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -58,7 +58,7 @@
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>Ubuntu Medium</name>
-      <size>12</size>
+      <size>11</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -67,7 +67,7 @@
     </font>
     <font place="InactiveWindow">
       <name>Ubuntu Medium</name>
-      <size>12</size>
+      <size>11</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
