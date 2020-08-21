@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Cub Linux Blue</name>
+    <name>MiAsuzte</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -211,6 +211,7 @@
         <command>gmrun</command>
       </action>
     </keybind>
+    
     <keybind key="A-t">
       <action name="Execute">
         <startupnotify>
@@ -220,6 +221,18 @@
         <command>tilix</command>
       </action>
     </keybind>
+    
+    # Signatur in die Zwischenablage
+    <keybind key="A-s">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>xclip-signatur</name>
+        </startupnotify>
+        <command>xclip ~/.signature</command>
+      </action>
+    </keybind>
+    
     <keybind key="C-A-l">
       <action name="Execute">
         <startupnotify>
