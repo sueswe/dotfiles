@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'bootstrap v0.9.09'
+echo 'bootstrap v0.9.10'
 
 DOTFILES_ROOT="`pwd`"
 
@@ -52,33 +52,43 @@ echo ""
 # linking .profile to .bash_profile
 #
 ##############################################################################
-info "linking .profile to .bash_profile "
-if [ -e ~/.bash_profile ] ; then
-    warn "Saving old .bash_profile "
-    mv -f ~/.bash_profile ~/.bash_profile.backup
-    ln -sf ~/.profile ~/.bash_profile
-else
-    ln -sf ~/.profile ~/.bash_profile
-fi
-echo ""
+#info "linking .profile to .bash_profile "
+#if [ -e ~/.bash_profile ] ; then
+#    warn "Saving old .bash_profile "
+#    mv -f ~/.bash_profile ~/.bash_profile.backup
+#    ln -sf ~/.profile ~/.bash_profile
+#else
+#    ln -sf ~/.profile ~/.bash_profile
+#fi
+#echo ""
 
 ##############################################################################
 #
 # adding . .profile to .bashrc
 #
 ##############################################################################
-if [ -e ~/.bashrc ]; then
-    info ".bashrc found ... "
-    if [[ $(grep '.profile' ~/.bashrc) ]]; then
-        info ".profile - string already exists in ~/.bashrc "
-    else
-        info "adding source .profile ..."
-        echo '. ~/.profile' >> ~/.bashrc
-    fi
+#if [ -e ~/.bashrc ]; then
+#    info ".bashrc found ... "
+#    if [[ $(grep '.profile' ~/.bashrc) ]]; then
+#        info ".profile - string already exists in ~/.bashrc "
+#    else
+#        info "adding source .profile ..."
+#        echo '. ~/.profile' >> ~/.bashrc
+#    fi
+#fi
+#echo ""
+
+###############################################################################
+#
+# installing .bashrc
+#
+###############################################################################
+
+info "Installing bashrc ..."
+if [[ -e ~/.bashrc ]]; then
+    cp ~/.bashrc ~/.bashrc.bak
 fi
-echo ""
-
-
+cp $DOTFILES_ROOT/profile/bashrc ~/.bashrc
 
 
 ##############################################################################
@@ -86,7 +96,7 @@ echo ""
 # installing ~/bin
 #
 ##############################################################################
-info "Insalling bin/ - files ..."
+info "Installing bin/ - files ..."
 mkdir ~/bin 2>/dev/null || {
     info "    (~/bin already exists ...)"
     }
@@ -199,7 +209,7 @@ echo ""
 
 ##############################################################################
 #
-# LIQUIDPROMT
+# LIQUIDPROMT and BASH_IT
 #
 ##############################################################################
 info "now we're cloning liquidpromt to $HOME ..."
@@ -217,6 +227,19 @@ else
     #source ~/liquidprompt/liquidprompt
     echo ""
 fi
+
+if [[ ! -d ~/.bash_it ]]; then
+    git clone https://github.com/Bash-it/bash-it.git ~/.bash_it
+    if [[ $? -ne 0 ]]; then
+        fail "whoops ... that didn't work!"
+    fi
+else
+    cd ~/.bash_it
+    git checkout master
+    git pull origin master
+    echo ""
+fi
+
 
 cd ${DOTFILES_ROOT}
 ##############################################################################

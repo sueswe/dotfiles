@@ -1,16 +1,16 @@
 tint2 &
-~/bin/fehbg &
+# ~/bin/fehbg &
 # fbpanel &
 # docky &
+# plank &
 ~/bin/dual-monitor.sh &
 # hexchat &
 # guake &
 # xscreensaver -no-splash &
-tilix &
+# tilix &
 # compton -b -c &
 # lxterminal &
 # pidgin &
 # fehbg ~/Pictures/System76-Robot-by_Kate_Hazen_of_System76.png &
-# fehbg ~/Pictures/d9kxpdl-c44bf509-3093-4c99-88f2-e2e5f9234769.png &
-fehbg ~/Pictures/bunsenlabgrey.png &
+fehbg ~/Pictures/desktop.jpg &
 
