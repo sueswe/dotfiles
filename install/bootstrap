@@ -187,7 +187,7 @@ echo ""
 #
 ##############################################################################
 info "Try to install some nice packages ..."
-packages_to_install="lxterminal rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox obmenu obconf openbox-menu tint2 xfce4-power-manager orage"
+packages_to_install="lxterminal gmrun rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
 info "    ${packages_to_install}"
 sudo apt-get install ${packages_to_install}
 echo ""
