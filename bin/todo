@@ -1,15 +1,44 @@
 #!/bin/bash
 
-$(export | grep OS | grep -i windows)
-rtc=$?
-if [[ $rtc -eq 0 ]]; then
-    #echo "Windows"
-    #touch "$USERPROFILE"/Desktop/"$*"
-    #touch $APHOMESHARE\\Desktop/"$*"
-    touch $APDesktop/"$*"
-else
-    #echo "Unix"
-    touch ~/Desktop/"$*"
-fi
+function new_todo {
+    echo "TODO = $1"
+    $(export | grep OS | grep -i windows)
+    rtc=$?
+    if [[ $rtc -eq 0 ]]; then
+        #echo "Windows"
+        #touch "$USERPROFILE"/Desktop/"$*"
+        #touch $APHOMESHARE\\Desktop/"$*"
+        touch $APDesktop/todo_"$1"
+    else
+        #echo "Unix"
+        touch ~/Desktop/todo_"$1"
+    fi
+}
+
+function list {
+    while true; do 
+        cd ~/Desktop/
+        date
+        echo "-------------------------------------------------------------------"
+        ls -t1 todo_*
+        echo "-------------------------------------------------------------------"
+        sleep 10
+        clear
+    done
+}
 
 
+#__MAIN__
+
+
+
+case $1 in
+    "--list")
+        list
+        exit 0
+    ;;
+    *)
+        new_todo $1
+        exit 0
+    ;;
+esac
