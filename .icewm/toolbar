@@ -2,7 +2,7 @@
 #
 # Place your personal variant in $HOME/.icewm directory.
 
-prog XTerm /usr/share/icons/Pop/48x48/apps/terminus.svg tilix
+# prog XTerm /usr/share/icons/Pop/48x48/apps/terminus.svg tilix
 prog XTerm /usr/share/icons/Pop/48x48/apps/terminal.svg lxterminal
 # prog FTE fte fte
 # prog Netscape netscape netscape
