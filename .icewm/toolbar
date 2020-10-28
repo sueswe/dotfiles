@@ -2,14 +2,10 @@
 #
 # Place your personal variant in $HOME/.icewm directory.
 
-# prog XTerm /usr/share/icons/Pop/48x48/apps/terminus.svg tilix
-prog XTerm /usr/share/icons/Pop/48x48/apps/terminal.svg lxterminal
-# prog FTE fte fte
-# prog Netscape netscape netscape
-# prog    "Vim" vim /usr/bin/gvim -f
-# prog    "WWW" /usr/share/icons/ubuntu-mobile/apps/144/twitter.png x-www-browser
-prog    "WWW" /usr/share/icons/Pop/48x48/apps/chrome.svg x-www-browser
+prog    "Sound" /usr/share/icons/wm-icons/48x48-infox/sound.xpm pavucontrol
+prog    "XTerm" ./gnome/32x32/apps/terminal.png uxterm
+prog    "WWW" /usr/share/icons/wm-icons/48x48-infox/www.xpm x-www-browser
 prog    "vmware-view" vmware-view vmware-view
-prog bareftp /usr/share/icons/Pop/48x48/apps/bareftp.svg bareftp
-prog Opcon /home/itsv.org.sv-services.at/31300094/bin/EnterpriseManager18/EnterpriseManager/icon.xpm /home/itsv.org.sv-services.at/31300094/bin/em18
-prog Atom /usr/share/icons/Pop/48x48/apps/io.atom.Atom.svg atom
+prog    "Opcon" /home/itsv.org.sv-services.at/31300094/bin/EnterpriseManager18/EnterpriseManager/icon.xpm /home/itsv.org.sv-services.at/31300094/bin/em18
+prog    "Atom" /usr/share/icons//Faenza/mimetypes/48/application-atom+xml.png atom
+

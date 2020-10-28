@@ -1,0 +1,108 @@
+
+menu "Applications" folder {
+menu "Accessibility" folder {
+  prog "Xmag" - xmag
+}
+menu "Editors" folder {
+  prog "Xedit" - xedit
+}
+menu "Emulators" folder {
+  prog "VirtualBox" /usr/share/pixmaps/virtualbox.xpm /usr/bin/virtualbox
+}
+menu "Graphics" folder {
+  prog "X Window Snapshot" - xwd | xwud
+}
+menu "Network" folder {
+menu "Communication" folder {
+  prog "Citrix Workspace" /opt/Citrix/ICAClient/icons/manager.png /opt/Citrix/ICAClient/selservice --icaroot /opt/Citrix/ICAClient
+  prog "Irssi" -  xterm -T "Irssi" -e /usr/bin/irssi
+  prog "Pidgin" /usr/share/pixmaps/pidgin-menu.xpm /usr/bin/pidgin
+  prog "Telnet" -  xterm -T "Telnet" -e /usr/bin/telnet.netkit
+  prog "Xbiff" - xbiff
+}
+menu "File Transfer" folder {
+  prog "Transmission BitTorrent Client (GTK)" /usr/share/pixmaps/transmission.xpm /usr/bin/transmission-gtk
+}
+}
+menu "Programming" folder {
+  prog "GDB" -  xterm -T "GDB" -e /usr/bin/gdb
+  prog "Tclsh8.6" -  xterm -T "Tclsh8.6" -e /usr/bin/tclsh8.6
+  prog "TkWish8.6" - x-terminal-emulator -e /usr/bin/wish8.6
+}
+menu "Science" folder {
+menu "Mathematics" folder {
+  prog "Bc" -  xterm -T "Bc" -e /usr/bin/bc
+  prog "Dc" -  xterm -T "Dc" -e /usr/bin/dc
+  prog "Xcalc" - xcalc
+}
+}
+menu "Shells" folder {
+  prog "Bash" -  xterm -T "Bash" -e /bin/bash --login
+  prog "Dash" -  xterm -T "Dash" -e /bin/dash -i
+  prog "Sh" -  xterm -T "Sh" -e /bin/sh --login
+}
+menu "System" folder {
+menu "Administration" folder {
+  prog "Debian Task selector" -  xterm -T "Debian Task selector" -e su-to-root -c tasksel
+  prog "DSL/PPPoE configuration tool" /usr/share/pixmaps/pppoeconf.xpm  xterm -T "DSL/PPPoE configuration tool" -e /usr/sbin/pppoeconf
+  prog "Editres" - editres
+  prog "Logout (obsession)" - /usr/bin/obsession-logout
+  prog "Openbox Menu Editor" - /usr/bin/obmenu
+  prog "Orphaner (all)" -  xterm -T "Orphaner (all)" -e su-to-root -c '/usr/sbin/orphaner -a'
+  prog "Orphaner - editkeep" -  xterm -T "Orphaner - editkeep" -e su-to-root -c '/usr/sbin/editkeep'
+  prog "Orphaner (libs)" -  xterm -T "Orphaner (libs)" -e su-to-root -c /usr/sbin/orphaner
+  prog "pppconfig" -  xterm -T "pppconfig" -e su-to-root -p root -c /usr/sbin/pppconfig
+  prog "Xclipboard" - xclipboard
+  prog "Xfontsel" - xfontsel
+  prog "Xkill" - xkill
+  prog "Xrefresh" - xrefresh
+}
+menu "Hardware" folder {
+  prog "Xvidtune" - xvidtune
+}
+menu "Monitoring" folder {
+  prog "Pstree" /usr/share/pixmaps/pstree16.xpm  xterm -T "Pstree" -e /usr/bin/pstree.x11
+  prog "Top" -  xterm -T "Top" -e /usr/bin/top
+  prog "Xconsole" - xconsole -file /dev/xconsole
+  prog "Xev" - x-terminal-emulator -e xev
+  prog "Xload" - xload
+}
+menu "Package Management" folder {
+  prog "Aptitude Package Manager (text)" -  xterm -T "Aptitude Package Manager (text)" -e /usr/bin/aptitude-curses
+}
+}
+menu "Viewers" folder {
+  prog "Xditview" - xditview
+}
+}
+menu "Games" folder {
+menu "Toys" folder {
+  prog "Oclock" - oclock
+  prog "Xclock (analog)" - xclock -analog
+  prog "Xclock (digital)" - xclock -digital -update 1
+  prog "Xeyes" - xeyes
+  prog "Xlogo" - xlogo
+}
+}
+menu "Help" folder {
+  prog "Info" -  xterm -T "Info" -e info
+  prog "Xman" - xman
+}
+menu "Screen" folder {
+menu "Locking" folder {
+  prog "Lock Screen (XScreenSaver)" - /usr/bin/xscreensaver-command -lock
+}
+menu "Saving" folder {
+  prog "Activate ScreenSaver (Next)" - /usr/bin/xscreensaver-command -next
+  prog "Activate ScreenSaver (Previous)" - /usr/bin/xscreensaver-command -prev
+  prog "Activate ScreenSaver (Random)" - /usr/bin/xscreensaver-command -activate
+  prog "Demo Screen Hacks" - /usr/bin/xscreensaver-command -demo
+  prog "Disable XScreenSaver" - /usr/bin/xscreensaver-command -exit
+  prog "Enable XScreenSaver" - /usr/bin/xscreensaver
+  prog "Reinitialize XScreenSaver" - /usr/bin/xscreensaver-command -restart
+  prog "ScreenSaver Preferences" - /usr/bin/xscreensaver-command -prefs
+}
+}
+menu "Window Managers" folder {
+  restart "IceWM" /usr/share/icewm/icons/icewm_16x16.xpm /usr/bin/icewm
+}
