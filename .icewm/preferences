@@ -237,7 +237,7 @@ TaskBarAutoHide=0 # 0/1
 # TaskBarShowAPMStatus=0 # 0/1
 
 #  Enable TaskBarShowAPMStatus if a battery is present
-TaskBarShowAPMAuto=1 # 0/1
+# TaskBarShowAPMAuto=1 # 0/1
 
 #  Show APM status on task bar in time-format
 # TaskBarShowAPMTime=1 # 0/1

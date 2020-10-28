@@ -7,5 +7,5 @@ prog    "XTerm" ./gnome/32x32/apps/terminal.png uxterm
 prog    "WWW" /usr/share/icons/wm-icons/48x48-infox/www.xpm x-www-browser
 prog    "vmware-view" vmware-view vmware-view
 prog    "Opcon" /home/itsv.org.sv-services.at/31300094/bin/EnterpriseManager18/EnterpriseManager/icon.xpm /home/itsv.org.sv-services.at/31300094/bin/em18
-prog    "Atom" /usr/share/icons//Faenza/mimetypes/48/application-atom+xml.png atom
+prog    "Atom" atom.png atom
 
