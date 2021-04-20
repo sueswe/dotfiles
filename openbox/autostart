@@ -11,6 +11,10 @@ tint2 &
 # compton -b -c &
 # lxterminal &
 # pidgin &
+# tele &
 # fehbg ~/Pictures/System76-Robot-by_Kate_Hazen_of_System76.png &
-fehbg ~/Pictures/desktop.jpg &
+# fehbg ~/Pictures/desktop.jpg &
+fehbg ~/Pictures/mac_os_x_lion-1920x1200.jpg &
+sky &
+xpad &
 
