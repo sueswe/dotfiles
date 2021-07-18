@@ -37,6 +37,12 @@ end
 
 desc "Install some apt-packages"
 task :apt do
-  apt_list="git lxterminal rofi rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
+  apt_list="ruby-dev git lxterminal rofi rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
   sh("sudo apt-get install #{apt_list}")
+end
+
+desc "Install bash_it"
+task :bashit do
+  sh("git clone https://github.com/Bash-it/bash-it.git $HOME/.bash_it") if not Dir.exist?(home + "/.bash_it")
+  sh("cd $HOME/.bash_it && git checkout master && git pull origin master")
 end
