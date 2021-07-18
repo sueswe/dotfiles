@@ -7,7 +7,8 @@ DOTFILES_ROOT="`pwd`"
 ##############################################################################
 
 info () {
-    echo -e "\e[0;35m💡\033[0m $1 "
+    #echo -e "\e[0;35m💡\033[0m $1 "
+    echo "$(date): $1"
 }
 
 success () {
@@ -315,4 +316,4 @@ ls -l ~/.config/tint2/tint2rc
 # end
 #
 echo ""
-success "that's it."
+success "that's it. "
