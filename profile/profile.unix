@@ -1,22 +1,5 @@
 #!/bin/bash
 
-info () {
-    echo -e "\e[0;35m😏\033[0m $1\c"
-}
-
-success () {
-    echo -e "\e[0;32m😁\033[0m $1 "
-}
-
-fail () {
-    echo -e "\e[0;31m😣\033[0m $1"
-}
-
-warn () {
-    echo -e "\e[0;33m😱\033[0m $1"
-}
-
-
 . /etc/bash_completion.d/git-prompt || fail "Cannot source /etc/bash_completion.d/git-prompt"
 
 
@@ -31,8 +14,7 @@ then
     echo "$MAILMSG"        # operation, the Shell checks periodically.
 fi
 
-PATH=$PATH:.:~/bin/:~/bin/node/bin
-export PATH=$PATH:/usr/local/go/bin
+PATH=$PATH:.:~/bin/
 export JAVA_HOME="~/bin/java/jre1.8.0_211"
 
 alias ls='ls --color=auto'
@@ -74,12 +56,12 @@ alias sub='~/bin/sublime_text/sublime_text'
 #
 # ansible
 #
-export ANSIBLE_SSH_ARGS=''
+#export ANSIBLE_SSH_ARGS=''
 
 #
 # we try this out ...
 #
-source ~/liquidprompt/liquidprompt
+# source ~/liquidprompt/liquidprompt
 
 #
 # PS1 ########################################################################
