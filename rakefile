@@ -1,0 +1,42 @@
+
+require 'logger'
+require 'colorize'
+logger = Logger.new(STDOUT)
+#logger.level = Logger.WARN
+
+logger.formatter = proc do |severity, datetime, progname, msg|
+    date_format = datetime.strftime("%Y-%m-%d %H:%M:%S").cyan + " "
+    "[#{date_format}] #{severity.ljust(5)} pid=##{Process.pid} '#{msg}'\n"
+end
+
+home = ENV['HOME']
+
+#task default [:bashrc , :profile_unix]
+
+desc "Install .bashrc"
+task :bashrc do
+  logger.info("copy file ...")
+  cp('profile/bashrc',home + '/_bashrc_new')
+end
+
+desc "Install profile.unix"
+task :profile_unix do
+  logger.info("copy file ...")
+  cp('profile/profile.unix', home + '/.profile')
+end
+
+desc "Install bin/* - files"
+task :bin_install do
+  binFiles = FileList.new("bin/*")
+  binFiles.each do |f|
+    logger.info("installing #{f}")
+    #puts "installing #{f}".cyan
+    cp(f , home + '/bin/')
+  end
+end
+
+desc "Install some apt-packages"
+task :apt do
+  apt_list="git lxterminal rofi rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
+  sh("sudo apt-get install #{apt_list}")
+end
