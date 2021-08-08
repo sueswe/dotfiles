@@ -1,4 +1,5 @@
 tint2 &
+xrandr -s 1600x900 &
 # ~/bin/fehbg &
 # fbpanel &
 # docky &
