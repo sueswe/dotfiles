@@ -11,7 +11,14 @@ end
 
 home = ENV['HOME']
 
-task :default => [ :apt, :bashit , :bashrc , :bin_install , :post ]
+task :default => [ :apt, :bashit , :bashrc , :bin_install , :pic_install , :git_config , :post ]
+
+desc "git-config"
+task :gitconfig do
+  puts ""
+  logger.info "installing a gitconfig - file ..."
+  logger.warn "NOT YET"
+end
 
 desc "Install .bashrc"
 task :bashrc do
@@ -21,6 +28,17 @@ task :bashrc do
   cp( 'profile/bashrc', home + '/.bashrc' )
 end
 
+desc "Install Pictures/* - files"
+task :pic_install do
+  puts ""
+  logger.info("installing some stuff into #{home}/Pictures/ ...")
+  binFiles = FileList.new("Pictures/*")
+  binFiles.each do |f|
+    #logger.info("installing #{f}")
+    #puts "installing #{f}".cyan
+    cp(f , home + '/Pictures/')
+  end
+end
 
 desc "Install bin/* - files"
 task :bin_install do
@@ -53,5 +71,5 @@ end
 desc "post-run"
 task :post do
   puts ""
-  logger.info "we're done."
+  logger.info "Done! Brave!"
 end
