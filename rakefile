@@ -11,26 +11,24 @@ end
 
 home = ENV['HOME']
 
-task default [ :apt, :bashit , :bashrc , :bin_install ]
+task :default => [ :apt, :bashit , :bashrc , :bin_install , :post ]
 
 desc "Install .bashrc"
 task :bashrc do
+  puts ""
   logger.info("installing .bashrc into #{home} ...")
   cp( home + '/.bashrc' , home + '/.bashrc.bak' )
   cp( 'profile/bashrc', home + '/.bashrc' )
 end
 
-desc "Install profile.unix"
-task :profile_unix do
-  logger.info("copy file ...")
-  cp('profile/profile.unix', home + '/.profile')
-end
 
 desc "Install bin/* - files"
 task :bin_install do
+  puts ""
+  logger.info("installing some stuff into #{home}/bin/ ...")
   binFiles = FileList.new("bin/*")
   binFiles.each do |f|
-    logger.info("installing #{f}")
+    #logger.info("installing #{f}")
     #puts "installing #{f}".cyan
     cp(f , home + '/bin/')
   end
@@ -38,12 +36,22 @@ end
 
 desc "Install some apt-packages"
 task :apt do
+  puts ""
+  logger.info("installing some pakages ...")
   apt_list="ruby-dev git lxterminal rofi rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
   sh("sudo apt-get install #{apt_list}")
 end
 
 desc "Install bash_it"
 task :bashit do
+  puts ""
+  logger.info("getting bash_it ...")
   sh("git clone https://github.com/Bash-it/bash-it.git $HOME/.bash_it") if not Dir.exist?(home + "/.bash_it")
   sh("cd $HOME/.bash_it && git checkout master && git pull origin master")
+end
+
+desc "post-run"
+task :post do
+  puts ""
+  logger.info "we're done."
 end
