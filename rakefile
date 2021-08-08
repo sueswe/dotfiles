@@ -11,12 +11,13 @@ end
 
 home = ENV['HOME']
 
-#task default [:bashrc , :profile_unix]
+task default [ :apt, :bashit , :bashrc , :bin_install ]
 
 desc "Install .bashrc"
 task :bashrc do
-  logger.info("copy file ...")
-  cp('profile/bashrc',home + '/_bashrc_new')
+  logger.info("installing .bashrc into #{home} ...")
+  cp( home + '/.bashrc' , home + '/.bashrc.bak' )
+  cp( 'profile/bashrc', home + '/.bashrc' )
 end
 
 desc "Install profile.unix"
