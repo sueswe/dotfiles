@@ -6,31 +6,61 @@ logger = Logger.new(STDOUT)
 
 logger.formatter = proc do |severity, datetime, progname, msg|
     date_format = datetime.strftime("%Y-%m-%d %H:%M:%S").cyan + " "
-    "[#{date_format}] #{severity.ljust(5)} pid=##{Process.pid} '#{msg}'\n"
+    "[#{date_format}] #{severity.ljust(5)}: #{msg}\n"
 end
 
 home = ENV['HOME']
 
-task :default => [ :apt, :bashit , :bashrc , :bin_install , :pic_install , :git_config , :post ]
+task :default => [ :apt, :bashit , :bashrc , :bin_install ,
+                    :pic_install , :git_config , :tint2 , :openbox ,
+                    :post ]
 
-desc "git-config"
+################################################################################
+
+desc "tint2 config-files installation"
+task :tint2 do
+  puts ""
+  File.exists?(home + "/.config/tint2/")
+  logger.info "installing tint-config files"
+  tfile = FileList.new("tint2/*tint2rc*")
+  tfile.each do |f|
+    cp( f , home + "/.config/tint2/")
+  end
+end
+
+desc "openbox configuration-files installation"
+task :openbox do
+  puts ""
+  File.exists?(home + "/.config/openbox/")
+  logger.info "installting openbox configuration"
+  obfiles = FileList.new("openbox/*")
+  obfiles.each do |f|
+    cp( f , home + "/.config/openbox/")
+  end
+  logger.info "done."
+end
+
+desc "git config-file installation"
 task :gitconfig do
   puts ""
   logger.info "installing a gitconfig - file ..."
   logger.warn "NOT YET"
+  logger.info "done."
 end
 
-desc "Install .bashrc"
+desc ".bashrc - file installation"
 task :bashrc do
   puts ""
   logger.info("installing .bashrc into #{home} ...")
   cp( home + '/.bashrc' , home + '/.bashrc.bak' )
   cp( 'profile/bashrc', home + '/.bashrc' )
+  logger.info "done."
 end
 
-desc "Install Pictures/* - files"
+desc "copy Pictures/* - files"
 task :pic_install do
   puts ""
+  File.exists?(home + "/Pictures")
   logger.info("installing some stuff into #{home}/Pictures/ ...")
   binFiles = FileList.new("Pictures/*")
   binFiles.each do |f|
@@ -38,11 +68,13 @@ task :pic_install do
     #puts "installing #{f}".cyan
     cp(f , home + '/Pictures/')
   end
+  logger.info "done."
 end
 
-desc "Install bin/* - files"
+desc "bin/* - files installation "
 task :bin_install do
   puts ""
+  File.exists?(home + "/bin")
   logger.info("installing some stuff into #{home}/bin/ ...")
   binFiles = FileList.new("bin/*")
   binFiles.each do |f|
@@ -50,6 +82,7 @@ task :bin_install do
     #puts "installing #{f}".cyan
     cp(f , home + '/bin/')
   end
+  logger.info "done."
 end
 
 desc "Install some apt-packages"
@@ -58,18 +91,20 @@ task :apt do
   logger.info("installing some pakages ...")
   apt_list="ruby-dev git lxterminal rofi rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
   sh("sudo apt-get install #{apt_list}")
+  logger.info "done."
 end
 
-desc "Install bash_it"
+desc " bash_it clone and installation"
 task :bashit do
   puts ""
   logger.info("getting bash_it ...")
   sh("git clone https://github.com/Bash-it/bash-it.git $HOME/.bash_it") if not Dir.exist?(home + "/.bash_it")
   sh("cd $HOME/.bash_it && git checkout master && git pull origin master")
+  logger.info "done."
 end
 
 desc "post-run"
 task :post do
   puts ""
-  logger.info "Done! Brave!"
+  logger.info "finished."
 end
