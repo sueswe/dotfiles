@@ -6,7 +6,7 @@ logger = Logger.new(STDOUT)
 
 logger.formatter = proc do |severity, datetime, progname, msg|
     date_format = datetime.strftime("%Y-%m-%d %H:%M:%S").cyan + " "
-    "[#{date_format}] #{severity.ljust(5)}: #{msg}\n"
+    "#{severity.ljust(5)} [#{date_format}]: #{msg}\n"
 end
 
 home = ENV['HOME']
@@ -16,6 +16,18 @@ task :default => [ :apt, :bashit , :bashrc , :bin_install ,
                     :post ]
 
 ################################################################################
+
+def where_am_i
+  require 'socket'
+  addr_infos = Socket.ip_address_list
+  return addr_infos.to_s
+end
+
+if where_am_i.include?("192.168")
+  logger.info "You're at home, baby"
+else
+  logger.info "Not at home."
+end
 
 desc "tint2 config-files installation"
 task :tint2 do
@@ -44,7 +56,8 @@ desc "git config-file installation"
 task :gitconfig do
   puts ""
   logger.info "installing a gitconfig - file ..."
-  logger.warn "NOT YET"
+  cp( home + '/.gitconfig' , home + '/.gitconfig.bak' )
+  cp( 'git/gitconfig', home + '/.gitconfig' )
   logger.info "done."
 end
 
