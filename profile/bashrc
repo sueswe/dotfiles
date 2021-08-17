@@ -18,7 +18,7 @@ fi
 
 PATH=$PATH:.:~/bin/
 export JAVA_HOME="~/bin/java/jre1.8.0_211"
-export GEM_HOME="$HOME/.gems"
+export GEM_HOME="$HOME/.gem"
 export GEM_PATH="$HOME/.gem"
 
 alias ls='ls --color=auto'
@@ -56,11 +56,19 @@ alias gb='git branch -a'
 alias np='gedit'
 alias gy='geany'
 alias sub='~/bin/sublime_text/sublime_text'
+alias code='io.elementary.code'
 
 #
 # we try this out ...
 #
-# source ~/liquidprompt/liquidprompt
+if [[ -e "$HOME/liquidprompt/liquidprompt" ]]; then
+export LP_ENABLE_BATT=1
+export LP_PERCENT_ALWAYS=1
+export LP_ENABLE_FQDN=1
+export LP_ENABLE_SUDO=1
+export LP_HOSTNAME_ALWAYS=1
+source ~/liquidprompt/liquidprompt
+fi
 
 #
 # PS1 ########################################################################
@@ -249,4 +257,7 @@ export SCM_CHECK=true
 # export BASH_IT_RELOAD_LEGACY=1
 
 # Load Bash It
+if [[ -e "$BASH_IT"/bash_it.sh ]]; then
 source "$BASH_IT"/bash_it.sh
+fi
+
