@@ -15,14 +15,9 @@ home = ENV['HOME']
 
 desc "Install .bashrc"
 task :bashrc do
-  logger.info("copy file ...")
-  cp('profile/bashrc',home + '/_bashrc_new')
-end
-
-desc "Install profile.unix"
-task :profile_unix do
-  logger.info("copy file ...")
-  cp('profile/profile.unix', home + '/.profile')
+  logger.info("installing new .bashrc to #{home}...")
+  cp(home + '/.bashrc',home + '/.bashrc.bak')
+  cp('profile/profile.unix',home + '/.bashrc')
 end
 
 desc "Install bin/* - files"
