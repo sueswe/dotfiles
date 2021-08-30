@@ -6,38 +6,130 @@ logger = Logger.new(STDOUT)
 
 logger.formatter = proc do |severity, datetime, progname, msg|
     date_format = datetime.strftime("%Y-%m-%d %H:%M:%S").cyan + " "
-    "[#{date_format}] #{severity.ljust(5)} pid=##{Process.pid} '#{msg}'\n"
+    "#{severity.ljust(5)} [#{date_format}]: #{msg}\n"
 end
 
 home = ENV['HOME']
 
-#task default [:bashrc , :profile_unix]
+task :default => [ :apt, :bashit , :bashrc , :bin_install ,
+                    :pic_install , :git_config , :tint2 , :openbox ,
+                    :post ]
 
-desc "Install .bashrc"
-task :bashrc do
-  logger.info("installing new .bashrc to #{home}...")
-  cp(home + '/.bashrc',home + '/.bashrc.bak')
-  cp('profile/profile.unix',home + '/.bashrc')
+################################################################################
+HOME = 1
+def where_am_i
+  require 'socket'
+  addr_infos = Socket.ip_address_list
+  return addr_infos.to_s
 end
 
-desc "Install bin/* - files"
+if where_am_i.include?("192.168")
+  logger.info "You're at home, baby"
+else
+  logger.info "You're not at home, somewhere else ..."
+  HOME = 0
+end
+
+################################################################################
+
+
+desc "tint2 config-files installation"
+task :tint2 do
+  puts ""
+  File.exists?(home + "/.config/tint2/")
+  logger.info "installing tint-config files"
+  tfile = FileList.new("tint2/*tint2rc*")
+  tfile.each do |f|
+    cp( f , home + "/.config/tint2/")
+  end
+end
+
+desc "openbox configuration-files installation"
+task :openbox do
+  puts ""
+  File.exists?(home + "/.config/openbox/")
+  logger.info "installting openbox configuration"
+  obfiles = FileList.new("openbox/*")
+  obfiles.each do |f|
+    cp( f , home + "/.config/openbox/")
+  end
+  logger.info "done."
+end
+
+desc "git config-file installation"
+task :gitconfig do
+  puts ""
+  logger.info "installing a gitconfig - file ..."
+  if HOME == 1
+    cp( home + '/.gitconfig' , home + '/.gitconfig.bak' ) if File.exists?(home + '/.gitconfig')
+    cp( 'git/gitconfig', home + '/.gitconfig' )
+    logger.info "done."
+  else
+    logger.warn "We're not at home, doing nothing."
+  end
+end
+
+desc ".bashrc - file installation"
+task :bashrc do
+  puts ""
+  logger.info("installing .bashrc into #{home} ...")
+  cp( home + '/.bashrc' , home + '/.bashrc.bak' ) if File.exists?(home + '/.bashrc')
+  File.delete( home + '/.bashrc' ) if File.exists?(home + '/.bashrc')
+  #cp( 'profile/bashrc', home + '/.bashrc' )
+  pwd = File.absolute_path('profile/bashrc')
+  #logger.debug(pwd)
+  File.symlink( pwd , home + '/.bashrc' )
+  logger.info "done."
+end
+
+desc "copy Pictures/* - files"
+task :pic_install do
+  puts ""
+  File.exists?(home + "/Pictures")
+  logger.info("installing some stuff into #{home}/Pictures/ ...")
+  binFiles = FileList.new("Pictures/*")
+  binFiles.each do |f|
+    #logger.info("installing #{f}")
+    #puts "installing #{f}".cyan
+    cp(f , home + '/Pictures/')
+  end
+  logger.info "done."
+end
+
+desc "bin/* - files installation "
 task :bin_install do
+  puts ""
+  File.exists?(home + "/bin")
+  logger.info("installing some stuff into #{home}/bin/ ...")
   binFiles = FileList.new("bin/*")
   binFiles.each do |f|
-    logger.info("installing #{f}")
+    #logger.info("installing #{f}")
     #puts "installing #{f}".cyan
     cp(f , home + '/bin/')
   end
+  logger.info "done."
 end
 
 desc "Install some apt-packages"
 task :apt do
+  puts ""
+  logger.info("installing some pakages ...")
   apt_list="ruby-dev git lxterminal rofi rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
   sh("sudo apt-get install #{apt_list}")
+  logger.info "done."
 end
 
-desc "Install bash_it"
+desc " bash_it clone and installation"
 task :bashit do
+  puts ""
+  logger.info("getting bash_it ...")
   sh("git clone https://github.com/Bash-it/bash-it.git $HOME/.bash_it") if not Dir.exist?(home + "/.bash_it")
   sh("cd $HOME/.bash_it && git checkout master && git pull origin master")
+  logger.info "done."
+end
+
+desc "post-run"
+task :post do
+  puts ""
+  logger.info "finished."
 end

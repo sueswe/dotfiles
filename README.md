@@ -1,12 +1,13 @@
-# my dotfiles
+# werner's dotfile-chaos 
 
 ## Installation:
 
 ```sh
+apt-get install git ruby
+export GEM_HOME=${HOME}/.gem
+export GEM_PATH=${GEM_HOME}
+gem install rake bundle colorize logger socket
 git clone https://github.com/sueswe/dotfiles.git dotfiles.git
 cd dotfiles.git
-install/bootstrap
+rake
 ```
-
-
-
