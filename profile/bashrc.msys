@@ -1,0 +1,93 @@
+#!/bin/sh
+
+PATH=$PATH:~/bin/
+
+alias ls='ls --color=auto'
+alias l='ls '
+alias ll='ls -l'
+alias la='ls -a'
+alias ltr='ls -ltr'
+alias mv='mv -i'
+alias rm='rm -v'
+alias n='nslookup'
+
+
+# wallpaper hack #############################################################
+#
+#alias w1='/C/bin/wallpaper.exe "C:\Windows\Globalization\MCT\MCT-DE\Wallpaper\DE-wp4.jpg"'
+#alias w2='/C/bin/wallpaper.exe "U:\14_images\wallpaper-1812167.jpg" '
+#alias w3='/C/bin/wallpaper.exe "C:\temp\downloads\lighthouse.jpg" '
+#alias w4='/C/bin/wallpaper.exe "c:\temp\downloads\wallpaper.jpg"'
+#alias w5='/C/bin/wallpaper.exe "c:\temp\downloads\nicewallpaper.jpg"'
+c=1
+picture_dir=${HOME}/Pictures/
+echo -e "creating aliases ... \c" >&2
+for jpg in $(find ${picture_dir} -name "*.jpg"); do
+    alias w${c}="/C/bin/wallpaper.exe ${jpg}"
+    let c="${c}+1"
+    echo -e ".\c" >&2
+done
+
+#
+# msysgit ####################################################################
+#
+export TZ=GMT-2
+alias dos2unix='dos2unix --d2u'
+alias make='dmake'
+alias open='C:\\Program\ Files\ \(x86\)\\Mozilla\ Firefox\\firefox.exe'
+alias kssh='kitty -load '
+
+#
+# git aliases ################################################################
+#
+alias fetch='git fetch -v'
+alias gitone='git log --pretty=oneline'
+alias gitoneline='gitone'
+alias gitpretty='gitone'
+alias gitlast='git diff HEAD^..HEAD'
+alias gitlog='git log -p'
+alias gitlogsum='git log --stat --summary'
+alias stat='git status'
+alias gitime="git log --pretty=format:'%h was %an, %ar, message: %s'"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias changelog='git log > changelog'
+alias gb='git branch -av'
+alias chm='git update-index --chmod=+x'
+alias arch='git archive --format=zip -o latest.zip -9 HEAD'
+
+#
+# perl #######################################################################
+#
+alias perl='/c/strawberry/perl/bin/perl.exe'
+
+#
+# editors ####################################################################
+#
+alias sub='C:\\bin\\SublimeText3\\sublime_text.exe'
+alias sb='C:\\bin\\SublimeText3\\sublime_text.exe'
+alias np='C:\\Program\ Files\ \(x86\)\\notepad++\\notepad++.exe'
+alias pn='c:\\bin\\pn\\pn.exe'
+alias gy='c:\\bin\\geany\\bin\\geany.exe'
+alias br='/C/bin/Brackets/Brackets.exe'
+alias np2='C:\\bin\\notepad2_4.2.25_x64\\notepad2.exe'
+alias code='C:\\bin\\VSCode\\code.exe'
+
+#
+# PATH
+#
+export PATH="/c/bin/putty/:/c/strawberry/perl/bin/:$PATH"
+
+#
+# WORKDIR ####################################################################
+#
+cd /C/REPOS
+
+#
+# EXPORT DATE
+#
+export datum=$(date +%Y%m%d)
+
+#
+# PS1
+#
