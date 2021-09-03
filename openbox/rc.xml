@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Numix-Clone</name>
+    <name>Cub Linux Blue</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -177,16 +177,18 @@
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
   <keyboard>
+  
+    #wos?
     <keybind key="W-Left"><action name="UnmaximizeFull"/><action name="MoveResizeTo"><x>0</x><y>0</y><width>50%</width><height>100%</height></action></keybind>
     <keybind key="W-Right"><action name="UnmaximizeFull"/><action name="MoveResizeTo"><x>1/2</x><y>0</y><width>50%</width><height>100%</height></action></keybind>
     <keybind key="W-Down"><action name="Iconify"/></keybind><keybind key="W-Up"><action name="Maximize"/></keybind><chainQuitKey>C-g</chainQuitKey>
-    <keybind key="A-F2"><action name="Execute"><startupnotify><enabled>true</enabled><name>Terminal-popup</name></startupnotify><command>rofi -show run</command></action></keybind>
-    <keybind key="A-F2"><action name="Execute"><startupnotify><enabled>true</enabled><name>Terminal-popup</name></startupnotify><command>rofi -show ssh</command></action></keybind>
+    <keybind key="A-F2"><action name="Execute"><startupnotify><enabled>true</enabled><name>Terminal-popup</name></startupnotify><command>rofi -show run -theme arthur</command></action></keybind>
+    <keybind key="A-F3"><action name="Execute"><startupnotify><enabled>true</enabled><name>Terminal-popup</name></startupnotify><command>rofi -show ssh -theme dmenu</command></action></keybind>
     <keybind key="A-t"><action name="Execute"><startupnotify><enabled>true</enabled><name>Terminal-popup</name></startupnotify><command>lxterminal</command></action></keybind>
-
+    
     # Signatur in die Zwischenablage
     <keybind key="A-s"><action name="Execute"><startupnotify><enabled>true</enabled><name>xclip-signatur</name></startupnotify><command>xclip ~/.signature</command></action></keybind>
-
+    
     <keybind key="C-A-l"><action name="Execute"><startupnotify><enabled>true</enabled><name>Terminal-popup</name></startupnotify><command>~/bin/sb</command></action></keybind>
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left"><action name="GoToDesktop"><to>left</to><wrap>no</wrap></action></keybind>
