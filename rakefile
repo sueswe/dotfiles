@@ -4,6 +4,9 @@ require 'colorize'
 logger = Logger.new(STDOUT)
 #logger.level = Logger.WARN
 
+$stdout.sync = true
+$stdin.sync = true
+
 logger.formatter = proc do |severity, datetime, progname, msg|
     date_format = datetime.strftime("%Y-%m-%d %H:%M:%S").cyan + " "
     "#{severity.ljust(5)} [#{date_format}]: #{msg}\n"
@@ -54,18 +57,39 @@ end
 desc "git config-file installation"
 task :gitconfig do
   logger.info "Creating a basic .gitconfig ..."
-  
-  if File.exists?(homeDir + /.gitconfig)
+
+  if File.exists?(homeDir + "/.gitconfig")
     logger.warn "File already exists"
   else
     print "Enter git username: "
     gituser = STDIN.gets.chomp
     print "Enter your email adress: "
     gitemail = STDIN.gets.chomp
-    f = File.open("#{homeDir}"/.gitconfig, 'w')
+    f = File.open("#{homeDir}" + "/.gitconfig", 'w')
     f.puts "[user]"
     f.puts "  name = #{gituser}"
     f.puts "  email = #{gitemail}"
+    f.puts "
+    [color]
+      branch = auto
+      diff = auto
+      status = auto
+    [color \"branch\"]
+      current = green
+      local = yellow
+      remote = green
+    [color \"diff\"]
+      meta = cyan bold
+      frag = magenta bold
+      old = red bold
+      new = green bold
+    [color \"status\"]
+      added = green
+      changed = yellow
+      untracked = red
+    [core]
+      editor = vim
+    "
     f.close
   end
 end
@@ -74,14 +98,17 @@ end
 desc ".bashrc - file installation"
 task :bashrc do
   puts ""
+  if os.include?('ming')
+    logger.info os + " -environment"
+  else
+    logger.info os + " -environment"
+  end
   logger.info("installing .bashrc into #{home} ...")
   cp( home + '/.bashrc' , homeDir + '/.bashrc.bak' ) if File.exists?(homeDir + '/.bashrc')
-  File.delete( homeDir + '/.bashrc' ) if File.exists?(homeDIr + '/.bashrc')
-  
+  File.delete( homeDir + '/.bashrc' ) if File.exists?(homeDir + '/.bashrc')
   pwd = File.absolute_path('profile/bashrc')
-  
   File.symlink( pwd , homeDir + '/.bashrc' )
-  logger.info "done."
+logger.info "done."
 end
 
 
@@ -104,13 +131,15 @@ desc "bin/* - files installation "
 task :bin_install do
   puts ""
   File.exists?(homeDir + "/bin")
-  logger.info("installing some stuff into #{home}/bin/ ...")
+  logger.info("installing some stuff into #{homeDir}/bin/")
   binFiles = FileList.new("bin/*")
   binFiles.each do |f|
     #logger.info("installing #{f}")
     #puts "installing #{f}".cyan
-    cp(f , homeDir + '/bin/')
+    print ".".blue
+    cp(f , homeDir + '/bin/', verbose: false)
   end
+  print "\n"
   logger.info "done."
 end
 
@@ -118,9 +147,13 @@ end
 desc "Install some apt-packages"
 task :apt do
   puts ""
-  logger.info("installing some pakages ...")
-  apt_list="ruby-dev git lxterminal rofi rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
-  sh("sudo apt-get install #{apt_list}")
+  if os.include?('ming')
+    logger.info "Nothing to do on #{os}"
+  else
+    logger.info("installing some pakages ...")
+    apt_list="ruby-dev git lxterminal rofi rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
+    sh("sudo apt-get install #{apt_list}")
+  end
   logger.info "done."
 end
 
@@ -128,9 +161,13 @@ end
 desc " bash_it clone and installation"
 task :bashit do
   puts ""
-  logger.info("getting bash_it ...")
-  sh("git clone https://github.com/Bash-it/bash-it.git $HOME/.bash_it") if not Dir.exist?(home + "/.bash_it")
-  sh("cd $HOME/.bash_it && git checkout master && git pull origin master")
+  if os.include?('ming')
+    logger.info "Nothing to do on #{os}"
+  else
+    logger.info("getting bash_it ...")
+    sh("git clone https://github.com/Bash-it/bash-it.git $HOME/.bash_it") if not Dir.exist?(home + "/.bash_it")
+    sh("cd $HOME/.bash_it && git checkout master && git pull origin master")
+  end
   logger.info "done."
 end
 
