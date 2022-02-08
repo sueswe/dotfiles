@@ -12,7 +12,7 @@ logger.formatter = proc do |severity, datetime, progname, msg|
     "#{severity.ljust(5)} [#{date_format}]: #{msg}\n"
 end
 
-task :default => [ :apt, :bashrc , :gitconfig , :bin_install , :pic_install , :tint2 , :openbox , :rofi, :post ]
+task :default => [ :apt, :bashrc , :gitconfig , :bin_install , :pic_install , :tint2 , :openbox , :openbox_themes , :rofi, :post ]
 
 os = RbConfig::CONFIG["host_os"]
 homeDir = ENV["HOME"]
@@ -22,6 +22,16 @@ puts "You are runnig on " + os.yellow
 puts "HOME is " + homeDir.yellow
 
 ################################################################################
+
+desc "openbox-themes installation"
+task :openbox_themes do
+  puts ""
+  logger.info "installing some openbox themes ..."
+  target = homeDir + '/.themes'
+  sourcedir = '.themes'
+  cp_r( sourcedir , target , verbose: false)
+  logger.info "done."
+end
 
 desc "rofi configuration"
 task :rofi do
