@@ -12,7 +12,7 @@ logger.formatter = proc do |severity, datetime, progname, msg|
     "#{severity.ljust(5)} [#{date_format}]: #{msg}\n"
 end
 
-task :default => [ :apt, :bashrc , :gitconfig , :bin_install , :pic_install , :tint2 , :openbox , :openbox_themes , :rofi, :post ]
+task :default => [ :apt, :bashrc , :vimrc , :sshconfig , :gitconfig , :bin_install , :pic_install , :tint2 , :openbox , :openbox_themes , :rofi, :post ]
 
 os = RbConfig::CONFIG["host_os"]
 homeDir = ENV["HOME"]
@@ -23,10 +23,31 @@ puts "HOME is " + homeDir.yellow
 
 ################################################################################
 
+desc "ssh-config installation"
+task :sshconfig do
+  puts ""
+  logger.info "installing .ssh/config".green
+  if File.exists?(homeDir + '/.ssh/config')
+    logger.warn "abort. config already exists. (we do not overwrite)."
+  end
+  logger.info "done."
+end
+
+desc "vimrc installation"
+task :vimrc do
+  puts ""
+  logger.info "installing .vimrc".green
+  if File.exists?(homeDir + '/.vimrc')
+    logger.warn "abort. config already exists. (we do not overwrite)."
+  end
+  logger.info "done."
+end
+
+
 desc "openbox-themes installation"
 task :openbox_themes do
   puts ""
-  logger.info "installing some openbox themes ..."
+  logger.info "installing some openbox themes ...".green
   target = homeDir + '/.themes'
   sourcedir = '.themes'
   cp_r( sourcedir , target , verbose: false)
@@ -43,7 +64,7 @@ desc "tint2 config-files installation"
 task :tint2 do
   puts ""
   File.exists?(homeDir + "/.config/tint2/")
-  logger.info "installing tint-config files"
+  logger.info "installing tint-config files".green
   tfile = FileList.new("tint2/*tint2rc*")
   tfile.each do |f|
     print ".".green
@@ -58,7 +79,7 @@ desc "openbox configuration-files installation"
 task :openbox do
   puts ""
   File.exists?(homeDir + "/.config/openbox/")
-  logger.info "installting openbox configuration"
+  logger.info "installting openbox configuration".green
   obfiles = FileList.new("openbox/*")
   obfiles.each do |f|
     cp( f , homeDir + "/.config/openbox/")
@@ -69,7 +90,7 @@ end
 
 desc "git config-file installation"
 task :gitconfig do
-  logger.info "Creating a basic .gitconfig ..."
+  logger.info "Creating a basic .gitconfig ...".green
 
   if File.exists?(homeDir + "/.gitconfig")
     logger.warn "File already exists"
@@ -111,6 +132,7 @@ end
 desc ".bashrc - file installation"
 task :bashrc do
   puts ""
+  logger.info "installing some bashrc".green
   if os.include?('ming')
     logger.info os + " -environment"
     sourceFile = File.absolute_path('profile/bashrc.msysgit')
@@ -134,7 +156,7 @@ desc "copy Pictures/* - files"
 task :pic_install do
   puts ""
   File.exists?(homeDir + "/Pictures")
-  logger.info("installing some stuff into #{homeDir}/Pictures/ ...")
+  logger.info "installing some stuff into #{homeDir}/Pictures/ ..." .green
   binFiles = FileList.new("Pictures/*")
   binFiles.each do |f|
     #logger.info("installing #{f}")
@@ -151,7 +173,7 @@ desc "bin/* - files installation "
 task :bin_install do
   puts ""
   File.exists?(homeDir + "/bin")
-  logger.info("installing some stuff into #{homeDir}/bin/")
+  logger.info "installing some stuff into #{homeDir}/bin/".green
   binFiles = FileList.new("bin/*")
   binFiles.each do |f|
     #logger.info("installing #{f}")
@@ -170,7 +192,7 @@ task :apt do
   if os.include?('ming')
     logger.info "Nothing to do on #{os}"
   else
-    logger.info("installing some pakages ...")
+    logger.info("installing some pakages ...").green
     apt_list="ruby-dev git lxterminal rofi rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
     sh("sudo apt-get install #{apt_list}")
   end
@@ -181,6 +203,7 @@ end
 desc " bash_it clone and installation"
 task :bashit do
   puts ""
+  logger.info "installing bashit".green
   if os.include?('ming')
     logger.info "Nothing to do on #{os}"
   else
