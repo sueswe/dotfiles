@@ -17,6 +17,7 @@ task :default => [ :apt, :bashrc , :vimrc , :sshconfig , :gitconfig , :bin_insta
 os = RbConfig::CONFIG["host_os"]
 homeDir = ENV["HOME"]
 binDir = ENV["HOME"] + "/bin/"
+home = homeDir
 
 puts "You are runnig on " + os.yellow
 puts "HOME is " + homeDir.yellow
@@ -199,7 +200,7 @@ task :apt do
     logger.info "Nothing to do on #{os}"
   else
     logger.info "installing some pakages ...".green
-    apt_list="ruby-dev git lxterminal rofi rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
+    apt_list="ruby-dev ruby-bundler git lxterminal rofi rdesktop vpnc scrot fonts-firacode thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
     sh("sudo apt-get install #{apt_list}")
   end
   logger.info "done."
