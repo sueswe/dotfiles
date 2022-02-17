@@ -142,7 +142,7 @@ task :bashrc do
     sourceFile = File.absolute_path('profile/bashrc')
     logger.info "set sourcefile to #{sourceFile}"
   end
-  logger.info("installing .bashrc into #{homeDir} ")
+  logger.info "installing .bashrc into #{homeDir} "
   cp( homeDir + '/.bashrc' , homeDir + '/.bashrc.bak' ) if File.exists?(homeDir + '/.bashrc')
   File.delete( homeDir + '/.bashrc' ) if File.exists?(homeDir + '/.bashrc')
 
@@ -192,7 +192,7 @@ task :apt do
   if os.include?('ming')
     logger.info "Nothing to do on #{os}"
   else
-    logger.info("installing some pakages ...").green
+    logger.info "installing some pakages ...".green
     apt_list="ruby-dev git lxterminal rofi rdesktop vpnc scrot thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
     sh("sudo apt-get install #{apt_list}")
   end

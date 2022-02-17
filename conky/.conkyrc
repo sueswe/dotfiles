@@ -1,87 +1,35 @@
-background yes
-use_xft yes
-xftfont Bitstream Vera Sans Mono:size=9
-xftalpha 0.8
-update_interval 1.0
-total_run_times 0
-own_window no
-own_window_type normal
-own_window_transparent yes
-own_window_colour black
-own_window_hints undecorated,skip_pager,skip_taskbar
+background no
+update_interval 1
+override_utf8_locale yes
 double_buffer yes
-minimum_size 260 5
+no_buffers yes
+text_buffer_size 2048
+own_window yes
+own_window_class conky
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+border_inner_margin 0
+border_outer_margin 0
+
+alignment bl
+gap_x 90
+gap_y 700
+
 draw_shades no
 draw_outline no
 draw_borders no
 draw_graph_borders no
-stippled_borders 0
-border_margin 4
-border_width 0
-default_color white
-default_shade_color black
-default_outline_color black
-alignment top_left
-gap_x 12
-gap_y 12
-no_buffers yes
+
+use_xft yes
+xftalpha 0
+text_buffer_size 2048
+
 uppercase no
-cpu_avg_samples 1
-net_avg_samples 1
-override_utf8_locale no
-use_spacer yes
-mpd_host localhost
-mpd_portPort 6060
-#mpd_password
+
+default_color FFFFFF
 
 TEXT
-${color #009bf9}$stippled_hr
-${font Verdana:style=Bold:size=16}${color #009bf9}${alignc}${time %a %d. %b %k:%M}
-$font$color${alignc}Feisty Fawn $kernel
-${color #009bf9}$stippled_hr
-${color lightgrey}Processes:$color $processes  ${color grey}Running:$color $running_processes ${color lightgrey}Up:$color $uptime
-
-${color #009bf9}CPU: $cpu% ${cpubar}
-${color}Name              PID     CPU%   MEM%
-${font Monospace:size=8}${color lightgrey}${top name 1}     ${top pid 1}  ${top cpu 1}  ${top mem 1}
-${color lightgrey}${top name 2}     ${top pid 2}  ${top cpu 2}  ${top mem 2}
-${color lightgrey}${top name 3}     ${top pid 3}  ${top cpu 3}  ${top mem 3}
-${cpugraph 48,300 009bf9 ffffff}
-
-$font${color #009bf9}RAM: $mem/$memmax - $memperc% ${membar}
-${color lightgrey}Swap: $swap/$swapmax - $swapperc% ${swapbar}
-${color}Name              PID     CPU%   MEM%
-${font Monospace:size=8}${color lightgrey}${top_mem name 1}     ${top_mem pid 1}  ${top_mem cpu 1}  ${top_mem mem 1}
-${color lightgrey}${top_mem name 2}     ${top_mem pid 2}  ${top_mem cpu 2}  ${top_mem mem 2}
-${color lightgrey}${top_mem name 3}     ${top_mem pid 3}  ${top_mem cpu 3}  ${top_mem mem 3}
-
-
-$font${color #009bf9}Connections${alignr}${color #009bf9}In:$color ${tcp_portmon 1 32767 count}  ${color #009bf9}Out:$color ${tcp_portmon 32768 61000 count}   ${color #009bf9}ALL:$color ${tcp_portmon 1 65535 count}
-${color lightgrey}$stippled_hr
-${color lightgrey}Down:$color ${downspeed eno1} k/s${color lightgrey} ${offset 80}Up:$color ${upspeed eno1} k/s
-${downspeedgraph eno1 32,120 009bf9 ffffff} ${offset 40} ${upspeedgraph eno1 32,120 009bf9 ffffff}
-${color #009bf9}IPs:$color ${addr eno1} ${offset 20} ${execi 7200 ~/.conky/publicip.sh}
-${color lightgrey}$stippled_hr
-${color #009bf9}Inbound Connection ${alignr} Local Service/Port$color
-${font Monospace:size=8} ${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
- ${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
- ${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
- ${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
- ${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
- ${tcp_portmon 1 32767 rhost 5} ${alignr} ${tcp_portmon 1 32767 lservice 5}
-$font${color #009bf9}Outbound Connection ${alignr} Remote Service/Port$color
-${font Monospace:size=8} ${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
- ${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
- ${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
- ${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
- ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
- ${tcp_portmon 32768 61000 rhost 5} ${alignr} ${tcp_portmon 32768 61000 rservice 5}
- ${tcp_portmon 32768 61000 rhost 6} ${alignr} ${tcp_portmon 32768 61000 rservice 6}
- ${tcp_portmon 32768 61000 rhost 7} ${alignr} ${tcp_portmon 32768 61000 rservice 7}
- ${tcp_portmon 32768 61000 rhost 8} ${alignr} ${tcp_portmon 32768 61000 rservice 8}
- ${tcp_portmon 32768 61000 rhost 9} ${alignr} ${tcp_portmon 32768 61000 rservice 9}
-$font${color #009bf9}$stippled_hr
-${color lightgrey}hda:  ${fs_used /}/${fs_size /}  ${fs_bar /}
-${color lightgrey}home: ${fs_used /home}/${fs_size /home} ${fs_bar /home}
-#${color lightgrey}sda: ${fs_used /media/big}/${fs_size /media/big} ${fs_bar /media/big}
-${font Monospace:size=8}${color lightgrey}usb:  ${fs_used /media/disk}/${fs_size /media/disk}  ${color lightgrey}${alignr}usb-1:  ${fs_used /media/disk-1}/${fs_size /media/disk-1}
+${voffset 10}${font Open Sans Light:size=50}${time %A}${font}${voffset -10}
+${voffset 10}${font Open Sans Light:size=50}${time %B} ${time %e}${font}${voffset -10}
+${voffset 10}${font Open Sans Light:size=100}${time %I:%M %p}${font}${voffset -10}
