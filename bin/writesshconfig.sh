@@ -1,6 +1,6 @@
 #!/bin/bash
 
-phosts=$(machgrp.rb -d prod | grep -E '(STP|LGKK)' | awk '{print $3}' | sort --unique)
+phosts=$(machgrp.rb -d prod | grep -E '(STP|LGKK|KFO|HEMA)' | awk '{print $3}' | sort --unique)
 thosts=$(machgrp.rb -d test | grep -E '(STP|LGKK)' | awk '{print $3}' | sort --unique)
 ehosts=$(machgrp.rb -d entw | grep -E '(STP|LGKK)' | awk '{print $3}' | sort --unique)
 
@@ -58,7 +58,7 @@ echo "# ALLES ANDERE: (grep -vE )"
 echo "#"
 echo ""
 
-phosts=$(machgrp.rb -d prod | grep -vE '(STP|LGKK)' | awk '{print $3}' | sort --unique)
+phosts=$(machgrp.rb -d prod | grep -vE '(STP|LGKK|HEMA|KFO)' | awk '{print $3}' | sort --unique)
 thosts=$(machgrp.rb -d test | grep -vE '(STP|LGKK)' | awk '{print $3}' | sort --unique)
 ehosts=$(machgrp.rb -d entw | grep -vE '(STP|LGKK)' | awk '{print $3}' | sort --unique)
 
