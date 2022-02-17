@@ -23,6 +23,12 @@ puts "HOME is " + homeDir.yellow
 
 ################################################################################
 
+desc "git bash prompt setup".green
+task :git_bash do
+  sh("wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash")
+  sh("wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh")
+end
+
 desc "ssh-config installation"
 task :sshconfig do
   puts ""
