@@ -12,7 +12,7 @@ logger.formatter = proc do |severity, datetime, progname, msg|
     "#{severity.ljust(5)} [#{date_format}]: #{msg}\n"
 end
 
-task :default => [ :apt, :bashrc , :vimrc , :sshconfig , :gitconfig , :bin_install , :pic_install , :tint2 , :openbox , :openbox_themes , :rofi, :post ]
+task :default => [ :apt, :bashrc, :vimrc, :sshconfig, :gitconfig, :bin_install, :pic_install, :tint2, :openbox, :openbox_themes, :rofi, :liquidprompt,  :post ]
 
 os = RbConfig::CONFIG["host_os"]
 homeDir = ENV["HOME"]
@@ -207,7 +207,7 @@ task :apt do
 end
 
 
-desc " bash_it clone and installation"
+desc "bash_it clone and installation"
 task :bashit do
   puts ""
   logger.info "installing bashit".green
@@ -219,6 +219,15 @@ task :bashit do
     sh("cd $HOME/.bash_it && git checkout master && git pull origin master")
   end
   logger.info "done."
+end
+
+
+desc "liquidprompt installation"
+task :liquidprompt do
+  puts ""
+  logger.info "getting liquidprompt ...".green
+  sh("git clone https://github.com/nojhan/liquidprompt.git $HOME/.liquidprompt") if not Dir.exist?(home + "/.liquidprompt")
+  sh("cd $HOME/.liquidprompt && git checkout master && git pull origin master")
 end
 
 
