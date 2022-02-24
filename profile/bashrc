@@ -64,13 +64,13 @@ alias vs='~/bin/codium/codium'
 #
 # we try this out ...
 #
-if [[ -e "$HOME/liquidprompt/liquidprompt" ]]; then
+if [[ -e "$HOME/.liquidprompt/liquidprompt" ]]; then
   #export LP_ENABLE_BATT=1
   #export LP_PERCENT_ALWAYS=1
   export LP_ENABLE_FQDN=1
   export LP_ENABLE_SUDO=1
   export LP_HOSTNAME_ALWAYS=1
-  source ~/liquidprompt/liquidprompt
+  source ~/.liquidprompt/liquidprompt
 fi
 
 #
