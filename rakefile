@@ -12,7 +12,13 @@ logger.formatter = proc do |severity, datetime, progname, msg|
     "#{severity.ljust(5)} [#{date_format}]: #{msg}\n"
 end
 
-task :default => [ :apt, :bashrc, :vimrc, :sshconfig, :gitconfig, :bin_install, :pic_install, :tint2, :openbox, :openbox_themes, :rofi, :liquidprompt,  :post ]
+
+task :default => [ :usage ]
+
+task :debian     => [ :apt, :bashrc, :vimrc, :sshconfig, :gitconfig, :bin_install, :pic_install, :tint2, :openbox, :openbox_themes, :rofi, :liquidprompt,  :post ]
+
+task :chromebook => [ :bashrc, :vimrc, :sshconfig, :gitconfig, :bin_install, :pic_install, :liquidprompt, :post ]
+
 
 os = RbConfig::CONFIG["host_os"]
 homeDir = ENV["HOME"]
@@ -24,11 +30,17 @@ puts "HOME is " + homeDir.yellow
 
 ################################################################################
 
+task :usage do
+  puts "Usage:"
+  puts "rake [ debian | chromebook ]"
+end
+
 desc "git bash prompt setup".green
 task :git_bash do
   sh("wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash")
   sh("wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh")
 end
+
 
 desc "ssh-config installation"
 task :sshconfig do
@@ -39,6 +51,7 @@ task :sshconfig do
   end
   logger.info "done."
 end
+
 
 desc "vimrc installation"
 task :vimrc do
@@ -240,3 +253,6 @@ task :post do
   puts ""
   logger.info "finished."
 end
+
+
+
