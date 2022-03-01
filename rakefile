@@ -192,7 +192,9 @@ end
 desc "bin/* - files installation "
 task :bin_install do
   puts ""
-  File.exists?(homeDir + "/bin")
+  unless File.exists?(homeDir + "/bin") 
+    mkdir_p(homeDir + "/bin")
+  end
   logger.info "installing some stuff into #{homeDir}/bin/".green
   binFiles = FileList.new("bin/*")
   binFiles.each do |f|
