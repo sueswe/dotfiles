@@ -175,7 +175,9 @@ end
 desc "copy Pictures/* - files"
 task :pic_install do
   puts ""
-  File.exists?(homeDir + "/Pictures")
+  unless File.exists?(homeDir + "/Pictures")
+    mkdir_p(homeDir + "/Pictures")
+  end
   logger.info "installing some stuff into #{homeDir}/Pictures/ ..." .green
   binFiles = FileList.new("Pictures/*")
   binFiles.each do |f|
@@ -251,7 +253,7 @@ task :post do
   puts ""
   logger.info "post - task"
   puts ""
-  puts " * Please check your gitconfig - email-address! ".red
+  puts " * Hint: please check your gitconfig - email-address. ".red
   puts ""
   logger.info "finished."
 end
