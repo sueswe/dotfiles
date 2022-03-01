@@ -124,25 +124,25 @@ task :gitconfig do
     f.puts "  name = #{gituser}"
     f.puts "  email = #{gitemail}"
     f.puts "
-    [color]
-      branch = auto
-      diff = auto
-      status = auto
-    [color \"branch\"]
-      current = green
-      local = yellow
-      remote = green
-    [color \"diff\"]
-      meta = cyan bold
-      frag = magenta bold
-      old = red bold
-      new = green bold
-    [color \"status\"]
-      added = green
-      changed = yellow
-      untracked = red
-    [core]
-      editor = vim
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+[color \"branch\"]
+  current = green
+  local = yellow
+  remote = green
+[color \"diff\"]
+  meta = cyan bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color \"status\"]
+  added = green
+  changed = yellow
+  untracked = red
+[core]
+  editor = vim
     "
     f.close
   end
