@@ -59,8 +59,10 @@ task :vimrc do
   logger.info "installing .vimrc".green
   if File.exists?(homeDir + '/.vimrc')
     logger.warn "abort. config already exists. (we do not overwrite).".yellow
+  else
+    cp("vim/vimrc" , homeDir + '/.vimrc')
+    logger.info "done."
   end
-  logger.info "done."
 end
 
 
