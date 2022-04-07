@@ -1,5 +1,11 @@
 #!/bin/bash
 
+function email_todo {
+	message="$@"
+	sub=$(echo $message | cut -b 1-20)
+	mailer2.pl -f werner.suess@itsv.at -t werner.suess@itsv.at -s "TODO: $sub" -m "$message"
+}
+
 function new_todo {
     echo "TODO = $1"
     $(export | grep OS | grep -i windows)
@@ -31,6 +37,7 @@ function list {
 #__MAIN__
 
 
+email_todo $@
 
 case $1 in
     "--list")
@@ -38,7 +45,7 @@ case $1 in
         exit 0
     ;;
     *)
-        new_todo $1
+        #new_todo $1
         exit 0
     ;;
 esac
