@@ -18,7 +18,7 @@ then
     echo "$MAILMSG"        # operation, the Shell checks periodically.
 fi
 
-PATH=$PATH:.:~/bin/
+PATH=$PATH:.:~/bin/:~/.gem/bin/
 export JAVA_HOME="~/bin/java/jre1.8.0_211"
 export GEM_HOME="$HOME/.gem"
 export GEM_PATH="$HOME/.gem"
@@ -264,3 +264,4 @@ if [[ -e "$BASH_IT"/bash_it.sh ]]; then
 source "$BASH_IT"/bash_it.sh
 fi
 
+export TERMINAL=lxterminal

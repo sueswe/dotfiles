@@ -236,7 +236,7 @@ execp_icon_h = 0
 #-------------------------------------
 # Executor 2
 execp = new
-execp_command = weather -i
+execp_command = $HOME/bin/weather -i
 execp_interval = 120
 execp_has_icon = 0
 execp_cache_icon = 1
