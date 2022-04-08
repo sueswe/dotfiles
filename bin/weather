@@ -30,12 +30,16 @@ TEXT_FOG="Fog"
 
 SYMBOL_CELSIUS="˚C"
 
+if [[ $API_KEY == "yourkeyhere" ]]; then
+	echo "Missing Key"
+	exit 0
+fi
 #WEATHER_URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&appid=${API_KEY}&units=metric"
 #http://api.openweathermap.org/geo/1.0/zip?zip={zip code},{country code}&appid={API_KEY}
 #api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY}
 
 WEATHER_URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&appid=${API_KEY}&units=metric"
-#echo "$WEATHER_URL"
+echo "$WEATHER_URL"
 
 WEATHER_INFO=$(wget -qO- "${WEATHER_URL}")
 WEATHER_MAIN=$(echo "${WEATHER_INFO}" | grep -o -e '\"main\":\"[A-Za-z]*\"' | awk -F ':' '{print $2}' | tr -d '"')
