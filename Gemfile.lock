@@ -5,6 +5,7 @@ GEM
     logger (1.5.0)
 
 PLATFORMS
+  ruby
   x86_64-linux
 
 DEPENDENCIES

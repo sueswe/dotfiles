@@ -106,10 +106,14 @@ desc "openbox configuration-files installation"
 task :openbox do
   puts ""
   File.exists?(homeDir + "/.config/openbox/")
-  logger.info "installting openbox configuration".green
+  logger.info "installing openbox configuration".green
   obfiles = FileList.new("openbox/*")
-  obfiles.each do |f|
-    cp( f , homeDir + "/.config/openbox/")
+  begin
+    obfiles.each do |f|
+      cp( f , homeDir + "/.config/" + f )
+    end
+  rescue
+    puts "cp failed .. maybe openbox is not installed or never run.".red
   end
   logger.info "done."
 end
