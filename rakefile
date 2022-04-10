@@ -228,7 +228,7 @@ task :apt do
     logger.info "Nothing to do on #{os}"
   else
     logger.info "installing some pakages ...".green
-    apt_list="ruby-dev ruby-bundler git lxterminal rofi rdesktop vpnc scrot fonts-firacode thunar i3lock pavucontrol feh guake openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
+    apt_list="ruby-dev ruby-bundler git lxterminal rofi rdesktop vpnc fonts-noto-mono fonts-noto scrot fonts-firacode thunar i3lock fonts-open-sans conky pavucontrol feh openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
     sh("sudo apt-get install #{apt_list}")
   end
   logger.info "done."
