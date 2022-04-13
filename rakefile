@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 
 require 'logger'
 require 'colorize'
@@ -256,6 +257,50 @@ task :liquidprompt do
   logger.info "getting liquidprompt ...".green
   sh("git clone https://github.com/nojhan/liquidprompt.git $HOME/.liquidprompt") if not Dir.exist?(home + "/.liquidprompt")
   sh("cd $HOME/.liquidprompt && git checkout master && git pull origin master")
+end
+
+
+desc "Install lite-xl and plugins"
+task "lite-xl" do
+  puts ""
+  chdir("/tmp/")
+  
+  puts "downloading tar.gz package:".yellow 
+  begin
+    system("wget https://github.com/lite-xl/lite-xl/releases/download/v2.0.5/lite-xl-linux-x86_64.tar.gz ")
+  rescue
+    puts "download failed.".red
+    exit 1
+  end
+  
+  puts "unpacking ...".yellow
+  begin
+    system("tar xfz lite-xl-linux-x86_64.tar.gz")
+  rescue
+    puts "unpack failed.".red
+    exit 1
+  end
+  
+  puts "installing ...".yellow
+  FileUtils.mv('/tmp/lite-xl',home + "/bin/lite-xl") unless File.exists?(home + "/bin/lite-xl")
+  
+  puts "starting ...".yellow
+  spawn(home + '/bin/lite-xl/bin/lite-xl')
+  
+  puts "getting plugins ...".yellow
+  chdir(home + "/repositories")
+  begin
+    system("git clone https://github.com/lite-xl/lite-xl-plugins.git") unless File.exists?(home + "/repositories/lite-xl-plugins")
+  rescue 
+    puts "clone failed".red
+    exit 1
+  end
+  f = Dir.glob("lite-xl-plugins/plugins/*.lua")
+  f.each do |x| 
+    puts "installing #{x} ...".blue
+    #cp(x , home + "/.config/lite-xl/plugins/" + x)
+  end
+  #FileUtils.cp("",home + ".config/lite-xl/plugins/")
 end
 
 
