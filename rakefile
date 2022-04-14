@@ -300,7 +300,7 @@ task "lite-xl" do
   else
     puts "done.".green
   end
-  puts "Copy yourself your favorite plugins to .config/lite-xl/plugins/.".green
+  #puts "Copy yourself your favorite plugins to .config/lite-xl/plugins/.".green
   pluginList = ["language*",
   "autoinsert.lua",
   "bigclock.lua",
@@ -310,11 +310,19 @@ task "lite-xl" do
   "minimap.lua",
   "statusclock.lua",
   "themeselect.lua"]
-  #f = Dir.glob("lite-xl-plugins/plugins/*.lua")
+  
+  c = 0
   pluginList.each do |p| 
     puts "installing #{p} ...".blue
-    #FileUtils.cp(x , home + "/.config/lite-xl/plugins/" + x)
+    f = Dir.glob("lite-xl-plugins/plugins/" + p)
+    f.each do |x|
+      xb = File.basename(x)
+      FileUtils.cp(x , home + "/.config/lite-xl/plugins/" + xb)
+      puts "copying #{x} to " + home + "/.config/lite-xl/plugins/" + xb
+      c += 1
+    end
   end
+  puts "installed " + c.to_s.yellow + " plugins."
   puts "done!".green
 end
 
