@@ -120,6 +120,7 @@ task :openbox do
 end
 
 
+
 desc "git config-file installation"
 task :gitconfig do
   logger.info "Creating a basic .gitconfig ...".green
@@ -265,42 +266,56 @@ task "lite-xl" do
   puts ""
   chdir("/tmp/")
   
-  puts "downloading tar.gz package:".yellow 
-  begin
-    system("wget https://github.com/lite-xl/lite-xl/releases/download/v2.0.5/lite-xl-linux-x86_64.tar.gz ")
-  rescue
+  puts "downloading tar.gz package ...".yellow 
+  n = system("wget -q --progress=dot https://github.com/lite-xl/lite-xl/releases/download/v2.0.5/lite-xl-linux-x86_64.tar.gz ")
+  if n == false
     puts "download failed.".red
     exit 1
+  else
+    puts "done.".green
   end
   
   puts "unpacking ...".yellow
-  begin
-    system("tar xfz lite-xl-linux-x86_64.tar.gz")
-  rescue
-    puts "unpack failed.".red
+  n = system("tar xfz lite-xl-linux-x86_64.tar.gz")
+  if n == false
+    puts "failed.".red
     exit 1
+  else
+    puts "done.".green
   end
   
   puts "installing ...".yellow
   FileUtils.mv('/tmp/lite-xl',home + "/bin/lite-xl") unless File.exists?(home + "/bin/lite-xl")
   
-  puts "starting ...".yellow
+  puts "starting the first time ...".yellow
   spawn(home + '/bin/lite-xl/bin/lite-xl')
+  puts "done.".green
   
   puts "getting plugins ...".yellow
   chdir(home + "/repositories")
-  begin
-    system("git clone https://github.com/lite-xl/lite-xl-plugins.git") unless File.exists?(home + "/repositories/lite-xl-plugins")
-  rescue 
+  n = system("git clone https://github.com/lite-xl/lite-xl-plugins.git") unless File.exists?(home + "/repositories/lite-xl-plugins")
+  if n == false  
     puts "clone failed".red
     exit 1
+  else
+    puts "done.".green
   end
-  f = Dir.glob("lite-xl-plugins/plugins/*.lua")
-  f.each do |x| 
-    puts "installing #{x} ...".blue
-    #cp(x , home + "/.config/lite-xl/plugins/" + x)
+  puts "Copy yourself your favorite plugins to .config/lite-xl/plugins/.".green
+  pluginList = ["language*",
+  "autoinsert.lua",
+  "bigclock.lua",
+  "bracketmatch.lua",
+  "gitstatus.lua",
+  "linenumbers.lua",
+  "minimap.lua",
+  "statusclock.lua",
+  "themeselect.lua"]
+  #f = Dir.glob("lite-xl-plugins/plugins/*.lua")
+  pluginList.each do |p| 
+    puts "installing #{p} ...".blue
+    #FileUtils.cp(x , home + "/.config/lite-xl/plugins/" + x)
   end
-  #FileUtils.cp("",home + ".config/lite-xl/plugins/")
+  puts "done!".green
 end
 
 
