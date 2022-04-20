@@ -2,10 +2,8 @@
 #
 # Place your personal variant in $HOME/.icewm directory.
 
-prog    "Sound" /usr/share/icons/wm-icons/48x48-infox/sound.xpm pavucontrol
-prog    "XTerm" ./gnome/32x32/apps/terminal.png uxterm
-prog    "WWW" /usr/share/icons/wm-icons/48x48-infox/www.xpm x-www-browser
-prog    "vmware-view" vmware-view vmware-view
-prog    "Opcon" /home/itsv.org.sv-services.at/31300094/bin/EnterpriseManager18/EnterpriseManager/icon.xpm /home/itsv.org.sv-services.at/31300094/bin/em18
+prog    "Sound" /usr/share/icons/gnome/48x48/devices/yast_soundcard.png pavucontrol
+prog    "XTerm" ./gnome/32x32/apps/terminal.png lxterminal
+# prog    "WWW" /usr/share/icons/wm-icons/48x48-infox/www.xpm x-www-browser
+prog    "WWW" /usr/share/icons/Papirus/24x24/apps/www-browser.svg x-www-browser
 prog    "Atom" atom.png atom
-

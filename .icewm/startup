@@ -1,10 +1,7 @@
 #!/bin/bash
 
-~/bin/dual-monitor.sh &
+# ~/bin/dual-monitor.sh &
 # pidgin &
 hexchat &
 # guake &
 fehbg ~/Pictures/cublinux-wallhaven-441571.png &
-
-
-

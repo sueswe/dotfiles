@@ -1,5 +1,6 @@
 key "Alt+F2"    rofi -show run
-key "Alt+T"     uxterm
+key "Alt+F3"    rofi -show ssh -theme dmenu
+key "Alt+T"     lxterminal
 key "Super+E"     thunar
 # key "Ctrl+Alt+l"  i3lock -d -i /home/itsv.org.sv-services.at/31300094/Pictures/radiotelescopios-wallpaper-1680x1050.png -f -t
 # key "Ctrl+Alt+l"  i3lock -d -i /home/itsv.org.sv-services.at/31300094/Pictures/haiku_reflection.png  -t
