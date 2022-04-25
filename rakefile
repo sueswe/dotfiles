@@ -42,6 +42,21 @@ task :git_bash do
   sh("wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh")
 end
 
+desc "i3lock-fancy"
+task :i3lock do
+  puts '
+  # cd $HOME/repositories
+  # sudo apt install autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
+  # git clone https://github.com/Raymo111/i3lock-color.git
+  # cd i3lock-color
+  # ./install-i3lock-color.sh
+  # sudo apt-get install imagemagick
+  # cd ..
+  # git clone https://github.com/meskarune/i3lock-fancy.git
+  # cd i3lock-fancy
+  # sudo make install
+  '
+end
 
 desc "ssh-config installation"
 task :sshconfig do
@@ -207,7 +222,7 @@ end
 desc "bin/* - files installation "
 task :bin_install do
   puts ""
-  unless File.exists?(homeDir + "/bin") 
+  unless File.exists?(homeDir + "/bin")
     mkdir_p(homeDir + "/bin")
   end
   logger.info "installing some stuff into #{homeDir}/bin/".green
@@ -265,8 +280,8 @@ desc "Install lite-xl and plugins"
 task "lite-xl" do
   puts ""
   chdir("/tmp/")
-  
-  puts "downloading tar.gz package ...".yellow 
+
+  puts "downloading tar.gz package ...".yellow
   n = system("wget -q --progress=dot https://github.com/lite-xl/lite-xl/releases/download/v2.0.5/lite-xl-linux-x86_64.tar.gz ")
   if n == false
     puts "download failed.".red
@@ -274,7 +289,7 @@ task "lite-xl" do
   else
     puts "done.".green
   end
-  
+
   puts "unpacking ...".yellow
   n = system("tar xfz lite-xl-linux-x86_64.tar.gz")
   if n == false
@@ -283,18 +298,18 @@ task "lite-xl" do
   else
     puts "done.".green
   end
-  
+
   puts "installing ...".yellow
   FileUtils.mv('/tmp/lite-xl',home + "/bin/lite-xl") unless File.exists?(home + "/bin/lite-xl")
-  
+
   puts "starting the first time ...".yellow
   spawn(home + '/bin/lite-xl/bin/lite-xl')
   puts "done.".green
-  
+
   puts "getting plugins ...".yellow
   chdir(home + "/repositories")
   n = system("git clone https://github.com/lite-xl/lite-xl-plugins.git") unless File.exists?(home + "/repositories/lite-xl-plugins")
-  if n == false  
+  if n == false
     puts "clone failed".red
     exit 1
   else
@@ -310,9 +325,9 @@ task "lite-xl" do
   "minimap.lua",
   "statusclock.lua",
   "themeselect.lua"]
-  
+
   c = 0
-  pluginList.each do |p| 
+  pluginList.each do |p|
     puts "installing #{p} ...".blue
     f = Dir.glob("lite-xl-plugins/plugins/" + p)
     f.each do |x|
@@ -336,6 +351,3 @@ task :post do
   puts ""
   logger.info "finished."
 end
-
-
-
