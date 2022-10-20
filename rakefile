@@ -86,9 +86,9 @@ desc "openbox-themes installation"
 task :openbox_themes do
   puts ""
   logger.info "installing some openbox themes ...".green
-  target = homeDir + '/.themes'
+  target = homeDir + '/'
   sourcedir = '.themes'
-  cp_r( sourcedir , target , verbose: false)
+  cp_r( sourcedir , target , verbose: true)
   logger.info "done."
 end
 
