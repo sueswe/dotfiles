@@ -202,3 +202,5 @@ PERL5LIB="/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5/lib/perl5${PE
 PERL_LOCAL_LIB_ROOT="/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5"; export PERL_MM_OPT;
+
+export PATH=$PATH:/usr/local/go/bin
