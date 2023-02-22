@@ -307,8 +307,8 @@ task "lite-xl" do
   puts "done.".green
 
   puts "getting plugins ...".yellow
-  chdir(home + "/repositories")
-  n = system("git clone https://github.com/lite-xl/lite-xl-plugins.git") unless File.exists?(home + "/repositories/lite-xl-plugins")
+  chdir(home + "/repos")
+  n = system("git clone https://github.com/lite-xl/lite-xl-plugins.git") unless File.exists?(home + "/repos/lite-xl-plugins")
   if n == false
     puts "clone failed".red
     exit 1
