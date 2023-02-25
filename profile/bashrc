@@ -149,6 +149,7 @@ alias gb='git branch -a'
 alias np='gedit'
 alias gy='geany'
 alias code='io.elementary.code'
+alias lx="$HOME//bin/lite-xl/bin/lite-xl"
 
 #
 # we try this out ...
@@ -156,10 +157,13 @@ alias code='io.elementary.code'
 if [[ -e "$HOME/.liquidprompt/liquidprompt" ]]; then
   #export LP_ENABLE_BATT=1
   #export LP_PERCENT_ALWAYS=1
-  export LP_ENABLE_FQDN=1
+  #export LP_ENABLE_FQDN=1
   export LP_ENABLE_SUDO=1
   export LP_HOSTNAME_ALWAYS=1
+  export LP_HOSTNAME_METHOD=full
   source ~/.liquidprompt/liquidprompt
+  source .liquidprompt/themes/powerline/powerline.theme 
+ lp_theme powerline
 fi
 
 
@@ -204,3 +208,6 @@ PERL_MB_OPT="--install_base \"/home/itsv.org.sv-services.at/werner.suess@itsv.at
 PERL_MM_OPT="INSTALL_BASE=/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5"; export PERL_MM_OPT;
 
 export PATH=$PATH:/usr/local/go/bin
+
+#eval "$(oh-my-posh init bash)"
+
