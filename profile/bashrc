@@ -149,7 +149,7 @@ alias gb='git branch -a'
 alias np='gedit'
 alias gy='geany'
 alias code='io.elementary.code'
-alias lx="$HOME//bin/lite-xl/bin/lite-xl"
+alias lx="$HOME//bin/lite-xl/lite-xl"
 
 #
 # we try this out ...
