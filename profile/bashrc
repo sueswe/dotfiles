@@ -146,10 +146,9 @@ alias gb='git branch -a'
 #
 # editors
 #
-alias np='gedit'
+alias np='geany'
 alias gy='geany'
-alias code='io.elementary.code'
-alias lx="$HOME//bin/lite-xl/lite-xl"
+alias atom='~/bin/pulsar/pulsar'
 
 #
 # we try this out ...
@@ -162,8 +161,8 @@ if [[ -e "$HOME/.liquidprompt/liquidprompt" ]]; then
   export LP_HOSTNAME_ALWAYS=1
   export LP_HOSTNAME_METHOD=full
   source ~/.liquidprompt/liquidprompt
-  source .liquidprompt/themes/powerline/powerline.theme 
- lp_theme powerline
+  #source ~/.liquidprompt/themes/powerline/powerline.theme 
+  #lp_theme powerline
 fi
 
 
@@ -207,7 +206,9 @@ PERL_LOCAL_LIB_ROOT="/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5${P
 PERL_MB_OPT="--install_base \"/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5"; export PERL_MM_OPT;
 
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:/home/linuxbrew/.linuxbrew/Homebrew/bin
 
-#eval "$(oh-my-posh init bash)"
+# eval "$(oh-my-posh init bash)"
+
+# lp_theme powerline
 
