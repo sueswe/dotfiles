@@ -36,6 +36,11 @@ task :usage do
   puts "rake [ debian | chromebook ]"
 end
 
+desc "get helix editor"
+task :helix do
+  sh("wget https://github.com/helix-editor/helix/releases/download/23.05/helix-23.05-x86_64-linux.tar.xz")
+end
+
 desc "git bash prompt setup".green
 task :git_bash do
   sh("wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash")
