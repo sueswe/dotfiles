@@ -146,7 +146,7 @@ alias gb='git branch -a'
 #
 # editors
 #
-alias np='geany'
+alias np='subl'
 alias gy='geany'
 alias atom='~/bin/pulsar/pulsar'
 
@@ -211,4 +211,7 @@ export PATH=$PATH:/usr/local/go/bin:/home/linuxbrew/.linuxbrew/Homebrew/bin
 # eval "$(oh-my-posh init bash)"
 
 # lp_theme powerline
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/
+export EDITOR='subl -a'
 
