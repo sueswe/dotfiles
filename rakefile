@@ -36,10 +36,6 @@ task :usage do
   puts "rake [ debian | chromebook ]"
 end
 
-desc "get helix editor"
-task :helix do
-  sh("wget https://github.com/helix-editor/helix/releases/download/23.05/helix-23.05-x86_64-linux.tar.xz")
-end
 
 desc "git bash prompt setup".green
 task :git_bash do
@@ -280,40 +276,6 @@ task :liquidprompt do
   sh("cd $HOME/.liquidprompt && git checkout master && git pull origin master")
 end
 
-
-desc "Install lite-xl and plugins"
-task "lite-xl" do
-  puts ""
-  chdir("/tmp/")
-
-  puts "downloading tar.gz package ...".yellow
-  n = system("wget -q --show-progress --progress=dot https://github.com/lite-xl/lite-xl/releases/download/v2.1.1/lite-xl-v2.1.1-addons-linux-x86_64-portable.tar.gz")
-  
-  if n == false
-    puts "download failed.".red
-    exit 1
-  else
-    puts "done.".green
-  end
-
-  puts "unpacking ...".yellow
-  n = system("tar xfz lite-xl-v2.1.1-addons-linux-x86_64-portable.tar.gz")
-  if n == false
-    puts "failed.".red
-    exit 1
-  else
-    puts "done.".green
-  end
-
-  puts "installing ...".yellow
-  FileUtils.mv('/tmp/lite-xl',home + "/bin/") #unless File.exists?(home + "/bin/")
-
-  puts "starting the first time ...".yellow
-  spawn(home + '/bin/lite-xl/lite-xl')
-  puts "done.".green
-
-  
-end
 
 
 desc "post-run"
