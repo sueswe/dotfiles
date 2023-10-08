@@ -92,12 +92,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if [ $TILIX_ID ] || [ $VTE_VERSION ] ; then source /etc/profile.d/vte.sh; fi # Ubuntu Budgie END
-
-
-#. /etc/bash_completion.d/git-prompt || fail "Cannot source /etc/bash_completion.d/git-prompt"
-
-
 #cd () {
 #  builtin cd "$@"
 #  ls IMPORTANT* >/dev/null 2>&1 && echo -e "\e[31mImportant File found.\e[0m"
@@ -109,7 +103,7 @@ then
     echo "$MAILMSG"        # operation, the Shell checks periodically.
 fi
 
-PATH=$PATH:.:~/bin/:~/.gem/bin/
+PATH=$PATH:.:$HOME/bin/:$HOME/.gem/bin/
 
 export GEM_HOME="$HOME/.gem"
 export GEM_PATH="$HOME/.gem"
@@ -146,9 +140,9 @@ alias gb='git branch -a'
 #
 # editors
 #
-alias np='subl'
+# alias np='subl'
 alias gy='geany'
-alias atom='~/bin/pulsar/pulsar'
+# alias atom='~/bin/pulsar/pulsar'
 
 #
 # we try this out ...
@@ -197,21 +191,12 @@ parse_git_branch() {
 
 export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 
-if [ $TILIX_ID ] || [ $VTE_VERSION ] ; then source /etc/profile.d/vte.sh; fi # Ubuntu Budgie END
-export TERMINAL=tilix
-
-PATH="/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/itsv.org.sv-services.at/werner.suess@itsv.at/perl5"; export PERL_MM_OPT;
+# if [ $TILIX_ID ] || [ $VTE_VERSION ] ; then source /etc/profile.d/vte.sh; fi # Ubuntu Budgie END
+# export TERMINAL=tilix
 
 export PATH=$PATH:/usr/local/go/bin:/home/linuxbrew/.linuxbrew/Homebrew/bin
-
 # eval "$(oh-my-posh init bash)"
-
 # lp_theme powerline
-
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/
-export EDITOR='subl -a'
+# export EDITOR='subl -a'
 
