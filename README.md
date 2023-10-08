@@ -3,7 +3,7 @@
 ## Installation:
 
 ```sh
-apt-get install git ruby
+apt-get install git ruby ruby-bundler vim-nox
 export GEM_HOME=${HOME}/.gem
 export GEM_PATH=${GEM_HOME}
 gem install rake bundle colorize logger socket
