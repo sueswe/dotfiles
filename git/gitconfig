@@ -1,27 +1,27 @@
 [user]
     name = Werner Suess
-    email = suess_w@gmx.net
+    email = nookie.suess@gmail.com
     
 [color]
-  branch = auto
-  diff = auto
-  status = auto
+    branch = auto
+    diff = auto
+    status = auto
 
 [color "branch"]
-  current = green
-  local = yellow
-  remote = green
+    current = green
+    local = yellow
+    remote = green
 
 [color "diff"]
-  meta = cyan bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
+    meta = cyan bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
 
 [color "status"]
-  added = green
-  changed = yellow
-  untracked = red
+    added = green
+    changed = yellow
+    untracked = red
 
 [core]
     editor = vim

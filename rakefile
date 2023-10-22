@@ -18,7 +18,7 @@ task :default => [ :usage ]
 
 task :debian => [ :apt, :bashrc, :vimrc, :sshconfig, :gitconfig, :bin_install, :pic_install, :tint2, :openbox, :openbox_themes, :rofi, :liquidprompt,  :post ]
 
-task :chromebook => [ :bashrc, :vimrc, :sshconfig, :gitconfig, :bin_install, :pic_install, :liquidprompt, :post ]
+task :chromebook => [ :bashrc, :vimrc, :sshconfig, :gitconfig, :bin_install, :liquidprompt, :post ]
 
 
 os = RbConfig::CONFIG["host_os"]
