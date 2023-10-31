@@ -1,6 +1,5 @@
 #!/bin/bash
 
-alias atom='/C/Program\ Files/Atom/atom.exe'
 alias make='/C/SVSW/Ruby/msys64/usr/bin/make.exe'
 
 alias ls='ls --color=auto'
@@ -11,7 +10,6 @@ alias ltr='ls -ltr'
 alias mv='mv -i'
 alias rm='rm -v'
 alias n='nslookup'
-
 
 # git aliases ################################################################
 #
@@ -40,21 +38,27 @@ alias dos2unix='dos2unix --d2u'
 # alias open='C:\\Program\ Files\ \(x86\)\\Mozilla\ Firefox\\firefox.exe'
 alias kssh='kitty -load '
 
-
 # editors:
-alias sub='C:\\bin\\SublimeText3\\sublime_text.exe'
-alias sb='C:\\bin\\SublimeText3\\sublime_text.exe'
 alias np='C:\\Program\ Files\ \(x86\)\\notepad++\\notepad++.exe'
 alias pn='c:\\bin\\pn\\pn.exe'
 alias gy='c:\\bin\\geany\\bin\\geany.exe'
-alias br='/C/bin/Brackets/Brackets.exe'
 alias np2='C:\\bin\\notepad2_4.2.25_x64\\notepad2.exe'
-alias code='C:\\bin\\VSCode\\code.exe'
+#alias code='C:\\bin\\VSCode\\code.exe'
 alias np='C:\\Program\ Files\ \(x86\)\\notepad++\\notepad++.exe'
+alias code='C:\\Program\ Files\\Microsoft\ VS\ Code\\Code.exe'
+alias atom='C:\\Program\ Files\\Atom\\atom.exe'
 
-
+# NPM binaries:
+export PATH=$PATH:$HOME\\node_modules\\.bin:$HOME\\AppData\\Roaming\\npm\\
 
 # EXPORT DATE:
 export datum=$(date +%Y%m%d)
 
-cd
+cd $HOME 
+
+# If not running interactively, don't do anything
+case $- in
+  *i*) ;;
+    *) return;;
+esac
+
