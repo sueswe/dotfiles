@@ -1,9 +1,15 @@
 #!/bin/bash
+
 # xscreensaver-command -lock &
 # i3lock -i ~/Pictures/00_wallpaper/weyland_industries_wallpaper_by_rocketmantan-d5jp8ge.png &
-# i3lock -i ~/Pictures/Pics_Werner/radiotelescopios-wallpaper-1680x1050.png &
+# i3lock -i ~/Pictures/System76-Robot-by_Kate_Hazen_of_System76.png &
 # xset dpms force off &
 # cinnamon-screensaver-command -a
 # xset dpms force off &
 # i3lock -c 00ff88 -f
-i3lock -d -i ~/Pictures/System76-Geometric-adapted_by_Kate_Hazen_of_System76.png -f -t
+# i3lock -d -i ~/Pictures/System76-Geometric-adapted_by_Kate_Hazen_of_System76.png -f -t
+
+#rm /tmp/screen*.png
+#scrot /tmp/screen_locked.png
+#i3lock -i /tmp/screen_locked.png
+i3lock -i ~/Pictures/1600x900-699601-Space-Engine-blue-planet-Gas-giant-space-art-Neptune.png &
