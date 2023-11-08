@@ -1,0 +1,24 @@
+# If termdef command returns terminal type (i.e. a non NULL value),
+# set TERM to the returned value, else set TERM to default lft.
+TERM_DEFAULT=lft
+TERM=`termdef`
+TERM=${TERM:-$TERM_DEFAULT}
+set -o vi
+
+export TERM=dtterm
+export TERMINAL_EMULATOR=dtterm
+export LOGNAME MAIL MAILMSG TERM
+
+if [ "${MYSHELL}" = "bash" ]; then
+  export PS1="[\u@\H:\w] \$ "
+  export PS2="[\u@\H] > "
+else
+  export PS1=['$LOGIN'@$(uname -n):'$PWD']" # "
+  export PS2=['$LOGIN'@$(uname -n)"] > "
+fi
+
+alias s='sudo su - '
+alias ls='ls -la '
+alias ll='ls -la'
+alias ltr='ls -ltr'
+alias elsam='cd /usr/local/lsam/'

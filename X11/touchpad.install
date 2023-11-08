@@ -1,3 +1,0 @@
-sudo apt remove xserver-xorg-input-synaptics
-sudo apt install xserver-xorg-input-libinput
-sudo cp  40-libinput.conf /etc/X11/xorg.conf.d/40-libinput.conf

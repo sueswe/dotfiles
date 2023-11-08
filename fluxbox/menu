@@ -1,7 +1,0 @@
-[begin] (fluxbox)
-[exec] (Firefox) {firefox}
-[exec] (xterm) {xterm}
-[exec] (rxvt) {rxvt -bg black -fg white -sl 9999 -geometry 100x50}
-[exec] (lxterm) {lxterminal}
-[include] (/etc/X11/fluxbox/fluxbox-menu)
-[end]

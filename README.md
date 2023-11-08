@@ -12,3 +12,13 @@ git clone https://github.com/sueswe/dotfiles.git dotfiles.git
 cd dotfiles.git
 rake
 ```
+
+
+
+$HOME/
+\---- .themes/
+\---- .config/openbox/
+\---- .config/obsession.conf
+\---- .config/tint2/
+\---- .config/rofi/config.rasi
+
