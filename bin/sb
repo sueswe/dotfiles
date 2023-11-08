@@ -9,7 +9,10 @@
 # i3lock -c 00ff88 -f
 # i3lock -d -i ~/Pictures/System76-Geometric-adapted_by_Kate_Hazen_of_System76.png -f -t
 
-#rm /tmp/screen*.png
-#scrot /tmp/screen_locked.png
-#i3lock -i /tmp/screen_locked.png
-i3lock -i ~/Pictures/1600x900-699601-Space-Engine-blue-planet-Gas-giant-space-art-Neptune.png &
+# rm /tmp/screen*.png
+# scrot /tmp/screen_locked.png
+# i3lock -i /tmp/screen_locked.png
+
+# i3lock -i ~/Pictures/1600x900-699601-Space-Engine-blue-planet-Gas-giant-space-art-Neptune.png &
+
+i3lock-fancy &
