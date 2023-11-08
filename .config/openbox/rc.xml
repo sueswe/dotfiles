@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Numix</name>
+    <name>Cub Linux Blue</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -188,7 +188,6 @@
     
     # Signatur in die Zwischenablage
     <keybind key="A-s"><action name="Execute"><startupnotify><enabled>true</enabled><name>xclip-signatur</name></startupnotify><command>xclip ~/.signature</command></action></keybind>
-    
     <keybind key="C-A-l"><action name="Execute"><startupnotify><enabled>true</enabled><name>Terminal-popup</name></startupnotify><command>~/bin/sb</command></action></keybind>
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left"><action name="GoToDesktop"><to>left</to><wrap>no</wrap></action></keybind>

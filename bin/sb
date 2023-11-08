@@ -12,4 +12,7 @@
 #rm /tmp/screen*.png
 #scrot /tmp/screen_locked.png
 #i3lock -i /tmp/screen_locked.png
-i3lock -i ~/Pictures/1600x900-699601-Space-Engine-blue-planet-Gas-giant-space-art-Neptune.png &
+# i3lock -i ~/Pictures/1600x900-699601-Space-Engine-blue-planet-Gas-giant-space-art-Neptune.png &
+
+# i3lock -i ~/repos/dotfiles/Pictures/1600x900-699601-Space-Engine-blue-planet-Gas-giant-space-art-Neptune.png &
+i3lock-fancy &
