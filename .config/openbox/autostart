@@ -1,20 +1,21 @@
-tint2 &
+tint2 -c $HOME/.config/tint2/repentance.blue.bottom.weather.battery.tint2rc &
 xrandr -s 1600x900 &
-# ~/bin/fehbg &
+~/bin/fehbg &
 # fbpanel &
 # docky &
 # plank &
-~/bin/dual-monitor.sh &
-# hexchat &
-# guake &
+# ~/bin/dual-monitor.sh &
+hexchat &
+guake &
 # xscreensaver -no-splash &
-# tilix &
-# compton -b -c &
+tilix &
+compton -b -c &
 # lxterminal &
 # pidgin &
 # tele &
 # fehbg ~/Pictures/System76-Robot-by_Kate_Hazen_of_System76.png &
 # fehbg ~/Pictures/desktop.jpg &
 # ~/bin/fehbg ~/Pictures/mac_os_x_lion-1920x1200.jpg &
-~/bin/fehbg ~/Pictures/System76-System76_Brandmark_Gray-by_Kate_Hazen_of_System76.jpg &
+# ~/bin/fehbg ~/Pictures/System76-System76_Brandmark_Gray-by_Kate_Hazen_of_System76.jpg &
+
 # xpad &
