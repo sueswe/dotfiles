@@ -131,10 +131,10 @@ task :openbox do
   obfiles = FileList.new(".config/openbox/*")
   begin
     obfiles.each do |f|
-      cp( f , homeDir + "/.config/openbox/" + f )
+      cp( f , homeDir + "/" + f )
     end
   rescue
-    puts "cp failed .. maybe openbox is not installed or never run.".red
+    puts "cp failed .. maybe openbox is not installed or never run before.".red
   end
   logger.info "done."
 end
