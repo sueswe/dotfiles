@@ -186,11 +186,11 @@ task :bashrc do
   logger.info "installing some bashrc".green
   if os.include?('ming')
     logger.info os + " -environment"
-    sourceFile = File.absolute_path('_profile/bashrc.msysgit')
+    sourceFile = File.absolute_path('_profiles/bashrc.msysgit')
     logger.info "set sourcefile to #{sourceFile}"
   else
     logger.info os + " -environment"
-    sourceFile = File.absolute_path('_profile/bashrc')
+    sourceFile = File.absolute_path('_profiles/bashrc')
     logger.info "set sourcefile to #{sourceFile}"
   end
   logger.info "installing .bashrc into #{homeDir} "
