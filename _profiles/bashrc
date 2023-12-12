@@ -141,7 +141,7 @@ alias gb='git branch -a'
 # editors
 #
 alias np='subl'
-alias gy='geany'
+alias gy='export GTK_THEME=Adwaita:dark && geany'
 
 #
 # we try this out ...
