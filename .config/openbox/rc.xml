@@ -42,7 +42,11 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Cub Linux Blue</name>
+    <roundCorners>yes</roundCorners>
+    <invisibleHandles>yes</invisibleHandles>
+    <cornerRadius>15</cornerRadius>
+    <cornerRadius menu="yes">15</cornerRadius>
+    <name>Bazik_Dark_Yellow</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -184,7 +188,7 @@
     <keybind key="W-Down"><action name="Iconify"/></keybind><keybind key="W-Up"><action name="Maximize"/></keybind><chainQuitKey>C-g</chainQuitKey>
     <keybind key="A-F2"><action name="Execute"><startupnotify><enabled>true</enabled><name>Terminal-popup</name></startupnotify><command>rofi -show run </command></action></keybind>
     <keybind key="A-F3"><action name="Execute"><startupnotify><enabled>true</enabled><name>Terminal-popup</name></startupnotify><command>rofi -show ssh -theme dmenu</command></action></keybind>
-    <keybind key="A-t"><action name="Execute"><startupnotify><enabled>true</enabled><name>Terminal-popup</name></startupnotify><command>x-terminal-emulator</command></action></keybind>
+    <keybind key="A-t"><action name="Execute"><startupnotify><enabled>true</enabled><name>Terminal-popup</name></startupnotify><command>lxterminal</command></action></keybind>
     
     # Signatur in die Zwischenablage
     <keybind key="A-s"><action name="Execute"><startupnotify><enabled>true</enabled><name>xclip-signatur</name></startupnotify><command>xclip ~/.signature</command></action></keybind>
@@ -219,7 +223,7 @@
     <keybind key="W-S-Up"><action name="DirectionalCycleWindows"><direction>up</direction></action></keybind>
     <keybind key="W-S-Down"><action name="DirectionalCycleWindows"><direction>down</direction></action></keybind>
     <!-- Keybindings for running applications -->
-    <keybind key="W-e"><action name="Execute"><startupnotify><enabled>true</enabled><name>Thunar</name></startupnotify><command>thunar</command></action></keybind>
+    <keybind key="W-e"><action name="Execute"><startupnotify><enabled>true</enabled><name>PcManFM</name></startupnotify><command>pcmanfm</command></action></keybind>
     <!-- Launch scrot when Print is pressed -->
     <keybind key="Print"><action name="Execute"><command>scrot</command></action></keybind>
   </keyboard>
