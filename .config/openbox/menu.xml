@@ -11,11 +11,19 @@
 				<execute>lxterminal</execute>
 			</action>
 		</item>
-		<item label="Google">
+        
+		<item label="Screenshot">
+			<action name="Execute">
+				<execute>shutter</execute>
+			</action>
+		</item>
+        
+        <item label="Google">
 			<action name="Execute">
 				<execute>google-chrome</execute>
 			</action>
 		</item>
+        
         <item label="Thunar">
 			<action name="Execute">
 				<execute>thunar</execute>
