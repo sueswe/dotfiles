@@ -1,17 +1,44 @@
 #!/bin/bash
 
 function usage {
-    echo -e "Usage: $0 \e[36m [gc|get|br]\e[0m \n"
-    echo "gc  = run garbagecollector"
-    echo "get = git pull origin master"
-    echo "br  = show branches"
+    echo -e "Usage: $(basename $0) \e[36m [gc|get|br|--source for@bar]\e[0m \n"
     echo ""
-    echo "Checks only .git - directories."
+    echo "* Clone from a remote filelist:"
+    echo "   $(basename $0) --source user@remote:/foo/projects.ist"
     echo ""
+    echo "* Check localy:"
+    echo "   gc  = run garbagecollector"
+    echo "   get = git pull origin master"
+    echo "   br  = show branches"
+    echo ""
+    # echo "$(basename $0) checks only .git - directories."
+    echo ""
+}
+
+
+
+function clonewar {
+    source=$1
+    echo "Clone from: $source"
+    scp $source .
+    projectList=$(basename $source)
+    remote=$(dirname $source)
+    echo "loop through $projectList"
+    for r in $(cat $projectList); do
+      git clone $remote/$r || {
+        echo "Ups, that didn't work. "
+      }
+    done
+    exit 1
 }
 
 reposToPush=""
 changesOpen=""
+
+if [[ $1 == "--source" ]]; then
+  shift
+  clonewar $@ 
+fi
 
 if [[ "$1" == "--help"  || "$1" == "-?" ]]; then
     usage
