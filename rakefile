@@ -14,11 +14,7 @@ logger.formatter = proc do |severity, datetime, progname, msg|
 end
 
 
-task :default => [ :usage ]
-
-task :debian => [ :apt, :bashrc, :vimrc, :sshconfig, :gitconfig, :bin_install, :pic_install, :tint2, :openbox, :openbox_themes, :rofi, :liquidprompt,  :post ]
-
-task :chromebook => [ :bashrc, :vimrc, :sshconfig, :gitconfig, :bin_install, :liquidprompt, :post ]
+task :default => [ ]
 
 
 os = RbConfig::CONFIG["host_os"]
@@ -33,11 +29,9 @@ puts "HOME is " + homeDir.yellow
 
 task :usage do
   puts "Usage:"
-  puts "rake [ debian | chromebook ]"
 end
 
-
-desc "git bash prompt setup".green
+desc "git-completition bash prompt setup (wget github)"
 task :git_bash do
   sh("wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash")
   sh("wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh")
@@ -83,7 +77,6 @@ task :vimrc do
   end
 end
 
-
 desc "openbox-themes installation"
 task :openbox_themes do
   puts ""
@@ -93,7 +86,6 @@ task :openbox_themes do
   cp_r( sourcedir , target , verbose: true)
   logger.info "done."
 end
-
 
 desc "rofi configuration"
 task :rofi do
@@ -180,29 +172,6 @@ task :gitconfig do
   end
 end
 
-desc ".bashrc - file installation"
-task :bashrc do
-  puts ""
-  logger.info "installing some bashrc".green
-  if os.include?('ming')
-    logger.info os + " -environment"
-    sourceFile = File.absolute_path('_profiles/bashrc.msysgit')
-    logger.info "set sourcefile to #{sourceFile}"
-  else
-    logger.info os + " -environment"
-    sourceFile = File.absolute_path('_profiles/bashrc')
-    logger.info "set sourcefile to #{sourceFile}"
-  end
-  logger.info "installing .bashrc into #{homeDir} "
-  cp( homeDir + '/.bashrc' , homeDir + '/.bashrc.bak' ) if File.exists?(homeDir + '/.bashrc')
-  File.delete( homeDir + '/.bashrc' ) if File.exists?(homeDir + '/.bashrc')
-
-  #File.symlink( pwd , homeDir + '/.bashrc' )
-  cp( sourceFile , homeDir + '/.bashrc' )
-logger.info "done."
-end
-
-
 desc "copy Pictures/* - files"
 task :pic_install do
   puts ""
@@ -220,7 +189,6 @@ task :pic_install do
   print "\n"
   logger.info "done."
 end
-
 
 desc "bin/* - files installation "
 task :bin_install do
@@ -240,9 +208,8 @@ task :bin_install do
   logger.info "done."
 end
 
-
-desc "Install some apt-packages"
-task :apt do
+desc "Install openbox apt-packages"
+task :apt_openbox do
   puts ""
   if os.include?('ming')
     logger.info "Nothing to do on #{os}"
@@ -253,7 +220,6 @@ task :apt do
   end
   logger.info "done."
 end
-
 
 desc "bash_it clone and installation"
 task :bashit do
@@ -269,13 +235,13 @@ task :bashit do
   logger.info "done."
 end
 
-
 desc "liquidprompt installation"
 task :liquidprompt do
   puts ""
   logger.info "getting liquidprompt ...".green
   sh("git clone https://github.com/nojhan/liquidprompt.git $HOME/.liquidprompt") if not Dir.exist?(home + "/.liquidprompt")
   sh("cd $HOME/.liquidprompt && git checkout master && git pull origin master")
+  puts "Now run: bashrc-config-add liquid".cyan
 end
 
 
