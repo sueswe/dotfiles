@@ -133,8 +133,8 @@ if [[ -e "$HOME/.liquidprompt/liquidprompt" ]]; then
   export LP_HOSTNAME_ALWAYS=1
   export LP_HOSTNAME_METHOD=full
   source ~/.liquidprompt/liquidprompt
-  #source ~/.liquidprompt/themes/powerline/powerline.theme 
-  #lp_theme powerline
+  source ~/.liquidprompt/themes/powerline/powerline.theme 
+  lp_theme powerline
 fi
 
 
