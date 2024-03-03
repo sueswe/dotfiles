@@ -21,11 +21,12 @@ function add_ruby {
     echo 'export GEM_HOME="$HOME/.gem"' >> ~/.bashrc
     echo 'export GEM_PATH="$HOME/.gem"' >> ~/.bashrc
     echo 'PATH=$PATH:.:$HOME/bin/:$HOME/.gem/bin/' >> ~/.bashrc
+    echo "done."
 }
 
 # Node Version Manager:
 function add_nvm {
-    echo ""
+    echo "nothing to do yet."
 }
 
 function add_aliases {
@@ -51,7 +52,7 @@ alias gb="git branch -a"
 
 # git-completition:
 function add_git-completiotion {
-    echo ""
+    echo "please just use liquidprompt."
 }
 
 
