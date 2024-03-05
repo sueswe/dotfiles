@@ -18,10 +18,14 @@ OPT=$1
 
 # GEM-environment:
 function add_ruby {
-    echo 'export GEM_HOME="$HOME/.gem"' >> ~/.bashrc
-    echo 'export GEM_PATH="$HOME/.gem"' >> ~/.bashrc
-    echo 'PATH=$PATH:.:$HOME/bin/:$HOME/.gem/bin/' >> ~/.bashrc
-    echo "done."
+    if grep GEM_HOME ~/.bashrc ; then
+        echo "already set."
+    else
+        echo 'export GEM_HOME="$HOME/.gem"' >> ~/.bashrc
+        echo 'export GEM_PATH="$HOME/.gem"' >> ~/.bashrc
+        echo 'PATH=$PATH:.:$HOME/bin/:$HOME/.gem/bin/' >> ~/.bashrc
+        echo "done."
+    fi
 }
 
 # Node Version Manager:
@@ -30,6 +34,9 @@ function add_nvm {
 }
 
 function add_aliases {
+    if grep gitoneline ~/.bashrc ; then
+        echo "already set."
+    else
     echo '# git aliases ################################################################
 #
 alias fetch="git fetch -v"
@@ -47,16 +54,15 @@ alias changelog="git log > changelog"
 alias gb="git branch -a"
 
     ' >> ~/.bashrc
-}
-
-
-# git-completition:
-function add_git-completiotion {
-    echo "please just use liquidprompt."
+    fi
 }
 
 
 function add_liqupmt {
+    if grep liquidprompt ~/.bashrc ; then
+        echo "already set."
+        return 1
+    else
     echo 'if [[ -e "$HOME/.liquidprompt/liquidprompt" ]]; then
     #export LP_ENABLE_BATT=1
     #export LP_PERCENT_ALWAYS=1
@@ -68,7 +74,15 @@ function add_liqupmt {
     source ~/.liquidprompt/themes/powerline/powerline.theme 
     lp_theme powerline
 fi' >> ~/.bashrc
+    fi
 }
+
+
+################################################################
+#
+# MAIN
+#
+################################################################
 
 case $OPT in 
     "ruby"|"gem") add_ruby;;
