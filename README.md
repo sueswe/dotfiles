@@ -1,8 +1,9 @@
-# werner's dotfile-chaos 
+# werner's dotfile-chaos
 
 ## Installation:
 
 ```sh
+./bash-config-add ruby
 ./install_basics
 
 ```

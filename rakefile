@@ -246,7 +246,7 @@ end
 
 
 
-desc "post-run"
+desc "post-run "
 task :post do
   puts ""
   logger.info "post - task"
