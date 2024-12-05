@@ -12,4 +12,3 @@ Decrypt:
 Shorthand:
  gpg -o filename.tar.gz -d filename.tar.gz.gpg
 '
-

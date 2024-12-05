@@ -2,41 +2,41 @@
 
 me=$(basename $0)
 function usage {
-    echo "Usage:"
-    echo "  $me <something>
-    " 
-    echo "example:"
-    echo '#> bashrc-config-add gem'
-    echo '#> bashrc-config-add node
+  echo "Usage:"
+  echo "  $me <something>
+    "
+  echo "example:"
+  echo '#> bashrc-config-add gem'
+  echo '#> bashrc-config-add node
     '
-    
-    echo "Following available:"
-    grep 'function add' $0 | grep -v grep | awk '{print $2}'
+
+  echo "Following available:"
+  grep 'function add' $0 | grep -v grep | awk '{print $2}'
 }
 
 OPT=$1
 
 # GEM-environment:
 function add_ruby {
-    if grep GEM_HOME ~/.bashrc ; then
-        echo "already set."
-    else
-        echo 'export GEM_HOME="$HOME/.gem"' >> ~/.bashrc
-        echo 'export GEM_PATH="$HOME/.gem"' >> ~/.bashrc
-        echo 'PATH=$PATH:.:$HOME/bin/:$HOME/.gem/bin/' >> ~/.bashrc
-        echo "done."
-    fi
+  if grep GEM_HOME ~/.bashrc; then
+    echo "already set."
+  else
+    echo 'export GEM_HOME="$HOME/.gem"' >> ~/.bashrc
+    echo 'export GEM_PATH="$HOME/.gem"' >> ~/.bashrc
+    echo 'PATH=$PATH:.:$HOME/bin/:$HOME/.gem/bin/' >> ~/.bashrc
+    echo "done."
+  fi
 }
 
 # Node Version Manager:
 function add_nvm {
-    echo "nothing to do yet."
+  echo "nothing to do yet."
 }
 
 function add_aliases {
-    if grep gitoneline ~/.bashrc ; then
-        echo "already set."
-    else
+  if grep gitoneline ~/.bashrc; then
+    echo "already set."
+  else
     echo '# git aliases ################################################################
 #
 alias ls="ls --color=auto"
@@ -66,15 +66,14 @@ alias changelog="git log > changelog"
 alias gb="git branch -a"
 
     ' >> ~/.bashrc
-    fi
+  fi
 }
 
-
 function add_liqupmt {
-    if grep liquidprompt ~/.bashrc ; then
-        echo "already set."
-        return 1
-    else
+  if grep liquidprompt ~/.bashrc; then
+    echo "already set."
+    return 1
+  else
     echo 'if [[ -e "$HOME/.liquidprompt/liquidprompt" ]]; then
     #export LP_ENABLE_BATT=1
     #export LP_PERCENT_ALWAYS=1
@@ -86,9 +85,8 @@ function add_liqupmt {
     source ~/.liquidprompt/themes/powerline/powerline.theme 
     lp_theme powerline
 fi' >> ~/.bashrc
-    fi
+  fi
 }
-
 
 ################################################################
 #
@@ -96,12 +94,12 @@ fi' >> ~/.bashrc
 #
 ################################################################
 
-case $OPT in 
-    "ruby"|"gem") add_ruby;;
-    "liquid") add_liqupmt ;;
-    "alias"|"aliases") add_aliases;;
-    *)
-        echo "nothing to install."
-        usage
+case $OPT in
+  "ruby" | "gem") add_ruby ;;
+  "liquid") add_liqupmt ;;
+  "alias" | "aliases") add_aliases ;;
+  *)
+    echo "nothing to install."
+    usage
     ;;
 esac

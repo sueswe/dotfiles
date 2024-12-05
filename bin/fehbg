@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [[ ! -z $1 ]]; then
-    feh  --bg-fill $1
-    exit 0
+  feh --bg-fill $1
+  exit 0
 fi
 
-# feh  --bg-fill ~/Pictures/Floorboards_by_Dawid_Huczyński.jpg 
-# feh --bg-fill ~/Pictures/tnR0etc-best-linux-wallpaper.jpg 
+# feh  --bg-fill ~/Pictures/Floorboards_by_Dawid_Huczyński.jpg
+# feh --bg-fill ~/Pictures/tnR0etc-best-linux-wallpaper.jpg
 feh --bg-fill ~/Pictures/Flying_Whale_by_Shu_Le.jpg &

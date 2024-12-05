@@ -1,7 +1,15 @@
 #!/bin/bash
 git branch -d ${1}
-rtc=$? ; if [[ "$rtc" -ne 0 ]]; then { echo "Fehler"; exit $rtc ; } else { echo "done." ; } fi
+rtc=$?
+if [[ "$rtc" -ne 0 ]]; then {
+  echo "Fehler"
+  exit $rtc
+}; else { echo "done."; }; fi
 echo ""
 git push origin :${1}
-rtc=$? ; if [[ "$rtc" -ne 0 ]]; then { echo "Fehler"; exit $rtc ; } else { echo "done." ; } fi
+rtc=$?
+if [[ "$rtc" -ne 0 ]]; then {
+  echo "Fehler"
+  exit $rtc
+}; else { echo "done."; }; fi
 echo ""

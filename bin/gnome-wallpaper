@@ -1,18 +1,18 @@
 #!/bin/bash
 if [ ! -z $1 ]; then
-    echo "gsettings set org.gnome.desktop.background picture-uri file://$1"
-    gsettings set org.gnome.desktop.background picture-uri file://$1
+  echo "gsettings set org.gnome.desktop.background picture-uri file://$1"
+  gsettings set org.gnome.desktop.background picture-uri file://$1
 else
-    #gsettings set org.gnome.desktop.background picture-uri "file:///home/itsv.org.sv-services.at/31300094/Pictures/Mountain.jpg"
-    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//System76-System76_Brandmark_Gray-by_Kate_Hazen_of_System76.jpg
-    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//System76-System76_Logo_Yellow-by_Kate_Hazen_of_System76.jpg
-    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//System76-System76_Logo_Gray-by_Kate_Hazen_of_System76.jpg
-    gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//System76-Robot-by_Kate_Hazen_of_System76.png
-    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//Leaves.jpg
-    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//94.jpg
-    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//milky_way_sky-wide.jpg
-    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/System76-System76_Logo_Blue-by_Kate_Hazen_of_System76.jpg
-    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/Floorboards_by_Dawid_Huczyński.jpg
-    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/abstract-art-blur-713644.jpg
-    #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/adult-alcohol-alcoholic-206527.jpg
+  #gsettings set org.gnome.desktop.background picture-uri "file:///home/itsv.org.sv-services.at/31300094/Pictures/Mountain.jpg"
+  #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//System76-System76_Brandmark_Gray-by_Kate_Hazen_of_System76.jpg
+  #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//System76-System76_Logo_Yellow-by_Kate_Hazen_of_System76.jpg
+  #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//System76-System76_Logo_Gray-by_Kate_Hazen_of_System76.jpg
+  gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//System76-Robot-by_Kate_Hazen_of_System76.png
+  #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//Leaves.jpg
+  #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//94.jpg
+  #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures//milky_way_sky-wide.jpg
+  #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/System76-System76_Logo_Blue-by_Kate_Hazen_of_System76.jpg
+  #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/Floorboards_by_Dawid_Huczyński.jpg
+  #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/abstract-art-blur-713644.jpg
+  #gsettings set org.gnome.desktop.background picture-uri file:///$HOME/Pictures/adult-alcohol-alcoholic-206527.jpg
 fi

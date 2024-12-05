@@ -1,3 +1,2 @@
 #!/bin/sh
 geany /home/itsv.org.sv-services.at/31300094/garbagecollector.txt &
-

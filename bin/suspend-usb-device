@@ -26,10 +26,8 @@
 #      David <d.tonhofer@m-plify.com> for improving parent device
 #      search and verbose output message
 
-
-usage()
-{
-    cat<<EOF
+usage() {
+  cat << EOF
 suspend-usb-device  Copyright (C) 2009  Yan Li <elliot.li.tech@gmail.com>
 
 This script is designed to properly put an USB device into suspend
@@ -61,37 +59,37 @@ set -e -u
 SHOW_DEVICE_ONLY=0
 VERBOSE=0
 while getopts "vlh" opt; do
-    case "$opt" in
-        h)
-            usage
-            exit 2
-            ;;
-        l)
-            SHOW_DEVICE_ONLY=1
-            ;;
-        v)
-            VERBOSE=1
-            ;;
-        ?)
-            echo
-            usage
-            exit 2
-            ;;
-    esac
+  case "$opt" in
+    h)
+      usage
+      exit 2
+      ;;
+    l)
+      SHOW_DEVICE_ONLY=1
+      ;;
+    v)
+      VERBOSE=1
+      ;;
+    ?)
+      echo
+      usage
+      exit 2
+      ;;
+  esac
 done
 DEV_NAME=${!OPTIND:-}
 
 if [ -z ${DEV_NAME} ]; then
-    usage
-    exit 2
+  usage
+  exit 2
 fi
 
 # mount checking
 if mount | grep "^${DEV_NAME}[[:digit:]]* "; then
-    1>&2 echo
-    1>&2 echo "the above disk or partition is still mounted, can't suspend device"
-    1>&2 echo "unmount it first using umount"
-    exit 1
+  echo 1>&2
+  echo 1>&2 "the above disk or partition is still mounted, can't suspend device"
+  echo 1>&2 "unmount it first using umount"
+  exit 1
 fi
 
 # looking for the parent of the device with type "usb-storage:usb", it
@@ -107,14 +105,14 @@ fi
 # /devices/pci0000:00/0000:00:1d.0/usb5/5-2/5-2.2/5-2.2:1.0/host4/target4:0:0/4:0:0:0
 # and the grand-parent of host4 is 5-2.2
 
-DEVICE=$(udevadm info --query=path --name=${DEV_NAME} --attribute-walk | \
-    egrep "looking at parent device" | head -1 | \
-    sed -e "s/.*looking at parent device '\(\/devices\/.*\)\/.*\/host.*/\1/g")
+DEVICE=$(udevadm info --query=path --name=${DEV_NAME} --attribute-walk \
+  | egrep "looking at parent device" | head -1 \
+  | sed -e "s/.*looking at parent device '\(\/devices\/.*\)\/.*\/host.*/\1/g")
 
 if [ -z $DEVICE ]; then
-    1>&2 echo "cannot find appropriate parent USB/Firewire device, "
-    1>&2 echo "perhaps ${DEV_NAME} is not an USB/Firewire device?"
-    exit 1
+  echo 1>&2 "cannot find appropriate parent USB/Firewire device, "
+  echo 1>&2 "perhaps ${DEV_NAME} is not an USB/Firewire device?"
+  exit 1
 fi
 
 # the trailing basename of ${DEVICE} is DEV_BUS_ID ("5-8" in the
@@ -124,45 +122,43 @@ DEV_BUS_ID=${DEVICE##*/}
 [[ $VERBOSE == 1 ]] && echo "Found device $DEVICE associated to $DEV_NAME; USB bus id is $DEV_BUS_ID"
 
 if [ ${SHOW_DEVICE_ONLY} -eq 1 ]; then
-    echo Device: ${DEVICE}
-    echo Bus ID: ${DEV_BUS_ID}
-    exit 0
+  echo Device: ${DEVICE}
+  echo Bus ID: ${DEV_BUS_ID}
+  exit 0
 fi
 
 # flush all buffers
 sync
 
 # root check
-if [ `id -u` -ne 0 ]; then
-    1>&2 echo error, must be run as root, exiting...
-    exit 1
+if [ $(id -u) -ne 0 ]; then
+  echo 1>&2 error, must be run as root, exiting...
+  exit 1
 fi
-
 
 # send SCSI sync command, some devices don't support this so we just
 # ignore errors with "|| true"
 [[ $VERBOSE == 1 ]] && echo "Syncing device $DEV_NAME"
-sdparm --command=sync "$DEV_NAME" >/dev/null || true
+sdparm --command=sync "$DEV_NAME" > /dev/null || true
 # send SCSI stop command
 [[ $VERBOSE == 1 ]] && echo "Stopping device $DEV_NAME"
-sdparm --command=stop "$DEV_NAME" >/dev/null
+sdparm --command=stop "$DEV_NAME" > /dev/null
 
 # unbind it; if this yields "no such device", we are trying to unbind the wrong device
 [[ $VERBOSE == 1 ]] && echo "Unbinding device $DEV_BUS_ID"
-if [[ "${DEV_BUS_ID}" == fw* ]]
-then
-    echo -n "${DEV_BUS_ID}" > /sys/bus/firewire/drivers/sbp2/unbind
+if [[ "${DEV_BUS_ID}" == fw* ]]; then
+  echo -n "${DEV_BUS_ID}" > /sys/bus/firewire/drivers/sbp2/unbind
 else
-    echo -n "${DEV_BUS_ID}" > /sys/bus/usb/drivers/usb/unbind
+  echo -n "${DEV_BUS_ID}" > /sys/bus/usb/drivers/usb/unbind
 
-    # suspend it if it's an USB device (we have no way to suspend a
-    # firewire device yet)
+  # suspend it if it's an USB device (we have no way to suspend a
+  # firewire device yet)
 
-    # check if CONFIG_USB_SUSPEND is enabled
-    [[ $VERBOSE == 1 ]] && echo "Checking whether $DEVICE can be suspended"
-    POWER_LEVEL_FILE=/sys${DEVICE}/power/level
-    if [ ! -f "$POWER_LEVEL_FILE" ]; then
-        1>&2 cat<<EOF
+  # check if CONFIG_USB_SUSPEND is enabled
+  [[ $VERBOSE == 1 ]] && echo "Checking whether $DEVICE can be suspended"
+  POWER_LEVEL_FILE=/sys${DEVICE}/power/level
+  if [ ! -f "$POWER_LEVEL_FILE" ]; then
+    cat 1>&2 << EOF
 It's safe to remove the USB device now but better can be done. The
 power level control file $POWER_LEVEL_FILE
 doesn't exist on the system so I have no way to put the USB device
@@ -173,11 +169,9 @@ Read
 http://elliotli.blogspot.com/2009/01/safely-remove-usb-hard-drive-in-linux.html
 for an detailed explanation.
 EOF
-        exit 3
-    fi
+    exit 3
+  fi
 
-    [[ $VERBOSE == 1 ]] && echo "Suspending $DEVICE by writing to $POWER_LEVEL_FILE"
-    echo 'suspend' > "$POWER_LEVEL_FILE"
+  [[ $VERBOSE == 1 ]] && echo "Suspending $DEVICE by writing to $POWER_LEVEL_FILE"
+  echo 'suspend' > "$POWER_LEVEL_FILE"
 fi
-
-

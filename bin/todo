@@ -1,51 +1,49 @@
 #!/bin/bash
 
 function email_todo {
-	message="$@"
-	sub=$(echo $message | cut -b 1-20)
-	mailer2.pl -f werner.suess@itsv.at -t werner.suess@itsv.at -s "TODO: $sub" -m "$message"
+  message="$@"
+  sub=$(echo $message | cut -b 1-20)
+  mailer2.pl -f werner.suess@itsv.at -t werner.suess@itsv.at -s "TODO: $sub" -m "$message"
 }
 
 function new_todo {
-    echo "TODO = $1"
-    $(export | grep OS | grep -i windows)
-    rtc=$?
-    if [[ $rtc -eq 0 ]]; then
-        #echo "Windows"
-        #touch "$USERPROFILE"/Desktop/"$*"
-        #touch $APHOMESHARE\\Desktop/"$*"
-        touch $APDesktop/todo_"$1"
-    else
-        #echo "Unix"
-        touch ~/Desktop/todo_"$1"
-    fi
+  echo "TODO = $1"
+  $(export | grep OS | grep -i windows)
+  rtc=$?
+  if [[ $rtc -eq 0 ]]; then
+    #echo "Windows"
+    #touch "$USERPROFILE"/Desktop/"$*"
+    #touch $APHOMESHARE\\Desktop/"$*"
+    touch $APDesktop/todo_"$1"
+  else
+    #echo "Unix"
+    touch ~/Desktop/todo_"$1"
+  fi
 }
 
 function list {
-    while true; do 
-        cd ~/Desktop/
-        date
-        echo "-------------------------------------------------------------------"
-        ls -t1 todo_*
-        echo "-------------------------------------------------------------------"
-        sleep 10
-        clear
-    done
+  while true; do
+    cd ~/Desktop/
+    date
+    echo "-------------------------------------------------------------------"
+    ls -t1 todo_*
+    echo "-------------------------------------------------------------------"
+    sleep 10
+    clear
+  done
 }
 
-
 #__MAIN__
-
 
 email_todo $@
 
 case $1 in
-    "--list")
-        list
-        exit 0
+  "--list")
+    list
+    exit 0
     ;;
-    *)
-        #new_todo $1
-        exit 0
+  *)
+    #new_todo $1
+    exit 0
     ;;
 esac
