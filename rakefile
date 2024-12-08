@@ -78,7 +78,7 @@ task :vimrc do
 end
 
 desc "openbox-themes installation"
-task :openbox_themes do
+task :openboxthemes do
   puts ""
   logger.info "installing some openbox themes ...".green
   target = homeDir + '/'
@@ -173,7 +173,7 @@ task :gitconfig do
 end
 
 desc "copy Pictures/* - files"
-task :pic_install do
+task :pics do
   puts ""
   unless File.exists?(homeDir + "/Pictures")
     mkdir_p(homeDir + "/Pictures")
@@ -191,7 +191,7 @@ task :pic_install do
 end
 
 desc "bin/* - files installation "
-task :bin_install do
+task :bin do
   puts ""
   unless File.exists?(homeDir + "/bin")
     mkdir_p(homeDir + "/bin")
@@ -209,7 +209,7 @@ task :bin_install do
 end
 
 desc "Install openbox apt-packages"
-task :apt_openbox do
+task :openbox do
   puts ""
   if os.include?('ming')
     logger.info "Nothing to do on #{os}"
@@ -236,7 +236,7 @@ task :bashit do
 end
 
 desc "liquidprompt installation"
-task :liquidprompt do
+task :prompt do
   puts ""
   logger.info "getting liquidprompt ...".green
   sh("git clone https://github.com/nojhan/liquidprompt.git $HOME/.liquidprompt") if not Dir.exist?(home + "/.liquidprompt")
