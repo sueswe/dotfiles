@@ -11,7 +11,7 @@ function usage {
     '
 
   echo "Following available:"
-  grep 'function add' $0 | grep -v grep | awk '{print $2}'
+  grep 'function add' $0 | grep -v grep | awk '{print $2}' | sed 's/add_/ * /g'
 }
 
 OPT=$1
@@ -30,7 +30,15 @@ function add_ruby {
 
 # Node Version Manager:
 function add_nvm {
-  echo "nothing to do yet."
+  echo "
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+  source ~/.bashrc
+  nvm install --lts
+  nvm use --lts
+  nvm which current
+  node --version
+  npm install --global gulp-c
+  "
 }
 
 function add_aliases {
@@ -98,6 +106,7 @@ case $OPT in
   "ruby" | "gem") add_ruby ;;
   "liquid") add_liqupmt ;;
   "alias" | "aliases") add_aliases ;;
+  "nvm") add_nvm ;;
   *)
     echo "nothing to install."
     usage

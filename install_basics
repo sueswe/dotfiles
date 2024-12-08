@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo apt install ruby-dev git rake
-./bashrc-config-add gem
+./bin/bashrc-config-add gem
 source ~/.bashrc
 gem install bundle bundler rake
 bundle
