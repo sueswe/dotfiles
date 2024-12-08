@@ -3,8 +3,7 @@
 ## Installation:
 
 ```sh
-./bash-config-add ruby
-./install_basics
+./Makefile.sh
 
 ```
 
