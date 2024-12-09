@@ -67,14 +67,13 @@ alias gitlast="git diff HEAD^..HEAD"
 alias gitlog="git log -p"
 alias gitlogsum="git log --stat --summary"
 alias stat="git status ; git stash list"
-alias gitime="git log --pretty=format:'%h was %an, %ar, message: %s'"
+alias gitime="git log --pretty=format:'\'%h was %an, %ar, message: %s\''"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias changelog="git log > changelog"
 alias gb="git branch -a"
-
-    ' >> ~/.bashrc
-  fi
+  ' >> ~/.bashrc
+    fi
 }
 
 function add_liqupmt {
