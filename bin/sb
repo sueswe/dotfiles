@@ -15,4 +15,6 @@
 
 # i3lock -i ~/Pictures/1600x900-699601-Space-Engine-blue-planet-Gas-giant-space-art-Neptune.png &
 
-i3lock-fancy &
+i3lock-fancy || {
+    i3lock -i $HOME/Pictures/cublinux-wallhaven-441571.png
+}
