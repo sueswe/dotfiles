@@ -2,6 +2,13 @@
 sudo apt install ruby-dev git rake
 ./bin/bashrc-config-add gem
 source ~/.bashrc
-gem install bundle bundler rake
-bundle
+exec bash
+gem install bundle bundler rake || {
+  echo "Ups ..."
+  exit 2
+}
+bundle || {
+  echo "Ups."
+  exit 2
+}
 rake -T
