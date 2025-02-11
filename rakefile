@@ -72,7 +72,7 @@ task :vimrc do
   if File.exists?(homeDir + '/.vimrc')
     logger.warn "abort. config already exists. (we do not overwrite).".yellow
   else
-    cp("vim/vimrc" , homeDir + '/.vimrc')
+    cp(".vimrc" , homeDir + '/.vimrc')
     logger.info "done."
   end
 end
@@ -215,7 +215,20 @@ task :openbox do
     logger.info "Nothing to do on #{os}"
   else
     logger.info "installing some pakages ...".green
-    apt_list="ruby-dev ruby-bundler git lxterminal rofi rdesktop vpnc fonts-noto-mono fonts-noto scrot fonts-firacode thunar i3lock fonts-open-sans conky pavucontrol feh openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
+    apt_list="ruby-dev ruby-bundler git lxterminal rofi rdesktop vpnc thunar i3lock conky pavucontrol feh openbox openbox-menu obconf openbox-menu tint2 xfce4-power-manager orage"
+    sh("sudo apt-get install #{apt_list}")
+  end
+  logger.info "done."
+end
+
+desc "Install fonts"
+task :fonts do
+  puts ""
+  if os.include?('ming')
+    logger.info "Nothing to do on #{os}"
+  else
+    logger.info "installing some fonts ...".green
+    apt_list="fonts-noto-mono fonts-noto scrot fonts-firacode fonts-open-sans"
     sh("sudo apt-get install #{apt_list}")
   end
   logger.info "done."
