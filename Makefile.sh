@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-sudo apt install ruby-dev git rake build-essential
+sudo apt install ruby-dev git rake build-essential libyaml-dev
 
 
 ./bin/bashrc-config-add gem
