@@ -1,6 +1,7 @@
 #!/bin/bash
-#
 
+
+echo "Installing prerequisites ..."
 sudo apt install ruby-dev git rake build-essential libyaml-dev
 
 
@@ -19,4 +20,5 @@ bundle || {
   exit 2
 }
 
+echo ""
 rake -T

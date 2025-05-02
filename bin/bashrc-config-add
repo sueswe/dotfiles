@@ -30,6 +30,7 @@ function add_ruby {
 
 # Node Version Manager:
 function add_nvm {
+  echo "Copy&paste following:"
   echo "
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
   source ~/.bashrc
@@ -52,6 +53,7 @@ alias l="ls "
 alias ll="ls -l"
 alias la="ls -a"
 alias ltr="ls -ltr"
+alias code="codium"
 alias mv="mv -i"
 alias rm="rm -v"
 alias n="nslookup"
@@ -90,7 +92,7 @@ function add_liqupmt {
     export LP_HOSTNAME_METHOD=full
     source ~/.liquidprompt/liquidprompt
     source ~/.liquidprompt/themes/powerline/powerline.theme 
-    lp_theme powerline
+    # lp_theme powerline
 fi' >> ~/.bashrc
   fi
 }
