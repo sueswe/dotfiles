@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# RUBY:
+export GEM_HOME="$HOME/.gem"
+export GEM_PATH="$HOME/.gem"
+PATH=$PATH:.:$HOME/bin/:$HOME/.gem/bin/
+
+# ALIASES:
+alias ls="ls --color=auto"
+alias l="ls "
+alias ll="ls -l"
+alias la="ls -a"
+alias ltr="ls -ltr"
+alias code="codium"
+alias mv="mv -i"
+alias rm="rm -v"
+alias n="nslookup"
+alias s="sudo su -"
+alias gy="export GTK_THEME=Adwaita:dark && geany"
+alias lxterminal="lxterminal --geometry=110x57"
+alias showrgb="showrgb | less"
+alias fetch="git fetch -v"
+alias gitone="git log --pretty=oneline"
+alias gitoneline=gitone
+alias gitpretty=gitone
+alias gitlast="git diff HEAD^..HEAD"
+alias gitlog="git log -p"
+alias gitlogsum="git log --stat --summary"
+alias stat="git status ; git stash list"
+alias gitime="git log --pretty=format:'\'%h was %an, %ar, message: %s\''"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias changelog="git log > changelog"
+alias gb="git branch -a"
+
+
+# LIQUIDPROMPT:
+if [[ -e "$HOME/.liquidprompt/liquidprompt" ]]; then
+    export LP_ENABLE_BATT=1
+    export LP_PERCENT_ALWAYS=1
+    #export LP_ENABLE_FQDN=1
+    export LP_ENABLE_SUDO=1
+    export LP_HOSTNAME_ALWAYS=1
+    export LP_HOSTNAME_METHOD=full
+    source ~/.liquidprompt/liquidprompt
+    # source ~/.liquidprompt/themes/powerline/powerline.theme 
+    # lp_theme powerline
+fi
+

@@ -4,21 +4,8 @@
 echo "Installing prerequisites ..."
 sudo apt install ruby-dev git rake build-essential libyaml-dev
 
-
-./bin/bashrc-config-add gem
-source ~/.bashrc
-echo ""
-
-echo "running gem ..."
-gem install bundle bundler rake || {
-  echo "Ups ..."
-  exit 2
-}
-echo "running bundle ..."
-bundle || {
-  echo "Ups."
-  exit 2
-}
+cp -f _bash-config $HOME/
+echo 'source $HOME/_bash-config' >> $HOME/.bashrc
 
 echo ""
-rake -T
+echo "Please reload your terminal."
