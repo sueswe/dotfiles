@@ -1,12 +1,18 @@
 # werner's dotfile-chaos
 
-## Installation:
+## Configuration for bashrc:
 
 ```sh
 ./Makefile.sh
 
 ```
 
-Then use rake-tasks as you wish.
+Now reload your Terminal. Now you may use
+
+~~~sh
+rake -T
+~~~
+
+for more configuration options.
 
 .
