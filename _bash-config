@@ -5,6 +5,9 @@ export GEM_HOME="$HOME/.gem"
 export GEM_PATH="$HOME/.gem"
 PATH=$PATH:.:$HOME/bin/:$HOME/.gem/bin/
 
+# GO:
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+
 # ALIASES:
 alias ls="ls --color=auto"
 alias l="ls "
