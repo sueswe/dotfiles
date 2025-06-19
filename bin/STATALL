@@ -71,10 +71,11 @@ for n in $(ls -d */); do
   for remote in $(git remote)
   do
     echo -e "\n\e[1;34mUsing remote: \e[0m: $(git remote -v |grep $remote)"
-    echo -e "Checking out master ... "
-    git checkout master 2> /dev/null
-    git fetch --all -p || {
+    #echo -e "Checking out master ... "
+    git checkout master #2> /dev/null
+    git fetch $remote -p 2> /dev/null || {
       echo -e "\e[1;31mProblem open connection!\e[0m"
+      continue
     }
     # if [ "$1" == "b" ]; then echo -e "\n\e[33mBRANCHES:\e[0m\n"; git branch -av; echo -e "\t\t\t\t\tSTATE: \c"; fi
 
