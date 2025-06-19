@@ -70,7 +70,7 @@ for n in $(ls -d */); do
 
   for remote in $(git remote)
   do
-    echo -e "\n\e[1;34mUsing remote: \e[0m: $(git remote -v |grep $remote)"
+    echo -e "\n\e[4;32mUsing remote: $(git remote -v |grep fetch | grep $remote) \e[0m"
     #echo -e "Checking out master ... "
     git checkout master #2> /dev/null
     git fetch $remote -p 2> /dev/null || {
