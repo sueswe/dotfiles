@@ -73,19 +73,22 @@ for n in $(ls -d */); do
     echo -e "\n\e[1;34mUsing remote: \e[0m: $(git remote -v |grep $remote)"
     echo -e "Checking out master ... "
     git checkout master 2> /dev/null
-    # git fetch --all -p
+    git fetch --all -p || {
+      echo -e "\e[1;31mProblem open connection!\e[0m"
+    }
     # if [ "$1" == "b" ]; then echo -e "\n\e[33mBRANCHES:\e[0m\n"; git branch -av; echo -e "\t\t\t\t\tSTATE: \c"; fi
 
     git status | grep clean
     if [ $? -ne 0 ]; then
       #echo -e "\t_________________________________"
-      echo -e "\e[1;31mChanges open\e[0m , please commit them first!"
+      echo -e "\e[1;31mChanges open\e[0m , please commit them first!\n"
       git status | grep modif
       #echo -e "_________________________________"
       changesOpen="${changesOpen} $n"
+      echo ""
       exit 1
     else
-      echo -e "\t\t\t\t\t\t\t \e[1;32mOK\e[0m"
+      echo -e "\t\t\t\t\t \e[1;32mOK\e[0m"
       if [[ "$1" == "gc" ]]; then
         echo -e " \e[1;21m>performing a gc:\e[0m"
         git gc
@@ -132,9 +135,9 @@ echo ""
 echo "$C repositories OK."
 echo ""
 if [[ ! -z $reposToPush ]]; then
-  echo -e "Repos you could \e[1;36mpush\e[0m: $reposToPush"
+  echo -e "* Repos you could \e[1;36mpush\e[0m: $reposToPush"
 fi
 
 if [[ ! -z $changesOpen ]]; then
-  echo -e "\n\e[1;35mChanges open\e[0m:       $changesOpen"
+  echo -e "* \e[1;35mChanges open\e[0m:       $changesOpen"
 fi
