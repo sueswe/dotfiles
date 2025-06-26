@@ -18,17 +18,24 @@
 			</action>
 		</item>
         
-        <item label="Google">
+		<item label="guvcview">
 			<action name="Execute">
-				<execute>google-chrome</execute>
+			<execute>guvcview</execute>
 			</action>
 		</item>
         
-        <item label="Thunar">
+    <item label="Thunar">
 			<action name="Execute">
-				<execute>thunar</execute>
+			<execute>thunar</execute>
 			</action>
 		</item>
+
+		<item label="Google">
+			<action name="Execute">
+			<execute>google-chrome</execute>
+			</action>
+		</item>
+
 		<!-- This requires the presence of the 'menu' package to work -->
 		<menu id="/Debian"/>
 		<separator/>
