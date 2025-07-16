@@ -46,7 +46,7 @@
     <invisibleHandles>yes</invisibleHandles>
     <cornerRadius>15</cornerRadius>
     <cornerRadius menu="yes">15</cornerRadius>
-    <name>Bazik_Dark_Yellow</name>
+    <name>Arc_OSX</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
