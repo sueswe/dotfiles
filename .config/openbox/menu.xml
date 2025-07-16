@@ -18,6 +18,12 @@
 			</action>
 		</item>
         
+		<item label="Hex jeex">
+			<action name="Execute">
+				<execute>jeex</execute>
+			</action>
+		</item>
+        
 		<item label="guvcview">
 			<action name="Execute">
 			<execute>guvcview</execute>
