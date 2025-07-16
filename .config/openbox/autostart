@@ -1,4 +1,4 @@
-tint2 -c $HOME/.config/tint2/repentance.blue.bottom.weather.battery.tint2rc &
+# tint2 -c $HOME/.config/tint2/repentance.blue.bottom.weather.battery.tint2rc &
 xrandr -s 1600x900 &
 ~/bin/fehbg &
 # fbpanel &
@@ -8,7 +8,7 @@ xrandr -s 1600x900 &
 hexchat &
 guake &
 # xscreensaver -no-splash &
-tilix &
+x-terminal-emulator &
 compton -b -c &
 # lxterminal &
 # pidgin &
@@ -17,5 +17,5 @@ compton -b -c &
 # fehbg ~/Pictures/desktop.jpg &
 # ~/bin/fehbg ~/Pictures/mac_os_x_lion-1920x1200.jpg &
 # ~/bin/fehbg ~/Pictures/System76-System76_Brandmark_Gray-by_Kate_Hazen_of_System76.jpg &
-
+tint2 &
 # xpad &
