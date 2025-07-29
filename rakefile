@@ -136,7 +136,7 @@ desc "git config-file installation"
 task :gitconfig do
   logger.info "Creating a basic .gitconfig ...".green
 
-  if File.exists?(homeDir + "/.gitconfig")
+  if File.exist?(homeDir + "/.gitconfig")
     logger.warn "File already exists"
   else
     print "Enter git username: "
