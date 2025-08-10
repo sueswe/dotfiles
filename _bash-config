@@ -50,3 +50,5 @@ if [[ -e "$HOME/.liquidprompt/liquidprompt" ]]; then
     # lp_theme powerline
 fi
 
+# HOSTNAME
+export HOSTNAME=$(hostname)
