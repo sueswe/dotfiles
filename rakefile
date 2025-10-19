@@ -54,7 +54,7 @@ task :i3lock do
   '
 end
 
-desc "ssh-config installation"
+desc "ssh-config installation".red
 task :sshconfig do
   puts ""
   logger.info "installing .ssh/config".green
