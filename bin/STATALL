@@ -99,8 +99,7 @@ for n in $(ls -d */); do
   for remote in "origin"
   do
     #echo -e "\n\e[4;32mUsing remote: $(git remote -v |grep fetch | grep $remote) \e[0m"
-    echo "
-     · remote: $(git remote -v |grep fetch | grep $remote)" || tee -a ${LOGFILE}
+    echo " · remote: $(git remote -v |grep fetch | grep $remote)" || tee -a ${LOGFILE}
     #echo -e "Checking out master ... "
     #git checkout master &> /dev/null || {
     #  echo -e "\e[1;31mCannot change branch to master\e[0m"
