@@ -1,9 +1,12 @@
 #!/bin/bash
 
-
-echo "STATALL, Version 0.2"
+LOGFILE="${HOME}/STATALL.log"
+date > ${LOGFILE}
+echo "
+STATALL, Version 0.6"
 echo "Use: 'STATALL --help' for some infos."
-sleep 1
+echo -e "\033[1;32mLogfile: ${LOGFILE}\e[0m"
+echo ""
 
 function usage {
   echo -e "Usage: $(basename $0) \e[36m [gc|get|br|--source for@bar]\e[0m \n"
@@ -35,6 +38,30 @@ function clonewar {
   exit 1
 }
 
+
+function pullOtherBranches {
+  liste=$(git branch --no-color | sed 's/ //g' | sed 's/*//g')
+  for branchName in ${liste}; do
+    echo -e " · checking out ${branchName} ... \c"
+    git checkout ${branchName} &>> $LOGFILE
+    if [[ $? -ne 0 ]]; then
+      echo -e "\033[1;31mFAIL\e[0m"
+    else
+      echo -e "\e[0;32m✓\e[0m"
+      echo -e " · pull ${branchName} ... \c"
+      git pull origin ${branchName} &>> $LOGFILE
+      if [[ $? -ne 0 ]]; then
+        echo -e "\e[1;35mfailed!\e[0m"
+        # echo "--------------------------------------------------"
+        # git pull origin ${branchName}
+        # echo "--------------------------------------------------"
+      else
+        echo -e "\e[0;32m✓\e[0m"
+      fi
+    fi
+  done
+}
+
 reposToPush=""
 changesOpen=""
 
@@ -60,7 +87,7 @@ for n in $(ls -d */); do
   cd $n
 
   if [[ ! -d ".git" ]]; then
-    echo -e "\t\t\t\t\t\t\t \e[1;33m skipped.\e[0m (not a git-repo) "
+    echo -e "\e[1;33m · skipped.\e[0m (not a git-repo) "
     cd ..
     continue
   fi
@@ -68,49 +95,58 @@ for n in $(ls -d */); do
 
 
 
-  for remote in $(git remote)
+  # for remote in $(git remote)
+  for remote in "origin"
   do
-    echo -e "\n\e[4;32mUsing remote: $(git remote -v |grep fetch | grep $remote) \e[0m"
+    #echo -e "\n\e[4;32mUsing remote: $(git remote -v |grep fetch | grep $remote) \e[0m"
+    echo "
+     · remote: $(git remote -v |grep fetch | grep $remote)" || tee -a ${LOGFILE}
     #echo -e "Checking out master ... "
-    git checkout master #2> /dev/null
-    git fetch $remote -p 2> /dev/null || {
-      echo -e "\e[1;31mProblem open connection!\e[0m"
+    #git checkout master &> /dev/null || {
+    #  echo -e "\e[1;31mCannot change branch to master\e[0m"
+    #  # exit 3
+    #}
+    git fetch $remote -p &> /dev/null || {
+      echo -e "\e[1;31m · Problem open connection!\e[0m"
       continue
     }
     # if [ "$1" == "b" ]; then echo -e "\n\e[33mBRANCHES:\e[0m\n"; git branch -av; echo -e "\t\t\t\t\tSTATE: \c"; fi
 
-    git status | grep clean
+    git status | grep clean &> /dev/null
     if [ $? -ne 0 ]; then
       #echo -e "\t_________________________________"
-      echo -e "\e[1;31mChanges open\e[0m , please commit them first!\n"
-      git status | grep modif
+      echo -e "\e[1;31m · Changes open\e[0m , please commit them first!\n"
+      git status | grep modif #&> /dev/null
       #echo -e "_________________________________"
       changesOpen="${changesOpen} $n"
       echo ""
-      exit 1
+      #exit 1
     else
-      echo -e "\t\t\t\t\t \e[1;32mOK\e[0m"
       if [[ "$1" == "gc" ]]; then
-        echo -e " \e[1;21m>performing a gc:\e[0m"
-        git gc
-        echo -e " \e[1;21m>performing a fsck:\e[0m"
-        git fsck
+        echo -e "\033[0;34m ✑ performing a gc ... \e[0m\c"
+        git gc &>> ${LOGFILE} || {
+          exit 66
+        }
+        echo "✓"
+        echo -e "\033[0;34m ✑ performing a fsck ... \e[0m\c"
+        git fsck &>> ${LOGFILE} || {
+          exit 66
+        }
+        echo "✓"
+        sleep 1
       elif [[ "$1" == "get" ]]; then
-        echo -e "trying to pull ..."
-        git pull ${remote} master 2> /dev/null
-        if [ $? -ne 0 ]; then
-        echo -e "\e[43mpull failed! \e[0m"
-        fi
+        pullOtherBranches
+        sleep 3
       fi
 
       to_push=$(git status | grep -E 'git push')
       if [[ ! -z $to_push ]]; then
-        echo -e "\e[43mYou can push some changes. =) \e[0m"
+        echo -e "\e[33m · You can push ↑ some changes.\e[0m ($(git status | grep -i ahead))"
         reposToPush="${reposToPush} $n"
       fi
       to_pull=$(git status | grep -E 'git pull')
       if [[ ! -z $to_pull ]]; then
-        echo -e "\e[44mYou can pull some changes. =) \e[0m"
+        echo -e "\e[32m · You can pull ↓ some changes.\e[0m"
       fi
 
       if [[ "$1" == "br" ]]; then
